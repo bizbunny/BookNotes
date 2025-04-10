@@ -1,144 +1,160 @@
 [
     {
         "Fourth Wing": {
-            "Chapter 1": {
-                "Character Notes": {
-                    "Violet": {
-                        "details": [
-                            "her mom is making her be a rider for some reason",
-                            "She wanted to be a scribe like her father (who is dead)",
-                            "first year",
-                            "she's probably more similar to her dad personality wise"
-                        ]
-                    },
-                    "Mira": {
-                        "details": [
-                        "Lieutenant general I think",
-                        "older sister of violet I think",
-                        "similar head strong personality to mom",
-                        "famous"
-                        ]
-                    },
-                    "Mom": {
-                        "details": [
-                        "general",
-                        "won't see Violet for three years due to her duties",
-                        "I think her son was her favorite child",
-                        "famous",
-                        "mom has a black dragon. Forgot the dragon's name. Some of his scales I think were used for Violet's uniform"
-                        ],
-                        "note": "forgot her name if it was mentioned"
-                    },
-                    "Dain": {
-                        "details": [
-                        "second year",
-                        "I'm guessing a year older than Violet, so 21 probably",
-                        "Violet clearly has a crush on him",
-                        "Childhood friends? Or at least long time friends"
-                        ]
-                    },
-                    "Xaden Riorson":{
-                        "details": [
-                            "3rd year?",
-                            "Mira says to stay away from him",
-                            "son of a rebel leader",
-                            "I'm guessing he's there to get punished for his father's sins",
-                            "his father was the most infamous traitor. I think he was in the military. I forget which rank though",
-                            "scar on left eyebrow",
-                            "super hot it seems",
-                            "dark hair and dark eyes",
-                            "His father 's name is Fen Riorson. Violet 's mom oversaw Fen's execution and Fen apparently killed Brennan, Violet's older bro"
-                        ]
-                    },
-                    "Brennan": {
-                        "details": [
-                            "died (I doubt it. Might show up later)",
-                            "I'm guessing he's the middle child"
-                        ],
-                        "note": "I think I recall that being his name"
-                    },
-                    "Dylan": {
-                        "details": [
-                            "blond",
-                            "volunteered as a rider",
-                            "Violet befriends them",
-                            "is Engaged per say (his SO and him agreed it was better luck for him to propose after he graduated)",
-                            "fucking dies at the end of chapter 1 by falling to his death"
+            "title": "Fourth Wing",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {
+                        "Violet": {
+                            "details": [
+                                "her mom is making her be a rider for some reason",
+                                "She wanted to be a scribe like her father (who is dead)",
+                                "first year",
+                                "she's probably more similar to her dad personality wise"
+                            ]
+                        },
+                        "Mira": {
+                            "details": [
+                            "Lieutenant general I think",
+                            "older sister of violet I think",
+                            "similar head strong personality to mom",
+                            "famous"
+                            ]
+                        },
+                        "Mom": {
+                            "details": [
+                            "general",
+                            "won't see Violet for three years due to her duties",
+                            "I think her son was her favorite child",
+                            "famous",
+                            "mom has a black dragon. Forgot the dragon's name. Some of his scales I think were used for Violet's uniform"
+                            ],
+                            "note": "forgot her name if it was mentioned"
+                        },
+                        "Dain": {
+                            "details": [
+                            "second year",
+                            "I'm guessing a year older than Violet, so 21 probably",
+                            "Violet clearly has a crush on him",
+                            "Childhood friends? Or at least long time friends"
+                            ]
+                        },
+                        "Xaden Riorson":{
+                            "details": [
+                                "3rd year?",
+                                "Mira says to stay away from him",
+                                "son of a rebel leader",
+                                "I'm guessing he's there to get punished for his father's sins",
+                                "his father was the most infamous traitor. I think he was in the military. I forget which rank though",
+                                "scar on left eyebrow",
+                                "super hot it seems",
+                                "dark hair and dark eyes",
+                                "His father 's name is Fen Riorson. Violet 's mom oversaw Fen's execution and Fen apparently killed Brennan, Violet's older bro"
+                            ]
+                        },
+                        "Brennan": {
+                            "details": [
+                                "died (I doubt it. Might show up later)",
+                                "I'm guessing he's the middle child"
+                            ],
+                            "note": "I think I recall that being his name"
+                        },
+                        "Dylan": {
+                            "details": [
+                                "blond",
+                                "volunteered as a rider",
+                                "Violet befriends them",
+                                "is Engaged per say (his SO and him agreed it was better luck for him to propose after he graduated)",
+                                "fucking dies at the end of chapter 1 by falling to his death"
 
+                            ]
+                        },
+                        "Rhiannon": {
+                            "details": [
+                                "Brown eyes",
+                                "volunteered as a rider",
+                                "Violet befriends them",
+                                "first year",
+                                "Has a twin who is likely not a rider due to being married and pregnant with baby. Her name is Reagan"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": [
+                            "the Rider Quadrant is the only one that doesn't accept conscripts but only volunteers",
+                            "children of traitors get marked or something, a reminder for their parents' sins"
                         ]
                     },
-                    "Rhiannon": {
-                        "details": [
-                            "Brown eyes",
-                            "volunteered as a rider",
-                            "Violet befriends them",
-                            "first year",
-                            "Has a twin who is likely not a rider due to being married and pregnant with baby. Her name is Reagan"
-                        ]
+                    "Questions" : {
+                        "To consider": "why is Violet's mom forcIng her to be a rider even though Violet trained her entire life to be a scribe?"
                     }
                 },
-                "Lore": {
-                    "notes": [
-                        "the Rider Quadrant is the only one that doesn't accept conscripts but only volunteers",
-                        "children of traitors get marked or something, a reminder for their parents' sins"
-                    ]
-                },
-                "Questions" : {
-                    "To consider": "why is Violet's mom forcIng her to be a rider even though Violet trained her entire life to be a scribe?"
-                }
-            },
-            "Chapter 2": {
-                "Character Notes": {
-                    "Jack Barlowe": {
-                        "details": [
-                            "first year",
-                            "arrogant",
-                            "doesn't think highly of Violet (wants to kill her)",
-                            "blond with blue icy eyes",
-                            "stocky and much bigger than Violet"
-                        ]
+                "Chapter 2": {
+                    "Character Notes": {
+                        "Jack Barlowe": {
+                            "details": [
+                                "first year",
+                                "arrogant",
+                                "doesn't think highly of Violet (wants to kill her)",
+                                "blond with blue icy eyes",
+                                "stocky and much bigger than Violet"
+                            ]
+                        },
+                        "Brennan": {
+                            "details": [
+                                "brilliant strategist"
+                            ]
+                        },
+                        "Mira": {
+                            "details": [
+                                "Naturally gifted rider"
+                            ]
+                        },
+                        "Mom": {
+                            "details": [
+                                "well respected and probably feared general"
+                            ],
+                            "note": "Still don't remember her name"
+                        },
+                        "Violet": {
+                            "details": [
+                                "good with daggers it seems?",
+                                "was about to turn Jack into a Eunuch (A shame she didn't go through with it, but her restraint is a good demonstration of her character)",
+                                "small for a typical rider"
+                            ]
+                        },
+                        "red head girl": {
+                            "details": [
+                                "third year",
+                                "recognizes some Sorrengail maneuvers ",
+                                "not sure if she'll pop up again",
+                                "was taking roll call of the new cadets"
+                            ]
+                        }
                     },
-                    "Brennan": {
-                        "details": [
-                            "brilliant strategist"
-                        ]
+                    "Lore": {
+                        "notes": {
+                            "Zihal": "the god of luck"
+                        }
                     },
-                    "Mira": {
-                        "details": [
-                            "Naturally gifted rider"
-                        ]
-                    },
-                    "Mom": {
-                        "details": [
-                            "well respected and probably feared general"
-                        ],
-                        "note": "Still don't remember her name"
-                    },
-                    "Violet": {
-                        "details": [
-                            "good with daggers it seems?",
-                            "was about to turn Jack into a Eunuch (A shame she didn't go through with it, but her restraint is a good demonstration of her character)",
-                            "small for a typical rider"
-                        ]
-                    },
-                    "red head girl": {
-                        "details": [
-                            "third year",
-                            "recognizes some Sorrengail maneuvers ",
-                            "not sure if she'll pop up again",
-                            "was taking roll call of the new cadets"
-                        ]
+                    "Questions" : {
+                        "To consider": "wonder what Xaden will think of Violet actually not dying and becoming a cadet."
                     }
-                },
-                "Lore": {
-                    "notes": {
-                        "Zihal": "the god of luck"
-                    }
-                },
-                "Questions" : {
-                    "To consider": "wonder what Xaden will think of Violet actually not dying and becoming a cadet."
                 }
             }
+        }
+    },
+    {
+        "Iron Flame": {
+            "title": "Iron Flame",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            }
+            
         }
     }
 ]

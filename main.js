@@ -1,125 +1,240 @@
 // Load the book notes from JSON
 $(document).ready(function() {
-    $.getJSON('data.json', function(data) {
-      const bookData = data[0]; // Get the first (and only) book
-      const bookTitle = Object.keys(bookData)[0];
-      const bookNotes = bookData[bookTitle];
+  $.getJSON('./data/data.json', function(data) {
+      let html = '<div class="books-container">';
       
-      let html = `
-        <div class="book-title">
-          <h2>${bookTitle}</h2>
-        </div>
-      `;
-      
-      // Process each chapter
-      for (const [chapterTitle, chapterContent] of Object.entries(bookNotes)) {
-        html += `
-          <div class="chapter-header" data-toggle="collapse" data-target="#${chapterTitle.replace(/\s+/g, '-')}">
-            <i class="fa fa-chevron-down collapsible-icon"></i>
-            <h3>${chapterTitle}</h3>
-          </div>
-          <div id="${chapterTitle.replace(/\s+/g, '-')}" class="collapse show">
-        `;
+      // Process each book
+      data.forEach((bookData, index) => {
+        const bookKey = Object.keys(bookData)[0];
+        const book = bookData[bookKey];
+        const bookId = bookKey.replace(/\s+/g, '-');
+
+        // Create character compendium
+        const characterCompendium = {};
         
-        // Process Character Notes
-        if (chapterContent["Character Notes"]) {
-          html += `
-            <div class="section-header" data-toggle="collapse" data-target="#${chapterTitle.replace(/\s+/g, '-')}-characters">
-              <i class="fa fa-chevron-down collapsible-icon"></i>
-              <h4>Character Notes</h4>
-            </div>
-            <div id="${chapterTitle.replace(/\s+/g, '-')}-characters" class="collapse show">
-              <div class="row">
-          `;
-          
-          for (const [characterName, characterDetails] of Object.entries(chapterContent["Character Notes"])) {
-            html += `
-              <div class="col-md-6 col-lg-4">
-                <div class="character-card">
-                  <div class="character-name">${characterName}</div>
-                  <ul class="list-unstyled">
-            `;
-            
-            characterDetails.details.forEach(detail => {
-              html += `<li class="note-item">• ${detail}</li>`;
-            });
-            
-            if (characterDetails.note) {
-              html += `<li class="note-item text-muted">Note: ${characterDetails.note}</li>`;
-            }
-            
-            html += `
-                  </ul>
-                </div>
-              </div>
-            `;
+        // First pass: Collect all character data
+        if (book.chapters) {
+          for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
+              if (chapterContent["Character Notes"]) {
+                  for (const [characterName, characterDetails] of Object.entries(chapterContent["Character Notes"])) {
+                      if (!characterCompendium[characterName]) {
+                          characterCompendium[characterName] = {
+                              details: [],
+                              notes: [],
+                              appearances: []
+                          };
+                      }
+                      // Add details
+                      characterDetails.details.forEach(detail => {
+                          if (!characterCompendium[characterName].details.includes(detail)) {
+                              characterCompendium[characterName].details.push(detail);
+                          }
+                      });
+                      // Add notes
+                      if (characterDetails.note && !characterCompendium[characterName].notes.includes(characterDetails.note)) {
+                          characterCompendium[characterName].notes.push(characterDetails.note);
+                      }
+                      // Track appearances
+                      characterCompendium[characterName].appearances.push(chapterTitle);
+                  }
+              }
           }
-          
-          html += `
-              </div>
-            </div>
-          `;
-        }
-        
-        // Process Lore
-        if (chapterContent["Lore"]) {
-          html += `
-            <div class="section-header" data-toggle="collapse" data-target="#${chapterTitle.replace(/\s+/g, '-')}-lore">
-              <i class="fa fa-chevron-down collapsible-icon"></i>
-              <h4>Lore</h4>
-            </div>
-            <div id="${chapterTitle.replace(/\s+/g, '-')}-lore" class="collapse show">
-              <ul class="list-unstyled">
-          `;
-          
-          if (Array.isArray(chapterContent["Lore"].notes)) {
-            chapterContent["Lore"].notes.forEach(note => {
-              html += `<li class="lore-item">• ${note}</li>`;
-            });
-          } else {
-            for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
-              html += `<li class="lore-item"><strong>${key}:</strong> ${value}</li>`;
-            }
-          }
-          
-          html += `
-              </ul>
-            </div>
-          `;
-        }
-        
-        // Process Questions
-        if (chapterContent["Questions"]) {
-          html += `
-            <div class="section-header" data-toggle="collapse" data-target="#${chapterTitle.replace(/\s+/g, '-')}-questions">
-              <i class="fa fa-chevron-down collapsible-icon"></i>
-              <h4>Questions</h4>
-            </div>
-            <div id="${chapterTitle.replace(/\s+/g, '-')}-questions" class="collapse show">
-              <div class="question-box">
-                <p>${chapterContent["Questions"]["To consider"]}</p>
-              </div>
-            </div>
-          `;
-        }
-        
-        html += `</div>`; // Close chapter collapse div
       }
       
+      // Build HTML
+      html += `
+          <div class="book-title" 
+               style="--book-order: ${index}"
+               data-bs-toggle="collapse" 
+               data-bs-target="#${bookId}" 
+               aria-expanded="false">
+              <i class="fa fa-chevron-right collapsible-icon"></i>
+              <h2>${book.title || bookKey}</h2>
+          </div>
+          <div id="${bookId}" class="collapse book-content">
+              <!-- Character Compendium Section -->
+              <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-characters" aria-expanded="false">
+                  <i class="fa fa-chevron-right collapsible-icon"></i>
+                  <h3>Character Compendium</h3>
+              </div>
+              <div id="${bookId}-characters" class="collapse">
+                  <div class="row">
+      `;
+      
+      // Add character compendium content
+      for (const [characterName, characterData] of Object.entries(characterCompendium)) {
+          html += `
+              <div class="col-md-6 col-lg-4">
+                  <div class="character-card">
+                      <div class="character-name">${characterName}</div>
+                      <div class="appearances text-muted small mb-2">
+                          Appears in: ${characterData.appearances.join(', ')}
+                      </div>
+                      <ul class="list-unstyled">
+          `;
+          
+          characterData.details.forEach(detail => {
+              html += `<li class="note-item">• ${detail}</li>`;
+          });
+          
+          characterData.notes.forEach(note => {
+              html += `<li class="note-item text-muted">Note: ${note}</li>`;
+          });
+          
+          html += `
+                      </ul>
+                  </div>
+              </div>
+          `;
+      }
+      
+      html += `
+                  </div>
+              </div>
+      `;
+        
+        // Process each chapter
+        if (book.chapters) {
+          for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
+              const chapterId = `${bookId}-${chapterTitle.replace(/\s+/g, '-')}`;
+              html += `
+                  <div class="chapter-header" data-bs-toggle="collapse" data-bs-target="#${chapterId}" aria-expanded="false">
+                      <i class="fa fa-chevron-right collapsible-icon"></i>
+                      <h3>${chapterTitle}</h3>
+                  </div>
+                  <div id="${chapterId}" class="collapse chapter-content">
+              `;
+                  
+                  // Process Character Notes
+                  if (chapterContent["Character Notes"] && Object.keys(chapterContent["Character Notes"]).length > 0) {
+                      const sectionId = `${chapterId}-characters`;
+                      html += `
+    <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+        <i class="fa fa-chevron-right collapsible-icon"></i>
+        <h4>Character Notes</h4>
+    </div>
+
+                          <div id="${sectionId}" class="collapse">
+                              <div class="row">
+                      `;
+                      
+                      for (const [characterName, characterDetails] of Object.entries(chapterContent["Character Notes"])) {
+                          html += `
+                              <div class="col-md-6 col-lg-4">
+                                  <div class="character-card">
+                                      <div class="character-name">${characterName}</div>
+                                      <ul class="list-unstyled">
+                          `;
+                          
+                          characterDetails.details.forEach(detail => {
+                              html += `<li class="note-item">• ${detail}</li>`;
+                          });
+                          
+                          if (characterDetails.note) {
+                              html += `<li class="note-item text-muted">Note: ${characterDetails.note}</li>`;
+                          }
+                          
+                          html += `
+                                      </ul>
+                                  </div>
+                              </div>
+                          `;
+                      }
+                      
+                      html += `
+                              </div>
+                          </div>
+                      `;
+                  }
+                  
+                  // Process Lore
+                  if (chapterContent["Lore"]) {
+                      const sectionId = `${chapterId}-lore`;
+                      html += `
+                          <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+                              <i class="fa fa-chevron-right collapsible-icon"></i>
+                              <h4>Lore</h4>
+                          </div>
+                          <div id="${sectionId}" class="collapse">
+                              <ul class="list-unstyled">
+                      `;
+                      
+                      if (Array.isArray(chapterContent["Lore"].notes)) {
+                          chapterContent["Lore"].notes.forEach(note => {
+                              html += `<li class="lore-item">• ${note}</li>`;
+                          });
+                      } else if (chapterContent["Lore"].notes && typeof chapterContent["Lore"].notes === 'object') {
+                          for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
+                              html += `<li class="lore-item"><strong>${key}:</strong> ${value}</li>`;
+                          }
+                      }
+                      
+                      html += `
+                              </ul>
+                          </div>
+                      `;
+                  }
+                  
+                  // Process Questions
+                  if (chapterContent["Questions"] && chapterContent["Questions"]["To consider"]) {
+                      const sectionId = `${chapterId}-questions`;
+                      html += `
+                          <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+                              <i class="fa fa-chevron-right collapsible-icon"></i>
+                              <h4>Questions</h4>
+                          </div>
+                          <div id="${sectionId}" class="collapse">
+                              <div class="question-box">
+                                  <p>${chapterContent["Questions"]["To consider"]}</p>
+                              </div>
+                          </div>
+                      `;
+                  }
+                  
+                  html += `</div>`; // Close chapter collapse div
+              }
+          }
+          
+          html += `</div>`; // Close book collapse div
+      });
+      
+      html += '</div>'; // Close books container
       $('#book-notes-container').html(html);
       
-      // Add click handlers for collapsible sections
-      $('[data-toggle="collapse"]').click(function() {
-        $(this).find('.fa').toggleClass('fa-chevron-down fa-chevron-right');
-      });
-    }).fail(function() {
-      $('#book-notes-container').html('<div class="alert alert-danger">Failed to load book notes.</div>');
+      // Add click handlers for all collapsible sections
+      $(document).on('click', '[data-bs-toggle="collapse"]', function() {
+        const icon = $(this).find('.fa');
+        const target = $(this).attr('data-bs-target');
+        const isExpanded = $(this).attr('aria-expanded') === 'true';
+        
+        // Update the icon based on the new state (opposite of current)
+        icon.toggleClass('fa-chevron-right', !isExpanded);
+        icon.toggleClass('fa-chevron-down', isExpanded);
     });
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+      console.error("Error loading JSON:", textStatus, errorThrown);
+      $('#book-notes-container').html('<div class="alert alert-danger">Failed to load book notes. Check console for details.</div>');
   });
-  
-  function loadingLoader() {
-    // Your loader function implementation
-    setTimeout(function() {
+});
+
+function loadingLoader() {
+  setTimeout(function() {
       document.getElementById("loader").style.display = "none";
-    }, 1000);
+      // Force reflow to trigger animations
+      document.querySelectorAll('.book-title').forEach(el => {
+          el.style.animation = 'none';
+          el.offsetHeight; /* trigger reflow */
+          el.style.animation = null;
+      });
+  }, 1000);
+}
+$('#book-notes-container').on('show.bs.collapse hide.bs.collapse', function(e) {
+  const trigger = $('[data-bs-target="#' + e.target.id + '"]');
+  const icon = trigger.find('.fa');
+  
+  if (e.type === 'show') {
+      icon.removeClass('fa-chevron-right').addClass('fa-chevron-down');
+  } else {
+      icon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
   }
+});
