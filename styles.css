@@ -1,3 +1,4 @@
+/*-----------------------Book stuff-----------------------*/
 .books-container {
   margin-bottom: 20px;
 }
@@ -18,7 +19,7 @@
   margin-top: -5px;
   margin-bottom: 15px;
 }
-
+/*-----------------------Chapter / Section-----------------------*/
 .chapter-content {
   padding-left: 15px;
   border-left: 2px solid #ddd;
@@ -39,6 +40,7 @@
     border-radius: 5px;
     margin-bottom: 8px;
   }
+/*-----------------------Characer-----------------------*/
   .character-card {
     margin-bottom: 15px;
     border: 1px solid #dee2e6;
@@ -62,27 +64,21 @@
   .character-name {
     font-weight: bold;
     margin-bottom: 5px;
-  }
-  .note-item {
-    margin-bottom: 5px;
-  }
-  .question-box {
-    background-color: #f8f9fa;
-    border-left: 4px solid #007bff;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  .lore-item {
-    margin-bottom: 8px;
-    padding-left: 10px;
-  }
-  .compendium-section {
-    margin-bottom: 30px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    padding: 15px;
 }
-
+.note-item {
+  margin-bottom: 5px;
+}
+.question-box {
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 10px;
+  margin: 10px 0;
+}
+/*-----------------------Lore-----------------------*/
+.lore-item {
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
 .lore-compendium-content {
     padding: 10px;
 }
@@ -94,12 +90,18 @@
     border-radius: 4px;
     border-left: 3px solid #6c757d;
 }
-
+/*-----------------------compendia-----------------------*/
+.compendium-section {
+  margin-bottom: 30px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 15px;
+}
 .compedia-section h3 {
     color: #2c3e50;
     margin-bottom: 15px;
 }
-/* Add to styles.css */
+/*-----------------------thoughts-----------------------*/
 .thoughts-content {
   padding: 15px;
 }
@@ -121,14 +123,14 @@
 .thought-text {
   padding-left: 10px;
 }
-  .collapsible-icon {
-    margin-right: 8px;
-  }
-  .collapse:not(.show) {
-    display: none;
+/*-----------------------collapsing formatting-----------------------*/
+.collapsible-icon {
+  margin-right: 8px;
+}
+.collapse:not(.show) {
+  display: none;
 }
 
-/* Ensure proper icon alignment */
 .fa-chevron-right, .fa-chevron-down {
   transition: transform 0.2s ease;
   width: 1em; /* Ensure consistent width */
@@ -138,7 +140,7 @@
 [data-bs-toggle="collapse"] {
   transition: all 0.2s ease;
 }
-  /*Animation*/
+  /*-----------------------Animation-----------------------*/
   @keyframes slideInFromLeft {
     0% {
       transform: translateX(-50%);
