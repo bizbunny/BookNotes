@@ -11,10 +11,15 @@ $(document).ready(function() {
 
         // Create character compendium
         const characterCompendium = {};
+        const loreCompendium = {
+            notes: [],
+            entries: {}
+        };
         
         // First pass: Collect all character data
         if (book.chapters) {
           for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
+              // Process Character Notes
               if (chapterContent["Character Notes"]) {
                   for (const [characterName, characterDetails] of Object.entries(chapterContent["Character Notes"])) {
                       if (!characterCompendium[characterName]) {
@@ -38,21 +43,42 @@ $(document).ready(function() {
                       characterCompendium[characterName].appearances.push(chapterTitle);
                   }
               }
+              // Process Lore Notes
+              if (chapterContent["Lore"]) {
+                if (Array.isArray(chapterContent["Lore"].notes)) {
+                    chapterContent["Lore"].notes.forEach(note => {
+                        if (!loreCompendium.notes.includes(note)) {
+                            loreCompendium.notes.push(note);
+                        }
+                    });
+                } else if (typeof chapterContent["Lore"].notes === 'object') {
+                    for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
+                        if (!loreCompendium.entries[key]) {
+                            loreCompendium.entries[key] = {
+                                value: value,
+                                appearances: []
+                            };
+                        }
+                        loreCompendium.entries[key].appearances.push(chapterTitle);
+                    }
+                }
+            }
           }
       }
       
       // Build HTML
       html += `
-          <div class="book-title" 
-               style="--book-order: ${index}"
-               data-bs-toggle="collapse" 
-               data-bs-target="#${bookId}" 
-               aria-expanded="false">
-              <i class="fa fa-chevron-right collapsible-icon"></i>
-              <h2>${book.title || bookKey}</h2>
-          </div>
-          <div id="${bookId}" class="collapse book-content">
-              <!-- Character Compendium Section -->
+      <div class="book-title" 
+          style="--book-order: ${index}"
+          data-bs-toggle="collapse" 
+          data-bs-target="#${bookId}" 
+          aria-expanded="false">
+          <i class="fa fa-chevron-right collapsible-icon"></i>
+          <h2>${book.title || bookKey}</h2>
+      </div>
+      <div id="${bookId}" class="collapse book-content">
+          <!-- Character Compendium Section -->
+          <div class="compendium-section">
               <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-characters" aria-expanded="false">
                   <i class="fa fa-chevron-right collapsible-icon"></i>
                   <h3>Character Compendium</h3>
@@ -60,156 +86,228 @@ $(document).ready(function() {
               <div id="${bookId}-characters" class="collapse">
                   <div class="row">
       `;
-      
+
       // Add character compendium content
       for (const [characterName, characterData] of Object.entries(characterCompendium)) {
-          html += `
-              <div class="col-md-6 col-lg-4">
-                  <div class="character-card">
-                      <div class="character-name">${characterName}</div>
-                      <div class="appearances text-muted small mb-2">
-                          Appears in: ${characterData.appearances.join(', ')}
-                      </div>
-                      <ul class="list-unstyled">
-          `;
-          
-          characterData.details.forEach(detail => {
-              html += `<li class="note-item">• ${detail}</li>`;
-          });
-          
-          characterData.notes.forEach(note => {
-              html += `<li class="note-item text-muted">Note: ${note}</li>`;
-          });
-          
-          html += `
-                      </ul>
-                  </div>
-              </div>
-          `;
-      }
+        html += `
+            <div class="col-md-6 col-lg-4">
+                <div class="character-card">
+                    <div class="character-name">${characterName}</div>
+                    <div class="appearances text-muted small mb-2">
+                        Appears in: ${characterData.appearances.join(', ')}
+                    </div>
+                    <ul class="list-unstyled">
+        `;
+    
+        characterData.details.forEach(detail => {
+            html += `<li class="note-item">• ${detail}</li>`;
+        });
       
+        characterData.notes.forEach(note => {
+            html += `<li class="note-item text-muted">Note: ${note}</li>`;
+        });
+      
+        html += `
+                    </ul>
+                </div>
+            </div>
+        `;
+      }
+
+      html += `
+                </div>
+            </div>
+        </div>
+
+        <!-- Lore Compendium Section -->
+        <div class="compendium-section">
+            <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-lore-compendium" aria-expanded="false">
+                <i class="fa fa-chevron-right collapsible-icon"></i>
+                <h3>Lore Compendium</h3>
+            </div>
+            <div id="${bookId}-lore-compendium" class="collapse">
+                <div class="lore-compendium-content">
+      `;
+
+      // Add lore list items
+      if (loreCompendium.notes.length > 0) {
+          html += `<h4 class="mt-3">General Lore Notes</h4><ul class="list-unstyled">`;
+          loreCompendium.notes.forEach(note => {
+              html += `<li class="lore-item">• ${note}</li>`;
+          });
+          html += `</ul>`;
+      }
+
+      // Add lore entries
+      if (Object.keys(loreCompendium.entries).length > 0) {
+          html += `<h4 class="mt-3">Lore Entries</h4><ul class="list-unstyled">`;
+          for (const [key, entry] of Object.entries(loreCompendium.entries)) {
+              html += `
+                  <li class="lore-entry-item">
+                      <strong>${key}:</strong> ${entry.value}
+                      <div class="appearances text-muted small">
+                          (Mentioned in: ${entry.appearances.join(', ')})
+                      </div>
+                  </li>
+              `;
+          }
+          html += `</ul>`;
+      }
+
+      html += `
+              </div>
+          </div>
+      </div>
+
+      <!-- Thoughts Section -->
+      <div class="compendium-section">
+          <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-thoughts" aria-expanded="false">
+              <i class="fa fa-chevron-right collapsible-icon"></i>
+              <h3>My Thoughts</h3>
+          </div>
+          <div id="${bookId}-thoughts" class="collapse">
+              <div class="thoughts-content">
+      `;
+
+      // Add thoughts content
+      if (book.Thoughts && Object.keys(book.Thoughts).length > 0) {
+          html += `<ul class="list-unstyled">`;
+          for (const [date, thought] of Object.entries(book.Thoughts)) {
+              html += `
+                  <li class="thought-item">
+                      <div class="thought-date">${date}</div>
+                      <div class="thought-text">${thought}</div>
+                  </li>
+              `;
+          }
+          html += `</ul>`;
+      } else {
+          html += `<p class="text-muted">No thoughts recorded yet.</p>`;
+      }
+
       html += `
                   </div>
               </div>
+          </div>
       `;
         
-        // Process each chapter
-        if (book.chapters) {
-          for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
-              const chapterId = `${bookId}-${chapterTitle.replace(/\s+/g, '-')}`;
+      // Process each chapter
+      if (book.chapters) {
+        for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
+          const chapterId = `${bookId}-${chapterTitle.replace(/\s+/g, '-')}`;
+          html += `
+              <div class="chapter-header" data-bs-toggle="collapse" data-bs-target="#${chapterId}" aria-expanded="false">
+                  <i class="fa fa-chevron-right collapsible-icon"></i>
+                  <h3>${chapterTitle}</h3>
+              </div>
+              <div id="${chapterId}" class="collapse chapter-content">
+          `;
+                  
+          // Process Character Notes
+          if (chapterContent["Character Notes"] && Object.keys(chapterContent["Character Notes"]).length > 0) {
+              const sectionId = `${chapterId}-characters`;
               html += `
-                  <div class="chapter-header" data-bs-toggle="collapse" data-bs-target="#${chapterId}" aria-expanded="false">
-                      <i class="fa fa-chevron-right collapsible-icon"></i>
-                      <h3>${chapterTitle}</h3>
-                  </div>
-                  <div id="${chapterId}" class="collapse chapter-content">
-              `;
-                  
-                  // Process Character Notes
-                  if (chapterContent["Character Notes"] && Object.keys(chapterContent["Character Notes"]).length > 0) {
-                      const sectionId = `${chapterId}-characters`;
-                      html += `
-    <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
-        <i class="fa fa-chevron-right collapsible-icon"></i>
-        <h4>Character Notes</h4>
-    </div>
+              <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+                  <i class="fa fa-chevron-right collapsible-icon"></i>
+                  <h4>Character Notes</h4>
+              </div>
 
-                          <div id="${sectionId}" class="collapse">
-                              <div class="row">
-                      `;
+                  <div id="${sectionId}" class="collapse">
+                      <div class="row">
+              `;
                       
-                      for (const [characterName, characterDetails] of Object.entries(chapterContent["Character Notes"])) {
-                          html += `
-                              <div class="col-md-6 col-lg-4">
-                                  <div class="character-card">
-                                      <div class="character-name">${characterName}</div>
-                                      <ul class="list-unstyled">
-                          `;
-                          
-                          characterDetails.details.forEach(detail => {
-                              html += `<li class="note-item">• ${detail}</li>`;
-                          });
-                          
-                          if (characterDetails.note) {
-                              html += `<li class="note-item text-muted">Note: ${characterDetails.note}</li>`;
-                          }
-                          
-                          html += `
-                                      </ul>
-                                  </div>
-                              </div>
-                          `;
-                      }
-                      
-                      html += `
-                              </div>
-                          </div>
-                      `;
-                  }
-                  
-                  // Process Lore
-                  if (chapterContent["Lore"]) {
-                      const sectionId = `${chapterId}-lore`;
-                      html += `
-                          <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
-                              <i class="fa fa-chevron-right collapsible-icon"></i>
-                              <h4>Lore</h4>
-                          </div>
-                          <div id="${sectionId}" class="collapse">
-                              <ul class="list-unstyled">
-                      `;
-                      
-                      if (Array.isArray(chapterContent["Lore"].notes)) {
-                          chapterContent["Lore"].notes.forEach(note => {
-                              html += `<li class="lore-item">• ${note}</li>`;
-                          });
-                      } else if (chapterContent["Lore"].notes && typeof chapterContent["Lore"].notes === 'object') {
-                          for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
-                              html += `<li class="lore-item"><strong>${key}:</strong> ${value}</li>`;
-                          }
-                      }
-                      
-                      html += `
-                              </ul>
-                          </div>
-                      `;
-                  }
-                  
-                  // Process Questions
-                  if (chapterContent["Questions"] && chapterContent["Questions"]["To consider"]) {
-                      const sectionId = `${chapterId}-questions`;
-                      html += `
-                          <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
-                              <i class="fa fa-chevron-right collapsible-icon"></i>
-                              <h4>Questions</h4>
-                          </div>
-                          <div id="${sectionId}" class="collapse">
-                              <div class="question-box">
-                                  <p>${chapterContent["Questions"]["To consider"]}</p>
-                              </div>
-                          </div>
-                      `;
-                  }
-                  
-                  html += `</div>`; // Close chapter collapse div
+              for (const [characterName, characterDetails] of Object.entries(chapterContent["Character Notes"])) {
+                html += `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="character-card">
+                            <div class="character-name">${characterName}</div>
+                            <ul class="list-unstyled">
+                `;
+                
+                characterDetails.details.forEach(detail => {
+                    html += `<li class="note-item">• ${detail}</li>`;
+                });
+                
+                if (characterDetails.note) {
+                    html += `<li class="note-item text-muted">Note: ${characterDetails.note}</li>`;
+                }
+                
+                html += `
+                            </ul>
+                        </div>
+                    </div>
+                `;
               }
+                      
+              html += `
+                      </div>
+                  </div>
+              `;
           }
+                  
+          // Process Lore
+          if (chapterContent["Lore"]) {
+              const sectionId = `${chapterId}-lore`;
+              html += `
+                  <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+                      <i class="fa fa-chevron-right collapsible-icon"></i>
+                      <h4>Lore</h4>
+                  </div>
+                  <div id="${sectionId}" class="collapse">
+                      <ul class="list-unstyled">
+              `;
+              
+              if (Array.isArray(chapterContent["Lore"].notes)) {
+                  chapterContent["Lore"].notes.forEach(note => {
+                      html += `<li class="lore-item">• ${note}</li>`;
+                  });
+              } else if (chapterContent["Lore"].notes && typeof chapterContent["Lore"].notes === 'object') {
+                  for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
+                      html += `<li class="lore-item"><strong>${key}:</strong> ${value}</li>`;
+                  }
+              }
+              
+              html += `
+                      </ul>
+                  </div>
+              `;
+          }
+                  
+          // Process Questions
+          if (chapterContent["Questions"] && chapterContent["Questions"]["To consider"]) {
+              const sectionId = `${chapterId}-questions`;
+              html += `
+                  <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+                      <i class="fa fa-chevron-right collapsible-icon"></i>
+                      <h4>Questions</h4>
+                  </div>
+                  <div id="${sectionId}" class="collapse">
+                      <div class="question-box">
+                          <p>${chapterContent["Questions"]["To consider"]}</p>
+                      </div>
+                  </div>
+              `;
+          }
+                  
+        html += `</div>`; // Close chapter collapse div
+        }
+      }
           
-          html += `</div>`; // Close book collapse div
+        html += `</div>`; // Close book collapse div
       });
       
-      html += '</div>'; // Close books container
-      $('#book-notes-container').html(html);
+    html += '</div>'; // Close books container
+    $('#book-notes-container').html(html);
+    
+    // Add click handlers for all collapsible sections
+    $(document).on('click', '[data-bs-toggle="collapse"]', function() {
+      const icon = $(this).find('.fa');
+      const target = $(this).attr('data-bs-target');
+      const isExpanded = $(this).attr('aria-expanded') === 'true';
       
-      // Add click handlers for all collapsible sections
-      $(document).on('click', '[data-bs-toggle="collapse"]', function() {
-        const icon = $(this).find('.fa');
-        const target = $(this).attr('data-bs-target');
-        const isExpanded = $(this).attr('aria-expanded') === 'true';
-        
-        // Update the icon based on the new state (opposite of current)
-        icon.toggleClass('fa-chevron-right', !isExpanded);
-        icon.toggleClass('fa-chevron-down', isExpanded);
+      // Update the icon based on the new state (opposite of current)
+      icon.toggleClass('fa-chevron-right', !isExpanded);
+      icon.toggleClass('fa-chevron-down', isExpanded);
     });
   }).fail(function(jqXHR, textStatus, errorThrown) {
       console.error("Error loading JSON:", textStatus, errorThrown);
