@@ -1,22 +1,22 @@
 // Load the book notes from JSON
 $(document).ready(function() {
   $.getJSON('./data/data.json', function(data) {
-      let html = '<div class="books-container">';
+      let html = '<div class="books-container">';//consistent value to help with buidling HTML
       
       // Process each book
       data.forEach((bookData, index) => {
         const bookKey = Object.keys(bookData)[0];
         const book = bookData[bookKey];
-        const bookId = bookKey.replace(/\s+/g, '-');
+        const bookId = bookKey.replace(/\s+/g, '-').replace(/'/g, "\\'");//in case book title has '
 
         // Create character compendium
-        const characterCompendium = {};
+        const characterCompendium = {};//store char compendium
         const loreCompendium = {
-            notes: [],
-            entries: {}
+            notes: [],//lore notes that only have one info piece
+            entries: {}//lore notes that have multiple info pieces
         };
         
-        // First pass: Collect all character data
+        // Collect all character data
         if (book.chapters) {
           for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
               // Process Character Notes
@@ -55,7 +55,7 @@ $(document).ready(function() {
                     for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
                         if (!loreCompendium.entries[key]) {
                             loreCompendium.entries[key] = {
-                                value: value,
+                                value: Array.isArray(value) ? value.join('<br>• ') : value,
                                 appearances: []
                             };
                         }
@@ -100,7 +100,7 @@ $(document).ready(function() {
                     <ul class="list-unstyled">
         `;
     
-        characterData.details.forEach(detail => {
+        characterData.details.forEach(detail => {//looping through each detail of each character
             html += `<li class="note-item">• ${detail}</li>`;
         });
       
@@ -195,7 +195,7 @@ $(document).ready(function() {
       // Process each chapter
       if (book.chapters) {
         for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
-          const chapterId = `${bookId}-${chapterTitle.replace(/\s+/g, '-')}`;
+          const chapterId = `${bookId}-${chapterTitle.replace(/\s+/g, '-').replace(/'/g, "\\'")}`;
           html += `
               <div class="chapter-header" data-bs-toggle="collapse" data-bs-target="#${chapterId}" aria-expanded="false">
                   <i class="fa fa-chevron-right collapsible-icon"></i>
@@ -248,30 +248,40 @@ $(document).ready(function() {
                   
           // Process Lore
           if (chapterContent["Lore"]) {
-              const sectionId = `${chapterId}-lore`;
-              html += `
-                  <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
-                      <i class="fa fa-chevron-right collapsible-icon"></i>
-                      <h4>Lore</h4>
-                  </div>
-                  <div id="${sectionId}" class="collapse">
-                      <ul class="list-unstyled">
-              `;
-              
-              if (Array.isArray(chapterContent["Lore"].notes)) {
-                  chapterContent["Lore"].notes.forEach(note => {
-                      html += `<li class="lore-item">• ${note}</li>`;
-                  });
-              } else if (chapterContent["Lore"].notes && typeof chapterContent["Lore"].notes === 'object') {
-                  for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
-                      html += `<li class="lore-item"><strong>${key}:</strong> ${value}</li>`;
-                  }
-              }
-              
-              html += `
-                      </ul>
-                  </div>
-              `;
+            const sectionId = `${chapterId}-lore`;
+            html += `
+                <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+                    <i class="fa fa-chevron-right collapsible-icon"></i>
+                    <h4>Lore</h4>
+                </div>
+                <div id="${sectionId}" class="collapse">
+                    <ul class="list-unstyled">
+            `;
+            
+            if (Array.isArray(chapterContent["Lore"].notes)) {
+                chapterContent["Lore"].notes.forEach(note => {
+                    html += `<li class="lore-item">• ${note}</li>`;
+                });
+            } else if (chapterContent["Lore"].notes && typeof chapterContent["Lore"].notes === 'object') {
+                for (const [key, value] of Object.entries(chapterContent["Lore"].notes)) {
+                    html += `<li class="lore-item"><strong>${key}:</strong> `;
+                    if (Array.isArray(value)) {
+                        html += `<ul class="list-unstyled">`;
+                        value.forEach(item => {
+                            html += `<li>• ${item}</li>`;
+                        });
+                        html += `</ul>`;
+                    } else {
+                        html += value;
+                    }
+                    html += `</li>`;
+                }
+            }
+            
+            html += `
+                    </ul>
+                </div>
+            `;
           }
                   
           // Process Questions

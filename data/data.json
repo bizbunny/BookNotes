@@ -81,10 +81,11 @@
                         }
                     },
                     "Lore": {
-                        "notes": [
-                            "the Rider Quadrant is the only one that doesn't accept conscripts but only volunteers",
-                            "children of traitors get marked or something, a reminder for their parents' sins"
-                        ]
+                        "notes": {
+                            "Article One, Section 1 The Dragon Rider's Codex": "A dragon without its rider is a tragedy. A rider without their dragon is dead.",
+                            "the Rider Quadrant": "the only one that doesn't accept conscripts but only volunteers",
+                            "Traitors": "children of traitors get marked or something, a reminder for their parents' sins and I think are forced to try to become riders (again because of parents' sins)"
+                        }
                     },
                     "Questions" : {
                         "To consider": "why is Violet's mom forcIng her to be a rider even though Violet trained her entire life to be a scribe?"
@@ -135,14 +136,40 @@
                     },
                     "Lore": {
                         "notes": {
+                            "Major Afendra's Guide to the Rider's Quadrant (Unauthorized Edition": "There's a misconception that it's kill or be killed in the Riders Quadrant. Riders, as a whole, aren't out to assassinate other cadets...unless there's a shortage of dragons that year or a cadet is a liability to their wing. Then things may get...interesting.",
                             "Zihal": "the god of luck",
-                            "The kingdom of Navarre (including Basgiath War College)": " Main setting so far",
-"The kingdom of Poromiel": "seems notable enough. smaller than Navarre",
-"The Barrens": "Deserted land"
+                            "The Continent": "has two kingdoms that have been a war for 400 years: Navarre and Poromiel",
+                            "The kingdom of Navarre (including Basgiath War College)": [
+                                " Main setting so far", 
+                                "Home of Violet", 
+                                "larger kingdom", 
+                                "6 unique provinces", 
+                                "Tyrrendor is southern most province of Navarre",
+                                "Tyrrendor was the last I think to join Navarre and swear fealty (I'm guessing that means loyalty or something) to King Reginald",
+                                "Tyrrendor is a good defence location it seems? At least Navarre seems to need it for defence against probably Poromiel", 
+                                "Has mountainous regions that offer abundance in ore, hardy timber from Navarre's eastern provinces, and limitless deer and elk."
+                            ],
+                            "The kingdom of Poromiel": [
+                                "seems notable enough", "smaller than Navarre", 
+                                "Krovla is I think a province", 
+                                "Braevick and Cygnisen are two other provinces", 
+                                "Esben Mountains ac as a natural border for Braevick and Cygnisen", 
+                                "Mainly consists of arable plains and marshlands and is known for exceptional textiles, endless fields of grain, and unique crystalline gems  capable of amplifying minor magics"
+                            ],
+                            "The Barrens": ["Deserted land", "Sounds farther than Navarre and Poromiel"],
+                            "Tyrrendor": "encompasses southwes of Continent. Made up of hostile, mountainous terrain and bordered by the Emerald Sea to the west and the Arctile Ocean to the south, Tyrrendor is nearly impenetrable.",
+                            "Trade Agreement of Resson": "signed more than 200 years ago, ensures exchange of meat and lumber from Navarre for cloth and agriculture within Poromiel 4 times a year a the Athebyne outpost on border of Krovla and Tyrrendor." 
                         }
                     },
                     "Questions" : {
                         "To consider": "wonder what Xaden will think of Violet actually not dying and becoming a cadet."
+                    }
+                },
+                "Chapter 3": {
+                    "Lore": {
+                        "notes": {
+                            "Colonel Kaori's Fild Guide to Dragon Kind": "Blue dragons descend from the extraordinary Gormfaileas line. Known for their formidable size, they are the most ruthless, especially in the case of the rare Blue Daggertail, whose knifelike spikes at the tip of their tail can disembowel an enemy with one flick."
+                        }
                     }
                 }
             },
