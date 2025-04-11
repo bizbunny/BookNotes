@@ -75,6 +75,7 @@ $(document).ready(function() {
           aria-expanded="false">
           <i class="fa fa-chevron-right collapsible-icon"></i>
           <h2>${book.title || bookKey}</h2>
+          ${book.series ? `<div class="series-tag">${book.series}</div>` : ''}
       </div>
       <div id="${bookId}" class="collapse book-content">
           <!-- Character Compendium Section -->
@@ -86,12 +87,12 @@ $(document).ready(function() {
               <div id="${bookId}-characters" class="collapse">
                   <div class="row">
       `;
-
+      let cardOrder = 0;
       // Add character compendium content
       for (const [characterName, characterData] of Object.entries(characterCompendium)) {
         html += `
             <div class="col-md-6 col-lg-4">
-                <div class="character-card">
+                <div class="character-card" style="--card-order: ${cardOrder++}">
                     <div class="character-name">${characterName}</div>
                     <div class="appearances text-muted small mb-2">
                         Appears in: ${characterData.appearances.join(', ')}
@@ -215,11 +216,11 @@ $(document).ready(function() {
                   <div id="${sectionId}" class="collapse">
                       <div class="row">
               `;
-                      
+              cardOrder = 0; // Reset for each chapter
               for (const [characterName, characterDetails] of Object.entries(chapterContent["Character Notes"])) {
                 html += `
                     <div class="col-md-6 col-lg-4">
-                        <div class="character-card">
+                        <div class="character-card" style="--card-order: ${cardOrder++}">
                             <div class="character-name">${characterName}</div>
                             <ul class="list-unstyled">
                 `;
@@ -335,4 +336,10 @@ $('#book-notes-container').on('show.bs.collapse hide.bs.collapse', function(e) {
   } else {
       icon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
   }
+  // Force reflow to restart animations
+  $(e.target).find('.character-card').each(function() {
+    this.style.animation = 'none';
+    void this.offsetWidth; /* trigger reflow */
+    this.style.animation = null;
+});
 });

@@ -1,6 +1,7 @@
 /*-----------------------Book stuff-----------------------*/
 .books-container {
   margin-bottom: 20px;
+  animation: slideInFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .book-title {
@@ -10,6 +11,8 @@
   border-radius: 5px;
   margin-bottom: 10px;
   cursor: pointer;
+  animation: slideInFromLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(var(--book-order) * 0.15s);
 }
 
 .book-content {
@@ -19,6 +22,11 @@
   margin-top: -5px;
   margin-bottom: 15px;
 }
+.series-tag {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-style: italic;
+}
 /*-----------------------Chapter / Section-----------------------*/
 .chapter-content {
   padding-left: 15px;
@@ -27,32 +35,36 @@
   margin-top: -5px;
   margin-bottom: 10px;
 }
-  .chapter-header {
-    background-color: #6c757d;
-    color: white;
-    padding: 8px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  .section-header {
-    background-color: #e9ecef;
-    padding: 6px;
-    border-radius: 5px;
-    margin-bottom: 8px;
-  }
+.chapter-header {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.section-header {
+  background-color: #e9ecef;
+  padding: 6px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
 /*-----------------------Characer-----------------------*/
-  .character-card {
-    margin-bottom: 15px;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  .appearances {
-    font-style: italic;
-    color: #6c757d;
-    border-bottom: 1px dashed #dee2e6;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
+.character-card {
+  margin-bottom: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 10px;
+  animation: bubblePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: calc(var(--card-order) * 0.1s);
+  opacity: 0; /* Start invisible */
+  transform-origin: center bottom;
+}
+.appearances {
+  font-style: italic;
+  color: #6c757d;
+  border-bottom: 1px dashed #dee2e6;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .character-compendium {
@@ -140,23 +152,28 @@
 [data-bs-toggle="collapse"] {
   transition: all 0.2s ease;
 }
-  /*-----------------------Animation-----------------------*/
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-50%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+/*-----------------------Animation-----------------------*/
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
   }
-  
-  .books-container {
-    animation: slideInFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  .book-title {
-    animation: slideInFromLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    animation-delay: calc(var(--book-order) * 0.15s);
+}
+@keyframes bubblePop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
   }
+  70% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

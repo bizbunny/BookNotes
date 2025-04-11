@@ -1,6 +1,7 @@
 [
     {
         "Fourth Wing": {
+            "series": "The Empyrean Series",
             "title": "Fourth Wing",
             "chapters": {
                 "Chapter 1": {
@@ -150,7 +151,23 @@
     },
     {
         "Iron Flame": {
+            "series": "The Empyrean Series",
             "title": "Iron Flame (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Heaven Official's Blessing": {
+            "series": "Heaven Official's Blessing Series",
+            "title": "Heaven Official's Blessing 8 (not read yet)",
             "chapters": {
                 "Chapter 1": {
                     "Character Notes": {},
