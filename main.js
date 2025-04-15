@@ -104,7 +104,7 @@ $(document).ready(function() {
             html += `<li class="note-item">• ${detail}</li>`;
         });
       
-        characterData.notes.forEach(note => {
+        characterData.notes.forEach(note => {//looping through to display the list of notes
             html += `<li class="note-item text-muted">Note: ${note}</li>`;
         });
       
