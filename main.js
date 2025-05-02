@@ -115,6 +115,18 @@ $(document).ready(function() {
         `;
       }
 
+        // Sort general lore notes alphabetically
+        loreCompendium.notes.sort();
+
+        // Sort lore entries alphabetically by key
+        const sortedLoreEntries = {};
+        Object.keys(loreCompendium.entries)
+            .sort()
+            .forEach(key => {
+                sortedLoreEntries[key] = loreCompendium.entries[key];
+            });
+        loreCompendium.entries = sortedLoreEntries;
+
       html += `
                 </div>
             </div>
