@@ -192,6 +192,14 @@
                             "details": [
                                 "Gave wraps to Violet for her cadet pack."
                             ]
+                        },
+                        "Tara": {
+                            "details": [
+                                "from Morraine province to the North of war college, along coast of Emerald Sea",
+                                "Confident like Mira",
+                                "Short Black hair",
+                                "Like Rhiannon, ,has been obsessed with dragons since childhood"
+                            ]
                         }
                     },
                     "Lore": {
@@ -199,12 +207,24 @@
                             "Colonel Kaori's Fild Guide to Dragon Kind": "Blue dragons descend from the extraordinary Gormfaileas line. Known for their formidable size, they are the most ruthless, especially in the case of the rare Blue Daggertail, whose knifelike spikes at the tip of their tail can disembowel an enemy with one flick.",
                             "Rider ranks": "page 96: The highest ranks among the cadets in the quadrant are wingleader and section leader. Both positions are held by elite third-years. Second-years can rise to squad leaders, but only if they're exceptional. Everyone else is simply a cadet before Threshing-when the dragons choose who they will bond-and a rider after. People die too often around here to hand out ranks prematurely.",
                             "Second year riders": "\"All riders can perform lesser magics once their dragons choose to channel their power.\" ~page 99. Dain was seen doing a twisting motion to magically unlock something.",
-                            "Cadets": "If cadets don't end up bonding with any dragon in their first year, they'll have to repeat the year."
+                            "Cadets": "If cadets don't end up bonding with any dragon in their first year, they'll have to repeat the year.",
+                            "Signet": "unique power from bond shared with dragon",
+                            "Sections and Squads": [
+                                "3 squads in each section",
+                                "3 sections in each of the 4 wings",
+                                "At least this year with Violet joining, the riders, each squad will have 15-16 people",
+                                "There's a section in first wing called Claw Section \(It's probably all sections\)",
+                                "Flame Section First Wing: Jack is put in it",
+                                "Tail Section First Wing: Tara is put in it",
+                                "Second Squad Flame Section \(I think Second Wing\): Violet and Rhiannon join \(and then get switched with Aura's section into Fourth Wing under Xaden's wing because Xaden wants to torment Violet probably\)",
+                                "Dain is quad leader of the squad Violet is in. But now he and his squad are under Xaden's chain of command after Xaden orders the switch"
+                            ] 
                         }
                     },
                     "Questions" : {
                         "To consider": "On page 98, Violet says \"Every Sorrengail is a rider,\". Both Dain and her agree that it's her mother's fault Violet is in the Rider's  quadrant. But it this doesn't give me the entire picture. General Mom has a goal for Violet being forced into being a rider. But what? Most people seem to agree Violet is small for a rider, and has a less sturdy physique compared to others (even Mira). So what gives? ",
-                        "Mom": "What is General Mom's goal with Violet? Is it related to Brennan or her late husband? Suspicious. Dain hates it, but Violet doesn't seem to want to go against her mother. Very suspicious. Why specifically Violet?"
+                        "Mom": "What is General Mom's goal with Violet? Is it related to Brennan or her late husband? Suspicious. Dain hates it, but Violet doesn't seem to want to go against her mother. Very suspicious. Why specifically Violet?",
+                        "Selection": "I wonder what determines which cadet goes in which section and which wing?"
                     }
                 }
             },
