@@ -353,12 +353,6 @@ $(document).ready(function() {
 function loadingLoader() {
   setTimeout(function() {
       document.getElementById("loader").style.display = "none";
-      // Force reflow to trigger animations
-      document.querySelectorAll('.book-title').forEach(el => {
-          el.style.animation = 'none';
-          el.offsetHeight; /* trigger reflow */
-          el.style.animation = null;
-      });
   }, 1000);
 }
 $('#book-notes-container').on('show.bs.collapse hide.bs.collapse', function(e) {
