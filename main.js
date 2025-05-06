@@ -296,21 +296,33 @@ $(document).ready(function() {
             `;
           }
                   
-          // Process Questions
-          if (chapterContent["Questions"] && chapterContent["Questions"]["To consider"]) {
-              const sectionId = `${chapterId}-questions`;
-              html += `
-                  <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
-                      <i class="fa fa-chevron-right collapsible-icon"></i>
-                      <h4>Questions</h4>
-                  </div>
-                  <div id="${sectionId}" class="collapse">
-                      <div class="question-box">
-                          <p>${chapterContent["Questions"]["To consider"]}</p>
-                      </div>
-                  </div>
-              `;
-          }
+        // Process Questions
+        if (chapterContent["Questions"] && Object.keys(chapterContent["Questions"]).length > 0) {
+            const sectionId = `${chapterId}-questions`;
+            html += `
+                <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${sectionId}" aria-expanded="false">
+                    <i class="fa fa-chevron-right collapsible-icon"></i>
+                    <h4>Questions</h4>
+                </div>
+                <div id="${sectionId}" class="collapse">
+                    <div class="questions-content">
+            `;
+            
+            // Loop through all questions
+            for (const [questionTitle, questionText] of Object.entries(chapterContent["Questions"])) {
+                html += `
+                    <div class="question-box">
+                        <h5>${questionTitle}</h5>
+                        <p>${questionText}</p>
+                    </div>
+                `;
+            }
+            
+            html += `
+                    </div>
+                </div>
+            `;
+        }
                   
         html += `</div>`; // Close chapter collapse div
         }
