@@ -9,6 +9,11 @@ $(document).ready(function() {
         const book = bookData[bookKey];
         const bookId = bookKey.replace(/\s+/g, '-').replace(/'/g, "\\'");//in case book title has '
 
+        // Skip books marked as "not read yet"
+        if (book.title && book.title.includes("(not read yet)")) {
+            return; // Skip this iteration
+        }
+
         // Create character compendium
         const characterCompendium = {};//store char compendium
         const loreCompendium = {
