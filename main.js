@@ -169,73 +169,73 @@ $(document).ready(function() {
       }
 
       //Dragon Compendium Section
-html += `
-<!-- Dragon Compendium Section -->
-<div class="compendium-section">
-    <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-dragons" aria-expanded="false">
-        <i class="fa fa-chevron-right collapsible-icon"></i>
-        <h3>Dragon Compendium</h3>
-    </div>
-    <div id="${bookId}-dragons" class="collapse">
-        <div class="row">
-`;
+        html += `
+        <!-- Dragon Compendium Section -->
+        <div class="compendium-section">
+            <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-dragons" aria-expanded="false">
+                <i class="fa fa-chevron-right collapsible-icon"></i>
+                <h3>Dragon Compendium</h3>
+            </div>
+            <div id="${bookId}-dragons" class="collapse">
+                <div class="row">
+        `;
 
-// Add dragon content if any dragons are found
-let dragonsFound = false;
+        // Add dragon content if any dragons are found
+        let dragonsFound = false;
 
-// Check character notes for dragons
-for (const [characterName, characterData] of Object.entries(characterCompendium)) {
-const dragonInfo = characterData.details.find(detail => 
-    detail.includes("dragon") || detail.includes("Dragon")
-);
+        // Check character notes for dragons
+        for (const [characterName, characterData] of Object.entries(characterCompendium)) {
+        const dragonInfo = characterData.details.find(detail => 
+            detail.includes("dragon") || detail.includes("Dragon")
+        );
 
-if (dragonInfo) {
-    const dragonNameMatch = dragonInfo.match(/(?:named|name is) (\w+)/i);
-    const dragonColorMatch = dragonInfo.match(/(\w+) dragon/i);
-    
-    const dragonName = dragonNameMatch ? dragonNameMatch[1] : `${characterName}'s dragon`;
-    const dragonColor = dragonColorMatch ? dragonColorMatch[1] : 'unknown color';
-    
-    if (!dragonCompendium[dragonName]) {
-        dragonCompendium[dragonName] = {
-            rider: characterName,
-            color: dragonColor,
-            appearances: characterData.appearances
-        };
-        dragonsFound = true;
-    }
-}
-}
+        if (dragonInfo) {
+            const dragonNameMatch = dragonInfo.match(/(?:named|name is) (\w+)/i);
+            const dragonColorMatch = dragonInfo.match(/(\w+) dragon/i);
+            
+            const dragonName = dragonNameMatch ? dragonNameMatch[1] : `${characterName}'s dragon`;
+            const dragonColor = dragonColorMatch ? dragonColorMatch[1] : 'unknown color';
+            
+            if (!dragonCompendium[dragonName]) {
+                dragonCompendium[dragonName] = {
+                    rider: characterName,
+                    color: dragonColor,
+                    appearances: characterData.appearances
+                };
+                dragonsFound = true;
+            }
+        }
+        }
 
-if (dragonsFound) {
-let dragonOrder = 0;
-for (const [dragonName, dragonData] of Object.entries(dragonCompendium)) {
-    html += `
-        <div class="col-md-6 col-lg-4">
-            <div class="dragon-card" style="--card-order: ${dragonOrder++}">
-                <div class="dragon-name">${dragonName}</div>
-                <div class="dragon-color">Color: ${dragonData.color}</div>
-                <div class="dragon-rider">Rider: ${dragonData.rider}</div>
-                <div class="appearances text-muted small">
-                    Appears in: ${dragonData.appearances.join(', ')}
+        if (dragonsFound) {
+        let dragonOrder = 0;
+        for (const [dragonName, dragonData] of Object.entries(dragonCompendium)) {
+            html += `
+                <div class="col-md-6 col-lg-4">
+                    <div class="dragon-card" style="--card-order: ${dragonOrder++}">
+                        <div class="dragon-name">${dragonName}</div>
+                        <div class="dragon-color">Color: ${dragonData.color}</div>
+                        <div class="dragon-rider">Rider: ${dragonData.rider}</div>
+                        <div class="appearances text-muted small">
+                            Appears in: ${dragonData.appearances.join(', ')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        } else {
+        html += `
+            <div class="col-12">
+                <p class="text-muted">No dragon information recorded yet.</p>
+            </div>
+        `;
+        }
+
+        html += `
                 </div>
             </div>
         </div>
-    `;
-}
-} else {
-html += `
-    <div class="col-12">
-        <p class="text-muted">No dragon information recorded yet.</p>
-    </div>
-`;
-}
-
-html += `
-        </div>
-    </div>
-</div>
-`;
+        `;
 
       html += `
               </div>
