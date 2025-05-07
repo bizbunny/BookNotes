@@ -1,6 +1,6 @@
 // Load the book notes from JSON
 $(document).ready(function() {
-  $.getJSON('./data/data.json', function(data) {
+  $.getJSON('/data/data.json', function(data) {
       let html = '<div class="books-container">';//consistent value to help with buidling HTML
       
       // Process each book
@@ -15,7 +15,8 @@ $(document).ready(function() {
             notes: [],//lore notes that only have one info piece
             entries: {}//lore notes that have multiple info pieces
         };
-        
+        const dragonCompendium = {};//store dragon compendium
+
         // Collect all character data
         if (book.chapters) {
           for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
@@ -166,6 +167,75 @@ $(document).ready(function() {
           }
           html += `</ul>`;
       }
+
+      //Dragon Compendium Section
+html += `
+<!-- Dragon Compendium Section -->
+<div class="compendium-section">
+    <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-dragons" aria-expanded="false">
+        <i class="fa fa-chevron-right collapsible-icon"></i>
+        <h3>Dragon Compendium</h3>
+    </div>
+    <div id="${bookId}-dragons" class="collapse">
+        <div class="row">
+`;
+
+// Add dragon content if any dragons are found
+let dragonsFound = false;
+
+// Check character notes for dragons
+for (const [characterName, characterData] of Object.entries(characterCompendium)) {
+const dragonInfo = characterData.details.find(detail => 
+    detail.includes("dragon") || detail.includes("Dragon")
+);
+
+if (dragonInfo) {
+    const dragonNameMatch = dragonInfo.match(/(?:named|name is) (\w+)/i);
+    const dragonColorMatch = dragonInfo.match(/(\w+) dragon/i);
+    
+    const dragonName = dragonNameMatch ? dragonNameMatch[1] : `${characterName}'s dragon`;
+    const dragonColor = dragonColorMatch ? dragonColorMatch[1] : 'unknown color';
+    
+    if (!dragonCompendium[dragonName]) {
+        dragonCompendium[dragonName] = {
+            rider: characterName,
+            color: dragonColor,
+            appearances: characterData.appearances
+        };
+        dragonsFound = true;
+    }
+}
+}
+
+if (dragonsFound) {
+let dragonOrder = 0;
+for (const [dragonName, dragonData] of Object.entries(dragonCompendium)) {
+    html += `
+        <div class="col-md-6 col-lg-4">
+            <div class="dragon-card" style="--card-order: ${dragonOrder++}">
+                <div class="dragon-name">${dragonName}</div>
+                <div class="dragon-color">Color: ${dragonData.color}</div>
+                <div class="dragon-rider">Rider: ${dragonData.rider}</div>
+                <div class="appearances text-muted small">
+                    Appears in: ${dragonData.appearances.join(', ')}
+                </div>
+            </div>
+        </div>
+    `;
+}
+} else {
+html += `
+    <div class="col-12">
+        <p class="text-muted">No dragon information recorded yet.</p>
+    </div>
+`;
+}
+
+html += `
+        </div>
+    </div>
+</div>
+`;
 
       html += `
               </div>
@@ -365,9 +435,18 @@ $('#book-notes-container').on('show.bs.collapse hide.bs.collapse', function(e) {
       icon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
   }
   // Force reflow to restart animations
-  $(e.target).find('.character-card').each(function() {
+  /* $(e.target).find('.character-card').each(function() {
     this.style.animation = 'none';
-    void this.offsetWidth; /* trigger reflow */
+    void this.offsetWidth; /* trigger reflow
     this.style.animation = null;
-});
+}); */
+}).fail(function(jqXHR, textStatus, errorThrown) {
+    console.error("Error loading JSON:", textStatus, errorThrown);
+    $('#book-notes-container').html(`
+        <div class="alert alert-danger">
+            Failed to load book notes: ${textStatus}<br>
+            Error: ${errorThrown}<br>
+            Check browser console for details
+        </div>
+    `);
 });
