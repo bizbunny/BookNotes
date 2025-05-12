@@ -74,52 +74,66 @@ $(document).ready(function() {
       
       // Build HTML
       html += `
-      <div class="book-title" 
-          style="--book-order: ${index}"
-          data-bs-toggle="collapse" 
-          data-bs-target="#${bookId}" 
-          aria-expanded="false">
-          <i class="fa fa-chevron-right collapsible-icon"></i>
-          <h2>${book.title || bookKey}</h2>
-          ${book.series ? `<div class="series-tag">${book.series}</div>` : ''}
-      </div>
-      <div id="${bookId}" class="collapse book-content">
-          <!-- Character Compendium Section -->
-          <div class="compendium-section">
-              <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-characters" aria-expanded="false">
-                  <i class="fa fa-chevron-right collapsible-icon"></i>
-                  <h3>Character Compendium</h3>
-              </div>
-              <div id="${bookId}-characters" class="collapse">
-                  <div class="row">
-      `;
-      let cardOrder = 0;
-      // Add character compendium content
-      for (const [characterName, characterData] of Object.entries(characterCompendium)) {
-        html += `
-            <div class="col-md-6 col-lg-4">
-                <div class="character-card" style="--card-order: ${cardOrder++}">
-                    <div class="character-name">${characterName}</div>
-                    <div class="appearances text-muted small mb-2">
-                        Appears in: ${characterData.appearances.join(', ')}
-                    </div>
-                    <ul class="list-unstyled">
-        `;
-    
-        characterData.details.forEach(detail => {//looping through each detail of each character
-            html += `<li class="note-item">• ${detail}</li>`;
-        });
-      
-        characterData.notes.forEach(note => {//looping through to display the list of notes
-            html += `<li class="note-item text-muted">Note: ${note}</li>`;
-        });
-      
-        html += `
-                    </ul>
+<div class="book-title" 
+    style="--book-order: ${index}"
+    data-bs-toggle="collapse" 
+    data-bs-target="#${bookId}" 
+    aria-expanded="false">
+    <i class="fa fa-chevron-right collapsible-icon"></i>
+    <h2>${book.title || bookKey}</h2>
+    ${book.series ? `<div class="series-tag">${book.series}</div>` : ''}
+</div>
+<div id="${bookId}" class="collapse book-content">
+    <!-- Character Compendium Section -->
+    <div class="compendium-section">
+        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-characters" aria-expanded="false">
+            <i class="fa fa-chevron-right collapsible-icon"></i>
+            <h3>Character Compendium</h3>
+        </div>
+        <div id="${bookId}-characters" class="collapse">
+            <div class="row">
+`;
+let cardOrder = 0;
+for (const [characterName, characterData] of Object.entries(characterCompendium)) {
+    html += `
+        <div class="col-md-6 col-lg-4">
+            <div class="character-card" style="--card-order: ${cardOrder++}">
+                <div class="character-name">${characterName}</div>
+                <div class="appearances text-muted small mb-2">
+                    Appears in: ${characterData.appearances.join(', ')}
                 </div>
+                <ul class="list-unstyled">
+    `;
+    
+    characterData.details.forEach(detail => {
+        html += `<li class="note-item">• ${detail}</li>`;
+    });
+  
+    characterData.notes.forEach(note => {
+        html += `<li class="note-item text-muted">Note: ${note}</li>`;
+    });
+  
+    html += `
+                </ul>
             </div>
-        `;
-      }
+        </div>
+    `;
+}
+
+html += `
+            </div>
+        </div>
+    </div> <!-- Close character compendium -->
+
+    <!-- Lore Compendium Section -->
+    <div class="compendium-section">
+        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-lore-compendium" aria-expanded="false">
+            <i class="fa fa-chevron-right collapsible-icon"></i>
+            <h3>Lore Compendium</h3>
+        </div>
+        <div id="${bookId}-lore-compendium" class="collapse">
+            <div class="lore-compendium-content">
+`;
 
         // Sort general lore notes alphabetically
         loreCompendium.notes.sort();
@@ -132,21 +146,6 @@ $(document).ready(function() {
                 sortedLoreEntries[key] = loreCompendium.entries[key];
             });
         loreCompendium.entries = sortedLoreEntries;
-
-      html += `
-                </div>
-            </div>
-        </div>
-
-        <!-- Lore Compendium Section -->
-        <div class="compendium-section">
-            <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-lore-compendium" aria-expanded="false">
-                <i class="fa fa-chevron-right collapsible-icon"></i>
-                <h3>Lore Compendium</h3>
-            </div>
-            <div id="${bookId}-lore-compendium" class="collapse">
-                <div class="lore-compendium-content">
-      `;
 
       // Add lore list items
       if (loreCompendium.notes.length > 0) {
@@ -174,19 +173,75 @@ $(document).ready(function() {
       }
 
       //Dragon Compendium Section
-        html += `
-        <!-- Dragon Compendium Section -->
-        <div class="compendium-section">
-            <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-dragons" aria-expanded="false">
-                <i class="fa fa-chevron-right collapsible-icon"></i>
-                <h3>Dragon Compendium</h3>
+      html += `
             </div>
-            <div id="${bookId}-dragons" class="collapse">
-                <div class="row">
-        `;
+        </div>
+    </div> <!-- Close lore compendium -->
+
+    <!-- Dragon Compendium Section -->
+    <div class="compendium-section">
+        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-dragons" aria-expanded="false">
+            <i class="fa fa-chevron-right collapsible-icon"></i>
+            <h3>Dragon Compendium</h3>
+        </div>
+        <div id="${bookId}-dragons" class="collapse">
+            <div class="row">
+`;
+
+  // Add dragon content if any dragons are found
+  let dragonsFound = false;
+
+  // Check character notes for dragons
+  for (const [characterName, characterData] of Object.entries(characterCompendium)) {
+      const dragonInfo = characterData.details.find(detail => 
+          detail.includes("dragon") || detail.includes("Dragon")
+      );
+
+      if (dragonInfo) {
+          const dragonNameMatch = dragonInfo.match(/(?:named|name is) (\w+)/i);
+          const dragonColorMatch = dragonInfo.match(/(\w+) dragon/i);
+          
+          const dragonName = dragonNameMatch ? dragonNameMatch[1] : `${characterName}'s dragon`;
+          const dragonColor = dragonColorMatch ? dragonColorMatch[1] : 'unknown color';
+          
+          if (!dragonCompendium[dragonName]) {
+              dragonCompendium[dragonName] = {
+                  rider: characterName,
+                  color: dragonColor,
+                  appearances: characterData.appearances
+              };
+              dragonsFound = true;
+          }
+      }
+  }
+
+  if (dragonsFound) {
+      let dragonOrder = 0;
+      for (const [dragonName, dragonData] of Object.entries(dragonCompendium)) {
+          html += `
+              <div class="col-md-6 col-lg-4">
+                  <div class="dragon-card" style="--card-order: ${dragonOrder++}">
+                      <div class="dragon-name">${dragonName}</div>
+                      <div class="dragon-color">Color: ${dragonData.color}</div>
+                      <div class="dragon-rider">Rider: ${dragonData.rider}</div>
+                      <div class="appearances text-muted small">
+                          Appears in: ${dragonData.appearances.join(', ')}
+                      </div>
+                  </div>
+              </div>
+          `;
+      }
+  } else {
+      html += `
+          <div class="col-12">
+              <p class="text-muted">No dragon information recorded yet.</p>
+          </div>
+      `;
+  }
 
         // Add dragon content if any dragons are found
-        let dragonsFound = false;
+        dragonsFound = false;
+        console.log(`Checking for dragons in ${bookKey}`); // DEBUG
 
         // Check character notes for dragons
         for (const [characterName, characterData] of Object.entries(characterCompendium)) {
@@ -194,68 +249,27 @@ $(document).ready(function() {
             detail.includes("dragon") || detail.includes("Dragon")
         );
 
-        if (dragonInfo) {
-            const dragonNameMatch = dragonInfo.match(/(?:named|name is) (\w+)/i);
-            const dragonColorMatch = dragonInfo.match(/(\w+) dragon/i);
-            
-            const dragonName = dragonNameMatch ? dragonNameMatch[1] : `${characterName}'s dragon`;
-            const dragonColor = dragonColorMatch ? dragonColorMatch[1] : 'unknown color';
-            
-            if (!dragonCompendium[dragonName]) {
-                dragonCompendium[dragonName] = {
-                    rider: characterName,
-                    color: dragonColor,
-                    appearances: characterData.appearances
-                };
-                dragonsFound = true;
-            }
-        }
+        console.log(`  Checking ${characterName}: dragonInfo =`, dragonInfo); // DEBUG
+
         }
 
-        if (dragonsFound) {
-        let dragonOrder = 0;
-        for (const [dragonName, dragonData] of Object.entries(dragonCompendium)) {
-            html += `
-                <div class="col-md-6 col-lg-4">
-                    <div class="dragon-card" style="--card-order: ${dragonOrder++}">
-                        <div class="dragon-name">${dragonName}</div>
-                        <div class="dragon-color">Color: ${dragonData.color}</div>
-                        <div class="dragon-rider">Rider: ${dragonData.rider}</div>
-                        <div class="appearances text-muted small">
-                            Appears in: ${dragonData.appearances.join(', ')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-        } else {
-        html += `
-            <div class="col-12">
-                <p class="text-muted">No dragon information recorded yet.</p>
-            </div>
-        `;
-        }
+        console.log(`  dragonsFound for ${bookKey}:`, dragonsFound); // DEBUG
+
 
         html += `
-                </div>
             </div>
         </div>
-        `;
+    </div> <!-- Close dragon compendium -->
 
-      html += `
-              </div>
-          </div>
-      </div>
-
-      <!-- Thoughts Section -->
-      <div class="compendium-section">
-          <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-thoughts" aria-expanded="false">
-              <i class="fa fa-chevron-right collapsible-icon"></i>
-              <h3>My Thoughts</h3>
-          </div>
-          <div id="${bookId}-thoughts" class="collapse">
-              <div class="thoughts-content">
-      `;
+    <!-- Thoughts Section -->
+    <div class="compendium-section">
+        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-thoughts" aria-expanded="false">
+            <i class="fa fa-chevron-right collapsible-icon"></i>
+            <h3>My Thoughts</h3>
+        </div>
+        <div id="${bookId}-thoughts" class="collapse">
+            <div class="thoughts-content">
+`;
 
       // Add thoughts content
       if (book.Thoughts && Object.keys(book.Thoughts).length > 0) {
@@ -274,10 +288,10 @@ $(document).ready(function() {
       }
 
       html += `
-                  </div>
-              </div>
-          </div>
-      `;
+            </div>
+        </div>
+    </div> <!-- Close thoughts section -->
+`;
         
       // Process each chapter
       if (book.chapters) {
