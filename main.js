@@ -1,3 +1,21 @@
+/*
+"Chapter X": {
+    "Character Notes": {
+        "": {
+            "details": [
+                ]
+        }
+    },
+    "Lore": {
+        "notes": {
+            "": ""
+            }
+    },
+    "Questions" : {
+        "": ""
+        }
+}
+*/
 // Load the book notes from JSON
 $(document).ready(function() {
   $.getJSON('/data/data.json', function(data) {
@@ -24,8 +42,7 @@ $(document).ready(function() {
 
         const characterToSignet = {};//Signet Info
 
-        
-// Scan all chapters for signet information
+        // Scan all chapters for signet information
 Object.values(book.chapters || {}).forEach(chapter => {
     const characterNotes = chapter["Character Notes"] || {};
     
@@ -47,6 +64,7 @@ Object.values(book.chapters || {}).forEach(chapter => {
         }
     });
 });
+
 
         // Collect all character data
         if (book.chapters) {
@@ -77,6 +95,7 @@ Object.values(book.chapters || {}).forEach(chapter => {
               }
               // Process Lore Notes
               if (chapterContent["Lore"]) {
+              
                 if (Array.isArray(chapterContent["Lore"].notes)) {
                     chapterContent["Lore"].notes.forEach(note => {
                         if (!loreCompendium.notes.includes(note)) {
@@ -197,21 +216,10 @@ html += `
           }
           html += `</ul>`;
       }
-
-      //Dragon Compendium Section
       html += `
             </div>
         </div>
     </div> <!-- Close lore compendium -->
-
-    <!-- Dragon Compendium Section -->
-    <div class="compendium-section">
-        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-dragons" aria-expanded="false">
-            <i class="fa fa-chevron-right collapsible-icon"></i>
-            <h3>Dragon Compendium</h3>
-        </div>
-        <div id="${bookId}-dragons" class="collapse">
-            <div class="row">
 `;
 
   // Add dragon content if any dragons are found
@@ -241,84 +249,79 @@ html += `
       }
   }
 
-  if (dragonsFound) {
-      let dragonOrder = 0;
-      for (const [dragonName, dragonData] of Object.entries(dragonCompendium)) {
-          html += `
-              <div class="col-md-6 col-lg-4">
-                  <div class="dragon-card" style="--card-order: ${dragonOrder++}">
-                      <div class="dragon-name">${dragonName}</div>
-                      <div class="dragon-color">Color: ${dragonData.color}</div>
-                      <div class="dragon-rider">Rider: ${dragonData.rider}</div>
-                      <div class="appearances text-muted small">
-                          Appears in: ${dragonData.appearances.join(', ')}
-                      </div>
-                  </div>
-              </div>
-          `;
-      }
-  } else {
-      html += `
-          <div class="col-12">
-              <p class="text-muted">No dragon information recorded yet.</p>
-          </div>
-      `;
-  }
-
-        // Add dragon content if any dragons are found
-        dragonsFound = false;
-        console.log(`Checking for dragons in ${bookKey}`); // DEBUG
-
-        // Check character notes for dragons
-        for (const [characterName, characterData] of Object.entries(characterCompendium)) {
-        const dragonInfo = characterData.details.find(detail => 
-            detail.includes("dragon") || detail.includes("Dragon")
-        );
-
-        console.log(`  Checking ${characterName}: dragonInfo =`, dragonInfo); // DEBUG
-
-        }
-
-        console.log(`  dragonsFound for ${bookKey}:`, dragonsFound); // DEBUG
-
-
-        html += `
-            </div>
-        </div>
-    </div> <!-- Close dragon compendium -->
-
-    <!-- Thoughts Section -->
-    <div class="compendium-section">
-        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-thoughts" aria-expanded="false">
-            <i class="fa fa-chevron-right collapsible-icon"></i>
-            <h3>My Thoughts</h3>
-        </div>
-        <div id="${bookId}-thoughts" class="collapse">
-            <div class="thoughts-content">
-`;
-
-      // Add thoughts content
-      if (book.Thoughts && Object.keys(book.Thoughts).length > 0) {
-          html += `<ul class="list-unstyled">`;
-          for (const [date, thought] of Object.entries(book.Thoughts)) {
-              html += `
-                  <li class="thought-item">
-                      <div class="thought-date">${date}</div>
-                      <div class="thought-text">${thought}</div>
-                  </li>
-              `;
-          }
-          html += `</ul>`;
-      } else {
-          html += `<p class="text-muted">No thoughts recorded yet.</p>`;
-      }
-
-      html += `
-            </div>
-        </div>
-    </div> <!-- Close thoughts section -->
-`;
+  // First pass: Extract all signet information from character notes
+Object.values(book.chapters || {}).forEach(chapter => {
+    const characterNotes = chapter["Character Notes"] || {};
+    
+    Object.entries(characterNotes).forEach(([characterName, details]) => {
+        // Extract from details
+        details.details.forEach(detail => {
+            const signetMatch = detail.match(/signet:?\s*(.*?)(?:\.|$)/i);
+            if (signetMatch && signetMatch[1]) {
+                characterToSignet[characterName] = signetMatch[1].trim();
+            }
+        });
         
+        // Extract from notes
+        if (details.note) {
+            const signetMatch = details.note.match(/signet:?\s*(.*?)(?:\.|$)/i);
+            if (signetMatch && signetMatch[1]) {
+                characterToSignet[characterName] = signetMatch[1].trim();
+            }
+        }
+    });
+});
+
+// Dragon Compendium Section
+html += `
+    <div class="compendium-section">
+        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-dragons" aria-expanded="false">
+            <i class="fa fa-chevron-right collapsible-icon"></i>
+            <h3>Dragon Compendium</h3>
+        </div>
+        <div id="${bookId}-dragons" class="collapse">
+            <div class="row">
+`;
+if (Object.keys(dragonCompendium).length > 0) {
+    let dragonOrder = 0;
+    Object.entries(dragonCompendium)
+        .sort((a, b) => a[0].localeCompare(b[0])) // Sort alphabetically
+        .forEach(([dragonName, dragonData]) => {
+            // Skip invalid entries
+            if (!dragonName || dragonName === 'undefined') return;
+            
+            html += `
+                <div class="col-md-6 col-lg-4">
+                    <div class="dragon-card" style="--card-order: ${dragonOrder++}">
+                        <div class="dragon-name">${dragonName}</div>
+                        ${dragonData.color !== 'unknown' ? 
+                            `<div class="dragon-color">Color: ${dragonData.color}</div>` : ''}
+                        ${dragonData.rider ? 
+                            `<div class="dragon-rider">Rider: ${dragonData.rider}</div>` : ''}
+                        ${dragonData.signet !== 'unknown' ? 
+                            `<div class="dragon-signet">Signet: ${dragonData.signet}</div>` : ''}
+                        ${dragonData.appearances.length > 0 ? `
+                            <div class="appearances text-muted small">
+                                Appears in: ${dragonData.appearances.join(', ')}
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        });
+} else {
+    html += `
+        <div class="col-12">
+            <p class="text-muted">No confirmed dragon information recorded yet.</p>
+        </div>
+    `;
+}
+
+html += `
+            </div>
+        </div>
+    </div>
+`;
       // Process each chapter
       if (book.chapters) {
         for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
