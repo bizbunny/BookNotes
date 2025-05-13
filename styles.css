@@ -64,6 +64,7 @@
   animation-delay: calc(var(--card-order) * 0.1s);
   opacity: 0; /* Start invisible */
   transform-origin: center bottom;
+  background-color: #f8f9fa;
 }
 .appearances {
   font-style: italic;
