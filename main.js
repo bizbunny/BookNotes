@@ -22,6 +22,32 @@ $(document).ready(function() {
         };
         const dragonCompendium = {};//store dragon compendium
 
+        const characterToSignet = {};//Signet Info
+
+        
+// Scan all chapters for signet information
+Object.values(book.chapters || {}).forEach(chapter => {
+    const characterNotes = chapter["Character Notes"] || {};
+    
+    Object.entries(characterNotes).forEach(([characterName, details]) => {
+        // Look for signet in details
+        details.details.forEach(detail => {
+            const signetMatch = detail.match(/signet:?\s*(.*)/i);
+            if (signetMatch && signetMatch[1]) {
+                characterToSignet[characterName] = signetMatch[1].trim();
+            }
+        });
+        
+        // Also check notes for signet info
+        if (details.note && details.note.includes("signet")) {
+            const signetMatch = details.note.match(/signet:?\s*(.*)/i);
+            if (signetMatch && signetMatch[1]) {
+                characterToSignet[characterName] = signetMatch[1].trim();
+            }
+        }
+    });
+});
+
         // Collect all character data
         if (book.chapters) {
           for (const [chapterTitle, chapterContent] of Object.entries(book.chapters)) {
