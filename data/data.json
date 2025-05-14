@@ -376,6 +376,36 @@
                                 "bulbous nose",
                                 "I think he's also a colonel?"
                                 ]
+                        },
+                        "Pryor": {
+                            "details": [
+                                "Violet describes him as the meekest of the first years",
+                                "Dark hair and eyebrows",
+                                "indecisive"
+                            ]
+                        },
+                        "Luca": {
+                            "details": [
+                                "Catty first year",
+                                "long brown hair",
+                                "One of the few women in the quadrant who didn' t cut her hair (like Violet)",
+                                "Does she wear some sort of makeup?"
+                            ]
+                        },
+                        "Aurelie": {
+                            "details": [
+                                "first year?",
+                                "no nonsense black eyes",
+                                "Violet isn't sure if she's remembering her name correctly so there is a chance her name is not Aurelie",
+                                "loyal to squad",
+                                "built like Mira (I'm guessing pretty muscular)",
+                                "She's a legacy on her father's side."
+                            ]
+                        },
+                        "Ridoc": {
+                            "details": [
+                                "Similar size to Aurelie but a tad smaller"
+                            ]
                         }
                     },
                     "Lore": {
@@ -384,12 +414,25 @@
                             "Classes": "Aside from Battle Brief, another class first years have is History",
                             "Riders in battle": "it's rare I think for riders to be sent out to battle before graduation, and when that does happen, it tends to be third years.",
                             "Battle Brief": "Battle Brief is taught every day unlike other classes",
-                            "Gryphons": "Navarre (where our story takes place) uses dragons for magic and granting riders magic powers and fighting. Poromiel uses Gryphons.",
-                            "Dragons vs Gryphons": "Gryphons don't tolerate high altitude as well as dragons. Dragons can channel more magic, making more powerful signets and riders compared to gryphons. But there are less dragons compared to gryphons I think. Plus, page 57 of physical book: dragons are the only ones capable of powering the wards that make all other magic but their own impossible within [Navarre's] borders. They're the reason Navarre's borders are somewhat circular--their power radiates from the Vale and can only extend so far, even with squads stationed at every outpost."
+                            "Gryphons": "While Navarre (where our story takes place) uses dragons for magic and granting riders magic powers and fighting, Poromiel uses Gryphons.",
+                            "Dragons vs Gryphons": 
+                            [
+                                "Gryphons don't tolerate high altitude as well as dragons ",
+                                "Dragons can channel more magic, making more powerful signets and riders compared to gryphons. But there are less dragons compared to gryphons I think.", 
+                                "page 57 of physical book: dragons are the only ones capable of powering the wards that make all other magic but their own impossible within [Navarre's] borders. They're the reason Navarre's borders are somewhat circular--their power radiates from the Vale and can only extend so far, even with squads stationed at every outpost."
+                            ],
+                            "War between Poromiel and Navarre": "It's been going on for 400 years I think",
+                            "Dunne":"Goddess of war",
+                            "Gym (Sparring) Uniform":
+                            [
+                                "Women wear the leathers they've been wearing as a cadet, but how the leather's cut is up to individual preference",
+                                "Men go shirtless because opponents might grab onto the shirt when fighting."
+                            ]
                             }
                     },
                     "Questions" : {
-                        "To consider": "judging by that very first blurb at the beginning of the chapter, will Xaden's opinion of Violet's mom change?"
+                        "To consider": "judging by that very first blurb at the beginning of the chapter, will Xaden's opinion of Violet's mom change?",
+                        "Violet's 1st Year at Basgiath College":"Dain (or someone else I don't remember) mentioned there are fewer dragons this year that are willing to bond. Plus Viole notes after her first Battle Brief that Prof Devera had a tone that implied it's not just third years that will be sent out to service this time around. What makes tis year so special? Does it have anything to do with why Violet was forced to be a rider?"
                         }
                 }
             },
@@ -397,14 +440,30 @@
                 "09/04/2025": "The low expectations are helping me enjoy this book well enough. A tier above english translated Danmei.",
                 "10/04/2025": "The character interactions are very stereotypical YA.",
                 "15/04/2025": " Dain has nice older brother vibes. But the author is clearly setting up Xaden to be endgame since I keep hearing people call this book Enemies to Lovers. That just feels lame. Since when Violet first locked eyes with Xaden, she compared him to a marble statue. It couldn't get more obvious.",
-                "27/04/2025": "I was right! Red head with the crossbow was gonna be important! Dain seems to know her! God I hope she's not gonna be like a love rival who likes Dain. That's gonna be so annoying!!!!!! Still don't have the entire picture why General Lilith Sorrengail is forcing Violet to be a Rider and not a Scribe like Violet wanted and expected to be. Since almost everyone expected Violet to be a scribe (including Dain, Mira, and even some higherups like what's his name. Was it Major Gilstead?).",
+                "27/04/2025": 
+                [
+                    "I was right! Red head with the crossbow was gonna be important! Dain seems to know her! God I hope she's not gonna be like a love rival who likes Dain. That's gonna be so annoying!!!!!!",
+                    "Still don't have the entire picture why General Lilith Sorrengail is forcing Violet to be a Rider and not a Scribe like Violet wanted and expected to be. Since almost everyone expected Violet to be a scribe (including Dain, Mira, and even some higherups like what's his name. Was it Major Gilstead?)."
+                ],
                 "28/04/2025": "Dain and Violet clearly missed each other. I wonder why she won't choose him?",
-                "29/04/2025":"Dain is so nice to Violet. Why the hell is Xaden clearly endgame??? I know of the enemies to lovers tag. I know it's Xaden. I don't care if it's a spoiler. I find it lame. Will he get more likable? Probably. But I don't expect by much. Plus, Violet and Dain clearly like each other, so why are neither acting ion anything?",
-                "30/04/2025":"ahh... So that's what's keeping Dain and Vi from fucking. Their pride. On another note, despite  Dain wanting to get Vi to the Scribe Quadrant, she doesn't want to defy her mom. Hmm. Says a lot about her in that moment.",
+                "29/04/2025":
+                [
+                    "Dain is so nice to Violet. Why the hell is Xaden clearly endgame??? I know of the enemies to lovers tag. I know it's Xaden. I don't care if it's a spoiler. I find it lame. Will he get more likable? Probably. But I don't expect by much.",
+                    "Violet and Dain clearly like each other, so why are neither acting ion anything?"
+                ],
+                "30/04/2025":
+                [
+                    "ahh... So that's what's keeping Dain and Vi from fucking. Their pride.",
+                    "Despite  Dain wanting to get Vi to the Scribe Quadrant, she doesn't want to defy her mom. Hmm. Says a lot about her in that moment."
+                ],
                 "05/05/2025":"I hope Tara's nice. Xaden is so far... weird. Like I get why he's acting that way because he's lashing out over his dead dad. But come on. Why you gotta take it out on Violet?",
-                "06/05/2025": "super nice that Violet is trying to remember the names of the dead since they'll likely be forgotten by time since all people will see is a name on a small marked stone somewhere (probably at the bottom of the paraphet (the trial thingy at the beginning that I already don't entirely remember the name)",
+                "06/05/2025": "Super nice that Violet is trying to remember the names of the dead since they'll likely be forgotten by time since all people will see is a name on a small marked stone somewhere (probably at the bottom of the paraphet (the trial thingy at the beginning that I already don't entirely remember the name)",
                 "12/05/2025":"With so many people expecting Violet to be a scribe, it's really making me wonder why the fuck Lilith made her become a rider. Infuriating!",
-                "13/05/2025":"So Navarre and Poromiel are at war? I'm guessing because Poromiel is not satisfied with the trade aggreement. There might be deeper reasons though... considering conscription is still a thing in Navarre."
+                "13/05/2025":
+                [
+                    "So Navarre and Poromiel are at war? I'm guessing because Poromiel is not satisfied with the trade aggreement. There might be deeper reasons though... considering conscription is still a thing in Navarre.",
+                    "God Jack is so annoying... But at least he made a bad first impression in front of Prof Devera"
+                ]
             }
         }
     },
@@ -427,6 +486,51 @@
         "Onyx Storm": {
             "series": "The Empyrean Series",
             "title": "Onyx Storm (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Blood Heir": {
+            "series": "Blood Heir Series",
+            "title": "Blood Heir (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Red Tigress": {
+            "series": "Blood Heir Series",
+            "title": "Red Tigress (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Crimson Reign": {
+            "series": "Blood Heir Series",
+            "title": "Crimson Reign (not read yet)",
             "chapters": {
                 "Chapter 1": {
                     "Character Notes": {},
