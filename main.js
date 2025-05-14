@@ -101,10 +101,18 @@ function assignSignetsToDragons(dragonCompendium, characterToSignet) {
     
     return dragonCompendium;
 }
-
+$(document).on('click', '[data-bs-toggle="collapse"]', function() {
+    const icon = $(this).find('.fa');
+    const target = $(this).attr('data-bs-target');
+    const isExpanded = $(this).attr('aria-expanded') === 'true';
+    
+    // Update the icon based on the new state (opposite of current)
+    icon.toggleClass('fa-chevron-right', !isExpanded);
+    icon.toggleClass('fa-chevron-down', isExpanded);
+});
 // Load the book notes from JSON
 $(document).ready(function() {
-  $.getJSON('/data/data.json', function(data) {
+  $.getJSON('data/data.json', function(data) {
       let html = '<div class="books-container">';
       
       // Process each book
@@ -547,7 +555,11 @@ if (book.Thoughts && Object.keys(book.Thoughts).length > 0) {
     });
   }).fail(function(jqXHR, textStatus, errorThrown) {
       console.error("Error loading JSON:", textStatus, errorThrown);
-      $('#book-notes-container').html('<div class="alert alert-danger">Failed to load book notes. Check console for details.</div>');
+      $('#book-notes-container').html(`<div class="alert alert-danger">
+          Failed to load book notes: ${textStatus}<br>
+          Error: ${errorThrown}<br>
+          Check browser console for details
+      </div>`);
   });
 });
 
@@ -557,22 +569,3 @@ function loadingLoader() {
     }, 1000);
 }
 
-$('#book-notes-container').on('show.bs.collapse hide.bs.collapse', function(e) {
-    const trigger = $('[data-bs-target="#' + e.target.id + '"]');
-    const icon = trigger.find('.fa');
-    
-    if (e.type === 'show') {
-        icon.removeClass('fa-chevron-right').addClass('fa-chevron-down');
-    } else {
-        icon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
-    }
-}).fail(function(jqXHR, textStatus, errorThrown) {
-    console.error("Error loading JSON:", textStatus, errorThrown);
-    $('#book-notes-container').html(`
-        <div class="alert alert-danger">
-            Failed to load book notes: ${textStatus}<br>
-            Error: ${errorThrown}<br>
-            Check browser console for details
-        </div>
-    `);
-});
