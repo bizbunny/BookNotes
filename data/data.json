@@ -246,8 +246,8 @@
                     "Lore": {
                         "notes": {
                             "Colonel Kaori's Fild Guide to Dragon Kind": "Blue dragons descend from the extraordinary Gormfaileas line. Known for their formidable size, they are the most ruthless, especially in the case of the rare Blue Daggertail, whose knifelike spikes at the tip of their tail can disembowel an enemy with one flick.",
-                            "Rider ranks": "page 96: The highest ranks among the cadets in the quadrant are wingleader and section leader. Both positions are held by elite third-years. Second-years can rise to squad leaders, but only if they're exceptional. Everyone else is simply a cadet before Threshing-when the dragons choose who they will bond-and a rider after. People die too often around here to hand out ranks prematurely.",
-                            "Second year riders": "\"All riders can perform lesser magics once their dragons choose to channel their power.\" ~page 99. Dain was seen doing a twisting motion to magically unlock something.",
+                            "Rider ranks": "page 96 or ebook: The highest ranks among the cadets in the quadrant are wingleader and section leader. Both positions are held by elite third-years. Second-years can rise to squad leaders, but only if they're exceptional. Everyone else is simply a cadet before Threshing-when the dragons choose who they will bond-and a rider after. People die too often around here to hand out ranks prematurely.",
+                            "Second year riders": "\"All riders can perform lesser magics once their dragons choose to channel their power.\" ~page 99 of ebook. Dain was seen doing a twisting motion to magically unlock something.",
                             "Cadets": "If cadets don't end up bonding with any dragon in their first year, they'll have to repeat the year.",
                             "Signet": "unique power from bond shared with dragon",
                             "Sections and Squads": [
@@ -265,7 +265,7 @@
                         }
                     },
                     "Questions" : {
-                        "To consider": "On page 98, Violet says \"Every Sorrengail is a rider,\". Both Dain and her agree that it's her mother's fault Violet is in the Rider's  quadrant. But it this doesn't give me the entire picture. General Lilith Sorrengail has a goal for Violet being forced into being a rider. But what? Most people seem to agree Violet is small for a rider, and has a less sturdy physique compared to others (even Mira). So what gives? ",
+                        "To consider": "On page 98 of ebook, Violet says \"Every Sorrengail is a rider,\". Both Dain and her agree that it's her mother's fault Violet is in the Rider's  quadrant. But it this doesn't give me the entire picture. General Lilith Sorrengail has a goal for Violet being forced into being a rider. But what? Most people seem to agree Violet is small for a rider, and has a less sturdy physique compared to others (even Mira). So what gives? ",
                         "Lilith Sorrengail": "What is General Lilith Sorrengail's goal with Violet? Is it related to Brennan or her late husband? Suspicious. Dain hates it, but Violet doesn't seem to want to go against her mother. Very suspicious. Why specifically Violet?",
                         "Selection": "I wonder what determines which cadet goes in which section and which wing?"
                     }
@@ -335,6 +335,7 @@
                     },
                     "Lore": {
                         "notes": {
+                            "Major Afendra's Guide to the Rider's Quadrant (Unauthorized Edition":"The sparring ring is where riders are made or broken, After all, no respectable dragon would choose a rider who cannot defend themselves, and no respectable caedt would allow such a threat to teh wing to continue training.",
                             "Malek": "god of death",
                             "How big a squad is": "apparently squads are made up of a mixture of 1st, 2nd and 3rs years",
                             "The Gauntlet": "vertical obstacle course in the war college",
@@ -379,9 +380,12 @@
                     },
                     "Lore": {
                         "notes": {
+                            "The Tyrrish Rebellion, an Official Brief for King Tauri by General Lilith Sorrengail":" Knowing I am in direct disagreement with General Melgren's orders, I am officially objecting to the plan set forth in today's briefing. It is not this general's opinion that the children of the rebellion's leaders should be forced to witness their parents' executions. No child should watch their parent put to death.",
                             "Classes": "Aside from Battle Brief, another class first years have is History",
                             "Riders in battle": "it's rare I think for riders to be sent out to battle before graduation, and when that does happen, it tends to be third years.",
-                            "Battle Brief": "Battle Brief is taught every day unlike other classes"
+                            "Battle Brief": "Battle Brief is taught every day unlike other classes",
+                            "Gryphons": "Navarre (where our story takes place) uses dragons for magic and granting riders magic powers and fighting. Poromiel uses Gryphons.",
+                            "Dragons vs Gryphons": "page 57 of physical book: "
                             }
                     },
                     "Questions" : {
@@ -399,7 +403,8 @@
                 "30/04/2025":"ahh... So that's what's keeping Dain and Vi from fucking. Their pride. On another note, despite  Dain wanting to get Vi to the Scribe Quadrant, she doesn't want to defy her mom. Hmm. Says a lot about her in that moment.",
                 "05/05/2025":"I hope Tara's nice. Xaden is so far... weird. Like I get why he's acting that way because he's lashing out over his dead dad. But come on. Why you gotta take it out on Violet?",
                 "06/05/2025": "super nice that Violet is trying to remember the names of the dead since they'll likely be forgotten by time since all people will see is a name on a small marked stone somewhere (probably at the bottom of the paraphet (the trial thingy at the beginning that I already don't entirely remember the name)",
-                "12/05/2025":"With so many people expecting Violet to be a scribe, it's really making me wonder why the fuck Lilith made her become a rider. Infuriating!"
+                "12/05/2025":"With so many people expecting Violet to be a scribe, it's really making me wonder why the fuck Lilith made her become a rider. Infuriating!",
+                "13/05/2025":"So Navarre and Poromiel are at war? I'm guessing because Poromiel is not satisfied with the trade aggreement. There might be deeper reasons though..."
             }
         }
     },
