@@ -54,7 +54,7 @@
                                 "His father 's name is Fen Riorson. Violet 's mom, Lilith Sorrengail, oversaw Fen's execution and Fen apparently killed Brennan, Violet's older bro"
                             ]
                         },
-                        "Brennan": {
+                        "Brennan Sorrengail": {
                             "details": [
                                 "died (I doubt it. Might show up later)",
                                 "I'm guessing he's the middle child"
@@ -108,7 +108,7 @@
                                 "stocky and much bigger than Violet"
                             ]
                         },
-                        "Brennan": {
+                        "Brennan Sorrengail": {
                             "details": [
                                 "brilliant strategist"
                             ]
@@ -377,6 +377,12 @@
                                 "I think he's also a colonel?"
                                 ]
                         },
+                        "Professor Emetterio": {
+                            "details": [
+                                "I'm guessing he's like a gym teacher since he's the teacher during sparring class",
+                                "Violet says he has a compact frame (body)"
+                            ]
+                        },
                         "Pryor": {
                             "details": [
                                 "Violet describes him as the meekest of the first years",
@@ -394,17 +400,60 @@
                         },
                         "Aurelie": {
                             "details": [
-                                "first year?",
+                                "first year",
                                 "no nonsense black eyes",
                                 "Violet isn't sure if she's remembering her name correctly so there is a chance her name is not Aurelie",
                                 "loyal to squad",
                                 "built like Mira (I'm guessing pretty muscular)",
-                                "She's a legacy on her father's side."
+                                "She's a legacy on her father's side.",
+                                "brown hair",
+                                "packs a punch"
                             ]
                         },
                         "Ridoc": {
                             "details": [
                                 "Similar size to Aurelie but a tad smaller"
+                            ]
+                        },
+                        "Cianna": {
+                            "details": [
+                                "executive squad leader to Violet and Rhiannon among others"
+                            ]
+                        },
+                        "Rhiannon": {
+                            "details": [
+                                "from a village at the Cygnisen border (her village taught their citizens to defend  at a young age)",
+                                "she's not good at history",
+                                "she's good at math and physics",
+                                "Violet compares her fighting to Mia's (very good)"
+                            ]
+                        },
+                        "Sawyer": {
+                            "details": [
+                                "has freckles",
+                                "stubble",
+                                "he and Rhiannon agree to help Violet with hand to hand combat if she helps both of them with history"
+                            ]
+                        },
+                        "Tynan": {
+                            "details": [
+                                "stocky physique",
+                                "bluish black hair",
+                                "first year",
+                                "Violet doesn't remember his name initially",
+                                "loses to Rhiannon on first spar assessment",
+                                "\"Has more ego than common sense\" quote from Violet"
+                            ]
+                        },
+                        "Imogen": {
+                            "details": [
+                                "pink haired second year",
+                                "has a rebellion relic like Xaden",
+                                "toned body",
+                                "Goes up against Violet in first spar assessment",
+                                "green eyes",
+                                "head taller than Vi",
+                                "breaks Violet's arm at the end of the chapter"
                             ]
                         }
                     },
@@ -434,6 +483,43 @@
                         "To consider": "judging by that very first blurb at the beginning of the chapter, will Xaden's opinion of Violet's mom change?",
                         "Violet's 1st Year at Basgiath College":"Dain (or someone else I don't remember) mentioned there are fewer dragons this year that are willing to bond. Plus Viole notes after her first Battle Brief that Prof Devera had a tone that implied it's not just third years that will be sent out to service this time around. What makes tis year so special? Does it have anything to do with why Violet was forced to be a rider?"
                         }
+                },
+                "Chapter 6": {
+                    "Character Notes": {
+                        "Dain Aetos": {
+                            "details": [
+                                "Tan skin"
+                                ]
+                        },
+                        "Winifred": {
+                            "details": [
+                                "A healer working in the healer's quadrant that Violet knows well",
+                                "older",
+                                "Grey eyes",
+                                "best healer at war college",
+                                "was also against Violet becoming a rider"
+                                ]
+                        },
+                        "Nolon": {
+                            "details": [
+                                "A mender that Violet also seems to know. I'm guessing also well?",
+                                "has been mending Violet for the last five years",
+                                "I think he and Winnifred are married?"
+                                ]
+                        },
+                        "Brennan Sorrengail": {
+                            "details": [
+                                "was a talented mender"
+                                ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Healers vs Menders":"healers don't have magic and rely on traditional medical training. Menders however do have magic.",
+                            "Mending Signet":"page 70 of book physical: The signet of mending is exceptionally rare among riders. They have the power to fix, to restore , to return anything to its original state."
+                        }
+                    },
+                    "Questions": {}
                 }
             },
             "Thoughts": {
@@ -463,6 +549,16 @@
                 [
                     "So Navarre and Poromiel are at war? I'm guessing because Poromiel is not satisfied with the trade aggreement. There might be deeper reasons though... considering conscription is still a thing in Navarre.",
                     "God Jack is so annoying... But at least he made a bad first impression in front of Prof Devera"
+                ],
+                "20/05/2025":
+                [
+                    "Hopefully Sawyer ends up as another ally",
+                    "not surprising Jack kills someone on the first year's first assessment spar. With how arrogant he is"
+                ],
+                "23/05/2025":
+                [
+                    "So Chapter 5 ends with a broken arm. I wonder if that will have a ripple effect later on. Like her disease/disorder or whatever the wiki said will be attempted to be used against her or something. Hmmm.",
+                    "Imogen recognizes Vi for the silver strands of hair. Does her mom also have some?"
                 ]
             }
         }
