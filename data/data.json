@@ -6,7 +6,7 @@
             "chapters": {
                 "Chapter 1": {
                     "Character Notes": {
-                        "Violet": {
+                        "Violet Sorrengail": {
                             "details": [
                                 "her mom is making her be a rider for some reason",
                                 "She wanted to be a scribe like her father (who is dead)",
@@ -15,7 +15,7 @@
                                 "braided brown hair that fades into silver"
                             ]
                         },
-                        "Mira": {
+                        "Mira Sorrengail": {
                             "details": [
                             "Lieutenant general I think",
                             "older sister of violet I think",
@@ -113,7 +113,7 @@
                                 "brilliant strategist"
                             ]
                         },
-                        "Mira": {
+                        "Mira Sorrengail": {
                             "details": [
                                 "Naturally gifted rider"
                             ]
@@ -124,7 +124,7 @@
                             ],
                             "note": "Still don't remember her name**"
                         },
-                        "Violet": {
+                        "Violet Sorrengail": {
                             "details": [
                                 "good with daggers it seems?",
                                 "was about to turn Jack into a Eunuch (A shame she didn't go through with it, but her restraint is a good demonstration of her character)",
@@ -208,7 +208,7 @@
                                 "I think they want Melgren's job (second in command to Sorrengail if I recall correctly)"
                             ]
                         },
-                        "Xaden": {
+                        "Xaden Riorson": {
                             "details": [
                                 "much taller than the other 3rd years",
                                 "wingleader for fourth wing",
@@ -237,7 +237,7 @@
                                 "Not sure they'll show up again after chapter 3"
                             ]
                         },
-                        "Mira": {
+                        "Mira Sorrengail": {
                             "details": [
                                 "Her dragon's name is Tein and is green"
                             ]
@@ -291,7 +291,7 @@
                         "pink haired cadet": {
                             "details": [
                                 "I forget if she's first or second year",
-                                "I think she has a pink stereo in her hair",
+                                "I think she has a pink streak in her hair",
                                 "she was mentioned I think super briefly in chapter 1 or 2 and she popped up somewhere in chapter 3 also briefly.",
                                 "feels like we'll learn her name after chapter 4"
                             ]
@@ -311,7 +311,7 @@
                                 "first year like Rhiannon and Violet and Tara"
                             ]
                         },
-                        "Xaden": {
+                        "Xaden Riorson": {
                             "details": [
                                 "his Dragon is navy blue with golden eyes, is species daggertail, and is named Sgaeyl",
                                 "Xaden has dark eyes"
@@ -537,9 +537,10 @@
                 },
                 "Chapter 7": {
                     "Character Notes": {
-                        "": {
+                        "Violet Sorrengail": {
                             "details": [
-                                ]
+                                "seems good with poisons"
+                            ]
                         }
                     },
                     "Lore": {
