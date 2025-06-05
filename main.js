@@ -119,8 +119,30 @@ $(document).on('click', '[data-bs-toggle="collapse"]', function() {
 // Load the book notes from JSON
 $(document).ready(function() {
   $.getJSON('data/data.json', function(data) {
-      let html = '<div class="books-container">';
-      
+    let html = '<div class="books-container">';
+    // Initialize containers
+    const $coversContainer = $('#book-covers-container');
+    const $notesContainer = $('#book-notes-container');
+
+    // Generate book covers HTML
+    let coversHtml = '';
+    data.forEach((bookData, index) => {
+        const bookKey = Object.keys(bookData)[0];
+        const book = bookData[bookKey];
+        
+        if (book.title && book.title.includes("(not read yet)")) {
+            return; // Skip unread books
+        }
+        
+        const coverImage = bookCoverImages[book.title] || 'https://via.placeholder.com/200x300?text=No+Cover';
+        coversHtml += `
+            <div class="book-cover" data-book-index="${index}" style="background-image: url('${coverImage}')">
+                <div class="book-cover-title">${book.title}</div>
+            </div>
+        `;
+    });
+    $coversContainer.html(coversHtml);
+
       // Process each book
       data.forEach((bookData, index) => {
         const bookKey = Object.keys(bookData)[0];
