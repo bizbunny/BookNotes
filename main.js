@@ -17,6 +17,12 @@
 }
 */
 
+const bookCoverImages = {
+  "Fourth Wing": "/images/bookCovers_FW.webp",
+  "Iron Flame": "/images/bookCovers_IF.webp",
+  "Onyx Storm": "/images/bookCovers_OS.webp"
+};
+
 // Function to extract dragon information from character notes
 function extractDragonsFromCharacterNotes(characterCompendium) {
     const dragonCompendium = {};
