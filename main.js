@@ -1,7 +1,8 @@
 const bookCoverImages = {
   "Fourth Wing": "/images/bookCovers_FW.webp",
   "Iron Flame": "/images/bookCovers_IF.webp",
-  "Onyx Storm": "/images/bookCovers_OS.webp"
+  "Onyx Storm": "/images/bookCovers_OS.webp",
+  "The Faceless Old Woman":"/images/bookCovers_FOW.webp"
 };
 
 //Function to extract dragon information from character notes
