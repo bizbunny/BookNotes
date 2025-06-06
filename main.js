@@ -414,42 +414,43 @@ function displayBookNotes(book, bookKey) {
     
     //Thoughts Section - Show for all books that have thoughts
     if (book.Thoughts && Object.keys(book.Thoughts).length > 0) {
-        html += `
+        const thoughtsId = `${bookId}-thoughts`;
+         html += `
 <div class="compendium-section">
-    <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${bookId}-thoughts" aria-expanded="false">
+    <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${thoughtsId}" aria-expanded="false">
         <i class="fa fa-chevron-right collapsible-icon"></i>
         <h3>Thoughts</h3>
     </div>
-    <div id="${bookId}-thoughts" class="collapse">
+    <div id="${thoughtsId}" class="collapse">
         <div class="thoughts-content">
         `;
-        
-        //Sort thoughts by date (newest first)
-        const sortedThoughts = Object.entries(book.Thoughts)
-            .sort(([dateA], [dateB]) => new Date(dateB) - new Date(dateA));
-        
-        sortedThoughts.forEach(([date, thought]) => {
-            html += `
+    
+    //Sort thoughts by date (newest first)
+         const sortedThoughts = Object.entries(book.Thoughts)
+        .sort(([dateA], [dateB]) => new Date(dateB) - new Date(dateA));
+    
+    sortedThoughts.forEach(([date, thought]) => {
+        html += `
 <div class="thought-item">
     <div class="thought-date">${date}</div>
     <div class="thought-text">
             `;
             
             if (Array.isArray(thought)) {
-                html += `<ul class="list-unstyled">`;
-                thought.forEach(item => {
-                    html += `<li>• ${item}</li>`;
-                });
-                html += `</ul>`;
-            } else {
-                html += thought;
-            }
-            
-            html += `
+            html += `<ul class="list-unstyled">`;
+            thought.forEach(item => {
+                html += `<li>• ${item}</li>`;
+            });
+            html += `</ul>`;
+        } else {
+            html += thought;
+        }
+        
+        html += `
     </div>
 </div>
             `;
-        });
+    });
         
         html += `
         </div>
