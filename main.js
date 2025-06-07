@@ -116,8 +116,12 @@ $(document).ready(function() {
             
             const coverImage = bookCoverImages[book.title] || 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/DefaultImage.png/330px-DefaultImage.png';
             coversHtml += `
-                <div class="book-cover" data-book-index="${index}" style="background-image: url('${coverImage}')">
-                    <div class="book-cover-title">${book.title}</div>
+                <div class="book-cover" data-book-index="${index}">
+                    <div class="book-cover-front" style="background-image: url('${coverImage}')"></div>
+                    <div class="book-cover-spine"></div>
+                    <div class="book-cover-back">
+                        <div class="book-cover-title">${book.title}</div>
+                    </div>
                 </div>
             `;
         });

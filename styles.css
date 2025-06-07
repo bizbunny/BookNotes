@@ -210,13 +210,52 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
   position: relative;
   overflow: hidden;
 }
-.book-cover:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.book-cover-front, 
+.book-cover-back,
+.book-cover-spine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.book-cover-front {
+    background-size: cover;
+    background-position: center;
+    transform-origin: left center;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.book-cover-back {
+    background: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.book-cover-title {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    transform: rotateY(180deg);
+    width: 100%;
+}
+.book-cover:hover .book-cover-front {
+    transform: rotateY(-160deg);
+}
+
+.book-cover:hover .book-cover-spine {
+    transform: rotateY(80deg);
 }
 .book-cover-title {
   position: absolute;
