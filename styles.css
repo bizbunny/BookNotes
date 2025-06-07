@@ -246,7 +246,12 @@
     padding: 10px;
     text-align: center;
     font-weight: bold;
-    color: #333;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     transform: rotateY(180deg);
     width: 100%;
 }
@@ -256,17 +261,6 @@
 
 .book-cover:hover .book-cover-spine {
     transform: rotateY(80deg);
-}
-.book-cover-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
 }
 /* Expanded state */
 .book-notes-container.expanded {
