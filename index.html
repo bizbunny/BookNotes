@@ -11,6 +11,23 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="./">Book Notes</a>
       </div>
+      <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search notes...">
+    <select id="book-filter">
+        <option value="">All Books</option>
+        <!-- Populate with book titles -->
+    </select>
+    <select id="type-filter">
+        <option value="">All Types</option>
+        <option value="character">Character Notes</option>
+        <option value="lore">Lore</option>
+        <option value="thought">Thoughts</option>
+    </select>
+    <button id="search-button">Search</button>
+</div>
+
+      <div id="search-results"></div>
+      <div id="pagination-controls" class="pagination-controls"></div>
     </nav>
     <div class="content container mt-4">
       <p>Some books have notes. Some have my overall thoughts on them.</p>

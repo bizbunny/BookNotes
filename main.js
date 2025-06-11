@@ -80,13 +80,160 @@ function assignSignetsToDragons(dragonCompendium, characterToSignet) {
     
     return dragonCompendium;
 }
+//searchability
+let currentPage = 1;
+let currentQuery = '';
 
+async function performSearch(query, page = 1) {
+    currentQuery = query;
+    currentPage = page;
+    
+    try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&page=${page}`);
+        const data = await response.json();
+        
+        //Display results
+        displaySearchResults(data.results);
+        
+        //Update pagination controls
+        updatePaginationControls(data.pagination);
+    } catch (error) {
+        console.error('Search failed:', error);
+    }
+}
+
+function updatePaginationControls(pagination) {
+    const paginationContainer = document.getElementById('pagination-controls');
+    paginationContainer.innerHTML = '';
+    
+    //Previous button
+    if (pagination.hasPreviousPage) {
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Previous';
+        prevButton.addEventListener('click', () => {
+            performSearch(currentQuery, currentPage - 1);
+        });
+        paginationContainer.appendChild(prevButton);
+    }
+    
+    //Page numbers
+    for (let i = 1; i <= pagination.totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        if (i === pagination.currentPage) {
+            pageButton.classList.add('active');
+        }
+        pageButton.addEventListener('click', () => {
+            performSearch(currentQuery, i);
+        });
+        paginationContainer.appendChild(pageButton);
+    }
+    
+    //Next button
+    if (pagination.hasNextPage) {
+        const nextButton = document.createElement('button');
+        nextButton.textContent = 'Next';
+        nextButton.addEventListener('click', () => {
+            performSearch(currentQuery, currentPage + 1);
+        });
+        paginationContainer.appendChild(nextButton);
+    }
+    
+    //Results count
+    const countSpan = document.createElement('span');
+    const startItem = ((pagination.currentPage - 1) * pagination.pageSize) + 1;
+    const endItem = Math.min(pagination.currentPage * pagination.pageSize, pagination.totalItems);
+    countSpan.textContent = `Showing ${startItem}-${endItem} of ${pagination.totalItems} results`;
+    paginationContainer.appendChild(countSpan);
+}
+document.getElementById('search-button').addEventListener('click', () => {
+    const query = document.getElementById('search-input').value;
+    const bookFilter = document.getElementById('book-filter').value;
+    const typeFilter = document.getElementById('type-filter').value;
+    
+    performSearch(query, 1, {
+        book: bookFilter,
+        type: typeFilter
+    });
+});
+//debouncing for better UX
+let searchTimeout;
+document.getElementById('search-input').addEventListener('input', (e) => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        performSearch(e.target.value, 1);
+    }, 300);
+});
+
+function displaySearchResults(results) {
+    const container = document.getElementById('search-results');
+    container.innerHTML = '';
+    
+    if (results.length === 0) {
+        container.innerHTML = '<p>No results found</p>';
+        return;
+    }
+    
+    results.forEach(result => {
+        const resultElement = document.createElement('div');
+        resultElement.className = 'search-result';
+        
+        //Customize based on your result structure
+        resultElement.innerHTML = `
+            <h4>${result.book} ${result.chapter ? `- ${result.chapter}` : ''}</h4>
+            <p>${highlightMatches(result.content, currentQuery)}</p>
+            <small>Found in: ${result.type}</small>
+        `;
+        
+        container.appendChild(resultElement);
+    });
+}
+
+function highlightMatches(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(query, 'gi');
+    return text.replace(regex, match => `<span class="highlight">${match}</span>`);
+}
+function indexAllContent() {
+    const searchIndex = [];
+    
+    bookData.forEach(bookData => {
+        const bookKey = Object.keys(bookData)[0];
+        const book = bookData[bookKey];
+        
+        //Index book title
+        searchIndex.push({
+            book: book.title,
+            type: 'book',
+            content: book.title,
+            chapter: null
+        });
+
+        //index thoughts
+
+        //index chapters
+        
+        //index lore
+        
+        //index questions
+
+        //ADD STUFF
+        // Index all other content as shown in performFullSearch
+        // ...
+    });
+    
+    //Store in database or memory
+    return searchIndex;
+}
+
+//Call this on server startup
+const searchIndex = indexAllContent();
 $(document).ready(function() {
     //Initialize containers
     const $coversContainer = $('#book-covers-container');
     const $notesContainer = $('#book-notes-container');
     
-    //Add back button HTML to notes container
+    //back button HTML to notes container
     $notesContainer.prepend(`
         <button class="back-to-covers">
             <i class="fa fa-arrow-left"></i> Back to Books
@@ -128,7 +275,7 @@ $(document).ready(function() {
         });
         $coversContainer.html(coversHtml);
         
-        //Add click handlers for book covers
+        //click handlers for book covers
         $coversContainer.on('click', '.book-cover', function() {
             const bookIndex = $(this).data('book-index');
             const bookData = data[bookIndex];
@@ -597,6 +744,6 @@ function displayBookNotes(book, bookKey) {
     `;
     
     //Update the notes container and show it
-    $('#book-notes-container').find('.books-container').remove(); // Remove old content
+    $('#book-notes-container').find('.books-container').remove(); //Remove old content
     $('#book-notes-container').html(html).show();
 }

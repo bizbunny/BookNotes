@@ -1,0 +1,14 @@
+-----------SQL Note-----------: 
+Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.
+Often this is the primary key field that we would like to be created automatically every time a new record is inserted.
+
+By default, a column can hold NULL values.
+The NOT NULL constraint enforces a column to NOT accept NULL values.
+This enforces a field to always contain a value, which means that you cannot insert a new record, or update a record without adding a value to this field.
+
+The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.
+A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+
+Use the ON DELETE CASCADE option to specify whether you want rows deleted in a child table when corresponding rows are deleted in the parent table. If you do not specify cascading deletes, the default behavior of the database server prevents you from deleting data in a table if other tables reference it.
+If you specify this option, later when you delete a row in the parent table, the database server also deletes any rows associated with that row (foreign keys) in a child table. The principal advantage to the cascading-deletes feature is that it allows you to reduce the quantity of SQL statements you need to perform delete actions. 

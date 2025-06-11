@@ -287,6 +287,59 @@
 .back-to-covers:hover {
   background-color: #8a1162;
 }
+/*-----------------------pagination----------------------*/
+.pagination-controls {
+    display: flex;
+    gap: 5px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pagination-controls button {
+    padding: 5px 10px;
+    border: 1px solid #b71563;
+    background: white;
+    color: #b71563;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pagination-controls button.active {
+    background: #b71563;
+    color: white;
+}
+
+.pagination-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    align-self: center;
+    margin: 0 10px;
+    color: #666;
+}
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.search-result {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.search-result {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
 /*-----------------------Animation-----------------------*/
 @keyframes slideInFromRight {
   0% {
