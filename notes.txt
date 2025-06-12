@@ -11,4 +11,14 @@ A FOREIGN KEY is a field (or collection of fields) in one table, that refers to 
 The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
 
 Use the ON DELETE CASCADE option to specify whether you want rows deleted in a child table when corresponding rows are deleted in the parent table. If you do not specify cascading deletes, the default behavior of the database server prevents you from deleting data in a table if other tables reference it.
-If you specify this option, later when you delete a row in the parent table, the database server also deletes any rows associated with that row (foreign keys) in a child table. The principal advantage to the cascading-deletes feature is that it allows you to reduce the quantity of SQL statements you need to perform delete actions. 
+If you specify this option, later when you delete a row in the parent table, the database server also deletes any rows associated with that row (foreign keys) in a child table. The principal advantage to the cascading-deletes feature is that it allows you to reduce the quantity of SQL statements you need to perform delete actions.
+
+------------EXPRESS--------------:
+https://www.geeksforgeeks.org/express-js-app-use-function/
+The app.use() function in Express.js adds middleware to the application's request-processing pipeline. It applies the specified middleware to all incoming requests or to specific routes, allowing you to modify request/response objects, perform operations, or handle errors throughout the application.
+
+
+--------------JS-----------------:
+-----ASYNC---------:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+The await operator is used to wait for a Promise and get its fulfillment value. It can only be used inside an async function or at the top level of a module.

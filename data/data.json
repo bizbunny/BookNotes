@@ -541,17 +541,83 @@
                             "details": [
                                 "seems good with poisons"
                             ]
+                        },
+                        "Xaden Riorson": {
+                            "details": [
+                                "Is more compassionate? Than he lets on? What's the right word here? He doesn't want more first years from his province (I'm guessing others with the rebellion relic) to die, A trait Violet reluctant my finds admirable",
+                                "wants to personally target Violet despite what the other rebellion relic holders want (revenge is probably the reason, but by what means? Currently unreadable in that regard)",
+                                "signet: Shadow weilding"
+                            ]
+                        },
+                        "Liam Mairi": {
+                            "details": [
+                                "top cadet in current batch of first Year",
+                                "he's in second squad tail section of fourth wing",
+                                "spiky black hair",
+                                "I'm guessing also has a rebellion relic",
+                                "practically ran across the parapet before becoming a cadet",
+                                "A head taller than most other first years",
+                                "Destroyed every opponent on assessment day",
+                                "first  year"
+                            ]
+                        },
+                        "Garrick": {
+                            "details": [
+                                "big",
+                                "dark hair I think?",
+                                "flame section leader in fourth wing",
+                                "Violet's direct superior above Dain",
+                                "Best fighter among the rebellion rellick holders that don't fight dirty (Xaden is best and dirtiest)",
+                                "Wide chest",
+                                "seems the most merciful? Out of the rebellion bunch considering he defended Violet in a way from Imo genes arguments from killing her"
+                            ]
+                        },
+                        "Bodhi":{
+                            "details":[
+                                "rebellion relic holder",
+                                "second year",
+                                "Xaden's cousin (Fen has a sister)",
+                                "dark curly hair",
+                                "similar complexion to Xaden",
+                                "handsome like Xaden"
+                            ]
+                        },
+                        "First Year Rebellion Relic Holder":{
+                            "details":[
+                                "has a bunk near Rhiannon and Violet",
+                                "Violet doens't remember her name (in chapter 7 anyway)",
+                                "can't process all the information in battle brief too well (either due to being too much info or too much propaganda). Xaden tells her keep what you know and say what they tell you to."
+                            ]
+                        },
+                        "Imogen":{
+                            "details":[
+                                "pale green eyes",
+                                "used her powers on the mat on assessment day and that's likely how she broke Violet's shoulder",
+                                "Seems kinder towards other rebellion relic holders (other Tyrrish folks basically)"
+                            ]
                         }
                     },
                     "Lore": {
                         "notes": {
                             "Addendum 5.2, Basgiath War College Code of Conduct": "In the best interest of preserving peace within Navarre, no more than three cadets carrying rebellion relics may be assigned to any squad of any quadrant",
-                            "Addendum 5.3, Basgiath War College Code of Conduct": "In addition to last year's changes, marked ones assembling in groups of three or more will now be considered an act of seditious conspiracy and is hereby a capital offence"
+                            "Addendum 5.3, Basgiath War College Code of Conduct": "In addition to last year's changes, marked ones assembling in groups of three or more will now be considered an act of seditious conspiracy and is hereby a capital offence",
+                            "Fonilee berries":"purple and useful for poisons according to Violet",
+                            "shadow wielding signet":[
+                                    "rare and highly coveted",
+                                    "the reason Laden managed to go up so high in ranks",
+                                    "can disoriented entire drifts or graphons or take them down"
+                                ]
                             }
                     },
                     "Questions" : {
-                        "": ""
+                        "The Tyrrish cadets": "I wonder if these secret meetings from the rebellion relic holders will play a part into something bigger later in the story?",
+                        "Xaden's motives": "Xaden could have but did not immediately kill Violet at the end of Chapter 7. He clearly knew she was there during the secret meeting. There must be a good reason to it. But what?"
                         }
+                },
+                "Chapter 8": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
                 }
             },
             "Thoughts": {
@@ -597,7 +663,9 @@
                     "Ah okay, so mending will heal you, but it will hurt like hell. And still hurt for weeks (at least with how Violet is). That... actually makes sense.",
                     "It's called Parapet! That thing cadets do before reaching the college, traveling on a ledge or something and hoping they don't fall off!",
                     "I was wrong. Brennan was the oldest. That explains why he gave advice to Mira when she first joined. Will need to update my notes."
-                ]
+                ],
+                "10/06/2025":"Violet seems very reckless trying to get closer to eavesdrop on the secret meeting of the rebellion relic holders, especially with Xaden around",
+                "11/06/2025":"Xaden looks like he sees something interesting in the fact that Violet won't tell on the illegal rebellion relic meeting. His integrity shown here is an interesting character moment"
             }
         }
     },
@@ -715,7 +783,97 @@
     {
         "Heaven Officials Blessing": {
             "series": "Heaven Official's Blessing Series",
+            "title": "Heaven Official's Blessing 4 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Heaven Officials Blessing": {
+            "series": "Heaven Official's Blessing Series",
             "title": "Heaven Official's Blessing 8 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "The Disabled Tyrant's Beloved Pet Fish": {
+            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
+            "title": "The Disabled Tyrant's Beloved Pet Fish 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "The Disabled Tyrant's Beloved Pet Fish": {
+            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
+            "title": "The Disabled Tyrant's Beloved Pet Fish 2 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "The Disabled Tyrant's Beloved Pet Fish": {
+            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
+            "title": "The Disabled Tyrant's Beloved Pet Fish 3 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Peerless": {
+            "series": "Peerless Series",
+            "title": "Peerless 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Peerless": {
+            "series": "Peerless Series",
+            "title": "Peerless 2 (not read yet)",
             "chapters": {
                 "Chapter 1": {
                     "Character Notes": {},

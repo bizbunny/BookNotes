@@ -210,17 +210,80 @@ function indexAllContent() {
         });
 
         //index thoughts
-
+        Object.entries(book.Thoughts).forEach(([date, thought]) => {
+            const thoughtText = Array.isArray(thought) ? thought.join(' ') : thought;
+            if (thoughtText.toLowerCase().includes(query)) {
+                searchIndex.push({
+                    book: book.title,
+                    type: 'Thought',
+                    content: thoughtText,
+                    chapter: null,
+                    date: date
+                });
+            }
+        });
         //index chapters
-        
-        //index lore
-        
-        //index questions
-
-        //ADD STUFF
-        // Index all other content as shown in performFullSearch
-        // ...
-    });
+        Object.entries(book.chapters).forEach(([chapterTitle, chapterContent]) => {
+                //Search character notes
+                if (chapterContent["Character Notes"]) {
+                    Object.entries(chapterContent["Character Notes"]).forEach(([character, notes]) => {
+                        const allDetails = notes.details.join(' ');
+                        if (allDetails.toLowerCase().includes(query) || 
+                            (notes.note && notes.note.toLowerCase().includes(query))) {
+                            searchIndex.push({
+                                book: book.title,
+                                type: 'Character Note',
+                                content: notes.note ? `${allDetails} ${notes.note}` : allDetails,
+                                chapter: chapterTitle,
+                                character: character
+                            });
+                        }
+                    });
+                }
+                
+                //Search lore
+                if (chapterContent["Lore"]) {
+                    if (Array.isArray(chapterContent["Lore"].notes)) {
+                        chapterContent["Lore"].notes.forEach(note => {
+                            if (note.toLowerCase().includes(query)) {
+                                searchIndex.push({
+                                    book: book.title,
+                                    type: 'Lore Note',
+                                    content: note,
+                                    chapter: chapterTitle
+                                });
+                            }
+                        });
+                    } else if (typeof chapterContent["Lore"].notes === 'object') {
+                        Object.entries(chapterContent["Lore"].notes).forEach(([key, value]) => {
+                            const loreText = Array.isArray(value) ? value.join(' ') : value;
+                            if (loreText.toLowerCase().includes(query) || key.toLowerCase().includes(query)) {
+                                searchIndex.push({
+                                    book: book.title,
+                                    type: 'Lore Entry',
+                                    content: `${key}: ${loreText}`,
+                                    chapter: chapterTitle
+                                });
+                            }
+                        });
+                    }
+                }
+                
+                //Search questions
+                if (chapterContent["Questions"]) {
+                    Object.entries(chapterContent["Questions"]).forEach(([question, answer]) => {
+                        if (question.toLowerCase().includes(query) || answer.toLowerCase().includes(query)) {
+                            searchIndex.push({
+                                book: book.title,
+                                type: 'Question',
+                                content: `${question}: ${answer}`,
+                                chapter: chapterTitle
+                            });
+                        }
+                    });
+                }
+            }
+    )});
     
     //Store in database or memory
     return searchIndex;

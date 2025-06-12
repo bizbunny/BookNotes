@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
+const booksRouter = require('./routes/books');
+const errorHandler = require('./middleware/errorHandler');
 const bookData = require('./data/data.json');
+const swaggerUi = require('swagger-ui-express');
+const specs = require('./swagger');
 
 function performFullSearch(query) {
     const results = [];
@@ -138,5 +142,16 @@ app.get('/api/search', (req, res) => {
         }
     });
 });
-
-app.listen(3000, () => console.log('Server running'));
+//Middleware
+app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+//Routes
+app.use('/api/books', booksRouter);
+//Error handling
+app.use(errorHandler);
+//Start Server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    console.log(`API docs available at http://localhost:${PORT}/api-docs`);
+});
