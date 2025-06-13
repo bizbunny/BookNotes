@@ -6,24 +6,24 @@ const bookData = require('./public/data/data.json');
 
 const app = express();
 
-// Middleware
-app.use(cors()); // Enable CORS for development
+//Middleware
+app.use(cors()); //Enable CORS for development
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
+app.use(express.static(path.join(__dirname, 'public'))); //Serve static files
 
-// API Routes
+//API Routes
 app.get('/api/search', async (req, res) => {
     try {
         const { q: query = '', book = '', type = '', page = 1 } = req.query;
         const pageSize = 10;
 
-        // Use the SearchService for database searches
-        // const results = await SearchService.search(query, { book, type }, page, pageSize);
+        //Use the SearchService for database searches
+        //const results = await SearchService.search(query, { book, type }, page, pageSize);
         
-        // Or use the client-side search as fallback (for now)
+        //Or use the client-side search as fallback (for now)
         const results = performFullSearch(query.toLowerCase());
         
-        // Apply filters
+        //Apply filters
         let filteredResults = results;
         if (book) {
             filteredResults = filteredResults.filter(r => r.book === book);
@@ -32,7 +32,7 @@ app.get('/api/search', async (req, res) => {
             filteredResults = filteredResults.filter(r => r.type.includes(type));
         }
         
-        // Pagination
+        //Pagination
         const totalItems = filteredResults.length;
         const totalPages = Math.ceil(totalItems / pageSize);
         const paginatedResults = filteredResults.slice(
@@ -56,7 +56,7 @@ app.get('/api/search', async (req, res) => {
     }
 });
 
-// Client-side search function (same as in your searchService.js)
+//Client-side search function (same as in your searchService.js)
 function performFullSearch(query) {
     const results = [];
     
@@ -64,7 +64,7 @@ function performFullSearch(query) {
         const bookKey = Object.keys(bookData)[0];
         const book = bookData[bookKey];
         
-        // Search book title
+        //Search book title
         if (book.title && book.title.toLowerCase().includes(query)) {
             results.push({
                 book: book.title,
@@ -74,7 +74,7 @@ function performFullSearch(query) {
             });
         }
         
-        // Search thoughts
+        //Search thoughts
         if (book.Thoughts) {
             Object.entries(book.Thoughts).forEach(([date, thought]) => {
                 const thoughtText = Array.isArray(thought) ? thought.join(' ') : thought;
@@ -90,10 +90,10 @@ function performFullSearch(query) {
             });
         }
         
-        // Search chapters
+        //Search chapters
         if (book.chapters) {
             Object.entries(book.chapters).forEach(([chapterTitle, chapterContent]) => {
-                // Search character notes
+                //Search character notes
                 if (chapterContent["Character Notes"]) {
                     Object.entries(chapterContent["Character Notes"]).forEach(([character, notes]) => {
                         const allDetails = notes.details.join(' ');
@@ -110,7 +110,7 @@ function performFullSearch(query) {
                     });
                 }
                 
-                // Search lore
+                //Search lore
                 if (chapterContent["Lore"]) {
                     if (Array.isArray(chapterContent["Lore"].notes)) {
                         chapterContent["Lore"].notes.forEach(note => {
@@ -138,7 +138,7 @@ function performFullSearch(query) {
                     }
                 }
                 
-                // Search questions
+                //Search questions
                 if (chapterContent["Questions"]) {
                     Object.entries(chapterContent["Questions"]).forEach(([question, answer]) => {
                         if (question.toLowerCase().includes(query) || answer.toLowerCase().includes(query)) {
@@ -158,7 +158,7 @@ function performFullSearch(query) {
     return results;
 }
 
-// Book list endpoint (for the book filter dropdown)
+//Book list endpoint (for the book filter dropdown)
 app.get('/api/books', (req, res) => {
     const books = bookData.map(bookDataItem => {
         const bookKey = Object.keys(bookDataItem)[0];
@@ -167,7 +167,7 @@ app.get('/api/books', (req, res) => {
     res.json(books);
 });
 
-// Start server
+//Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

@@ -98,12 +98,12 @@ async function initializeBookFilter() {
     }
 }
 
-// Perform search with API
-// Store the current query globally
+//Perform search with API
+//Store the current query globally
 let currentQuery = '';
 
 async function performSearch(query, page = 1, filters = {}) {
-    currentQuery = query; // Store the query
+    currentQuery = query; //Store the query
     try {
         const params = new URLSearchParams({
             q: query,
@@ -116,7 +116,7 @@ async function performSearch(query, page = 1, filters = {}) {
         if (!response.ok) throw new Error('Search failed');
         
         const data = await response.json();
-        displaySearchResults(data.results, data.query); // Pass the query
+        displaySearchResults(data.results, data.query); //Pass the query
         updatePaginationControls(data.pagination);
     } catch (error) {
         console.error('Search error:', error);
@@ -184,7 +184,7 @@ document.getElementById('search-button').addEventListener('click', () => {
 });
 //debouncing for better UX
 let searchTimeout;
-// Input event for live search
+//Input event for live search
 document.getElementById('search-input').addEventListener('input', (e) => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
