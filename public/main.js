@@ -1,11 +1,11 @@
 const bookCoverImages = {
-    "Fourth Wing": "./images/bookCovers_FW.webp",
-    "Iron Flame": "./images/bookCovers_IF.webp",
-    "Onyx Storm": "./images/bookCovers_OS.webp",
-    "The Faceless Old Woman":"./images/bookCovers_FOW.webp",
-    "AngelMaker":"./images/bookCovers_AM.webp",
-    "Heaven Official's Blessing 1":"./images/bookCovers_HOB1.webp",
-    "Heaven Official's Blessing 2":"./images/bookCovers_HOB2.webp"
+    "Fourth Wing": "/images/bookCovers_FW.webp",
+    "Iron Flame": "/images/bookCovers_IF.webp",
+    "Onyx Storm": "/images/bookCovers_OS.webp",
+    "The Faceless Old Woman":"/images/bookCovers_FOW.webp",
+    "AngelMaker":"/images/bookCovers_AM.webp",
+    "Heaven Official's Blessing 1":"/images/bookCovers_HOB1.webp",
+    "Heaven Official's Blessing 2":"/images/bookCovers_HOB2.webp"
 };
 
 //Function to extract dragon information from character notes
@@ -80,13 +80,248 @@ function assignSignetsToDragons(dragonCompendium, characterToSignet) {
     
     return dragonCompendium;
 }
+//searchability
+async function initializeBookFilter() {
+    try {
+        const response = await fetch('/api/books');
+        const books = await response.json();
+        
+        const bookFilter = document.getElementById('book-filter');
+        books.forEach(book => {
+            const option = document.createElement('option');
+            option.value = book;
+            option.textContent = book;
+            bookFilter.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Failed to load books:', error);
+    }
+}
 
+// Perform search with API
+// Store the current query globally
+let currentQuery = '';
+
+async function performSearch(query, page = 1, filters = {}) {
+    currentQuery = query; // Store the query
+    try {
+        const params = new URLSearchParams({
+            q: query,
+            page: page,
+            ...(filters.book && { book: filters.book }),
+            ...(filters.type && { type: filters.type })
+        });
+        
+        const response = await fetch(`/api/search?${params}`);
+        if (!response.ok) throw new Error('Search failed');
+        
+        const data = await response.json();
+        displaySearchResults(data.results, data.query); // Pass the query
+        updatePaginationControls(data.pagination);
+    } catch (error) {
+        console.error('Search error:', error);
+        document.getElementById('search-results').innerHTML = `
+            <div class="alert alert-danger">
+                Search failed: ${error.message}
+            </div>
+        `;
+    }
+}
+
+function updatePaginationControls(pagination) {
+    const paginationContainer = document.getElementById('pagination-controls');
+    paginationContainer.innerHTML = '';
+    
+    //Previous button
+    if (pagination.hasPreviousPage) {
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Previous';
+        prevButton.addEventListener('click', () => {
+            performSearch(currentQuery, currentPage - 1);
+        });
+        paginationContainer.appendChild(prevButton);
+    }
+    
+    //Page numbers
+    for (let i = 1; i <= pagination.totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        if (i === pagination.currentPage) {
+            pageButton.classList.add('active');
+        }
+        pageButton.addEventListener('click', () => {
+            performSearch(currentQuery, i);
+        });
+        paginationContainer.appendChild(pageButton);
+    }
+    
+    //Next button
+    if (pagination.hasNextPage) {
+        const nextButton = document.createElement('button');
+        nextButton.textContent = 'Next';
+        nextButton.addEventListener('click', () => {
+            performSearch(currentQuery, currentPage + 1);
+        });
+        paginationContainer.appendChild(nextButton);
+    }
+    
+    //Results count
+    const countSpan = document.createElement('span');
+    const startItem = ((pagination.currentPage - 1) * pagination.pageSize) + 1;
+    const endItem = Math.min(pagination.currentPage * pagination.pageSize, pagination.totalItems);
+    countSpan.textContent = `Showing ${startItem}-${endItem} of ${pagination.totalItems} results`;
+    paginationContainer.appendChild(countSpan);
+}
+document.getElementById('search-button').addEventListener('click', () => {
+    const query = document.getElementById('search-input').value;
+    const bookFilter = document.getElementById('book-filter').value;
+    const typeFilter = document.getElementById('type-filter').value;
+    
+    performSearch(query, 1, {
+        book: bookFilter,
+        type: typeFilter
+    });
+});
+//debouncing for better UX
+let searchTimeout;
+// Input event for live search
+document.getElementById('search-input').addEventListener('input', (e) => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        performSearch(e.target.value, 1);
+    }, 300);
+});
+
+function displaySearchResults(results, query) {
+    const container = document.getElementById('search-results');
+    container.innerHTML = '';
+    
+    if (results.length === 0) {
+        container.innerHTML = '<p>No results found</p>';
+        return;
+    }
+    
+    results.forEach(result => {
+        const resultElement = document.createElement('div');
+        resultElement.className = 'search-result';
+        
+        resultElement.innerHTML = `
+            <h4>${result.book} ${result.chapter ? `- ${result.chapter}` : ''}</h4>
+            <p>${highlightMatches(result.content, query)}</p>
+            <small>Found in: ${result.type}</small>
+        `;
+        
+        container.appendChild(resultElement);
+    });
+}
+
+function highlightMatches(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(query, 'gi');
+    return text.replace(regex, match => `<span class="highlight">${match}</span>`);
+}
+function indexAllContent(bookData, query = '') {
+    const searchIndex = [];
+    
+    bookData.forEach(bookDataItem => {
+        const bookKey = Object.keys(bookDataItem)[0];
+        const book = bookDataItem[bookKey];
+        
+        //Index book title
+        searchIndex.push({
+            book: book.title,
+            type: 'book',
+            content: book.title,
+            chapter: null
+        });
+
+        //index thoughts
+        Object.entries(book.Thoughts).forEach(([date, thought]) => {
+            const thoughtText = Array.isArray(thought) ? thought.join(' ') : thought;
+            if (thoughtText.toLowerCase().includes(query)) {
+                searchIndex.push({
+                    book: book.title,
+                    type: 'Thought',
+                    content: thoughtText,
+                    chapter: null,
+                    date: date
+                });
+            }
+        });
+        //index chapters
+        Object.entries(book.chapters).forEach(([chapterTitle, chapterContent]) => {
+                //Search character notes
+                if (chapterContent["Character Notes"]) {
+                    Object.entries(chapterContent["Character Notes"]).forEach(([character, notes]) => {
+                        const allDetails = notes.details.join(' ');
+                        if (allDetails.toLowerCase().includes(query) || 
+                            (notes.note && notes.note.toLowerCase().includes(query))) {
+                            searchIndex.push({
+                                book: book.title,
+                                type: 'Character Note',
+                                content: notes.note ? `${allDetails} ${notes.note}` : allDetails,
+                                chapter: chapterTitle,
+                                character: character
+                            });
+                        }
+                    });
+                }
+                
+                //Search lore
+                if (chapterContent["Lore"]) {
+                    if (Array.isArray(chapterContent["Lore"].notes)) {
+                        chapterContent["Lore"].notes.forEach(note => {
+                            if (note.toLowerCase().includes(query)) {
+                                searchIndex.push({
+                                    book: book.title,
+                                    type: 'Lore Note',
+                                    content: note,
+                                    chapter: chapterTitle
+                                });
+                            }
+                        });
+                    } else if (typeof chapterContent["Lore"].notes === 'object') {
+                        Object.entries(chapterContent["Lore"].notes).forEach(([key, value]) => {
+                            const loreText = Array.isArray(value) ? value.join(' ') : value;
+                            if (loreText.toLowerCase().includes(query) || key.toLowerCase().includes(query)) {
+                                searchIndex.push({
+                                    book: book.title,
+                                    type: 'Lore Entry',
+                                    content: `${key}: ${loreText}`,
+                                    chapter: chapterTitle
+                                });
+                            }
+                        });
+                    }
+                }
+                
+                //Search questions
+                if (chapterContent["Questions"]) {
+                    Object.entries(chapterContent["Questions"]).forEach(([question, answer]) => {
+                        if (question.toLowerCase().includes(query) || answer.toLowerCase().includes(query)) {
+                            searchIndex.push({
+                                book: book.title,
+                                type: 'Question',
+                                content: `${question}: ${answer}`,
+                                chapter: chapterTitle
+                            });
+                        }
+                    });
+                }
+            }
+    )});
+    
+    //Store in database or memory
+    return searchIndex;
+}
+
+//Call this on server startup
 $(document).ready(function() {
     //Initialize containers
     const $coversContainer = $('#book-covers-container');
     const $notesContainer = $('#book-notes-container');
     
-    //Add back button HTML to notes container
+    //back button HTML to notes container
     $notesContainer.prepend(`
         <button class="back-to-covers">
             <i class="fa fa-arrow-left"></i> Back to Books
@@ -104,9 +339,13 @@ $(document).ready(function() {
     });
     
     //Load the book notes from JSON
-    $.getJSON('data/data.json', function(data) {
+    $.getJSON('/data/data.json', function(data) {
+        console.log('Loaded book data:', data);
         //Generate book covers HTML
         let coversHtml = '';
+       
+        //const searchIndex = indexAllContent(data);
+
         data.forEach((bookData, index) => {
             const bookKey = Object.keys(bookData)[0];
             const book = bookData[bookKey];
@@ -128,7 +367,7 @@ $(document).ready(function() {
         });
         $coversContainer.html(coversHtml);
         
-        //Add click handlers for book covers
+        //click handlers for book covers
         $coversContainer.on('click', '.book-cover', function() {
             const bookIndex = $(this).data('book-index');
             const bookData = data[bookIndex];
@@ -142,13 +381,13 @@ $(document).ready(function() {
             //Generate and display notes for this book
             displayBookNotes(book, bookKey);
         });
-    }).fail(function(jqXHR, textStatus, errorThrown) {
-        console.error("Error loading JSON:", textStatus, errorThrown);
-        $('#book-notes-container').html(`<div class="alert alert-danger">
-            Failed to load book notes: ${textStatus}<br>
-            Error: ${errorThrown}<br>
-            Check browser console for details
-        </div>`);
+    }).fail(function(jqxhr, textStatus, error) {
+        console.error("Error loading JSON:", textStatus, error);
+        $('#book-covers-container').html(`
+            <div class="alert alert-danger">
+                Failed to load books: ${textStatus}
+            </div>
+        `);
     });
     
     //Collapse handler for all collapsible sections
@@ -164,7 +403,7 @@ $(document).ready(function() {
 function displayBookNotes(book, bookKey) {
     const bookId = bookKey.replace(/\s+/g, '-').replace(/'/g, "\\'");
     let html = '<div class="books-container">';
-    
+
     //Create character compendium if this isn't a thoughts-only book
     const characterCompendium = {};
     const loreCompendium = {
@@ -597,6 +836,6 @@ function displayBookNotes(book, bookKey) {
     `;
     
     //Update the notes container and show it
-    $('#book-notes-container').find('.books-container').remove(); // Remove old content
+    $('#book-notes-container').find('.books-container').remove(); //Remove old content
     $('#book-notes-container').html(html).show();
 }

@@ -1,0 +1,888 @@
+[
+    {
+        "Fourth Wing": {
+            "series": "The Empyrean Series",
+            "title": "Fourth Wing",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {
+                        "Violet Sorrengail": {
+                            "details": [
+                                "her mom is making her be a rider for some reason",
+                                "She wanted to be a scribe like her father (who is dead)",
+                                "first year",
+                                "she's probably more similar to her dad personality wise",
+                                "braided brown hair that fades into silver"
+                            ]
+                        },
+                        "Mira Sorrengail": {
+                            "details": [
+                            "Lieutenant general I think",
+                            "older sister of violet I think",
+                            "similar head strong personality to Lilith",
+                            "famous"
+                            ]
+                        },
+                        "Lilith Sorrengail": {
+                            "details": [
+                            "general",
+                            "won't see Violet for three years due to her duties",
+                            "I think her son was her favorite child",
+                            "famous",
+                            "Lilith has a brown dragon. named Aimir. Some of his scales I think were used for Violet's uniform"
+                            ],
+                            "note": "forgot her name if it was mentioned*"
+                        },
+                        "Dain Aetos": {
+                            "details": [
+                            "second year",
+                            "I'm guessing a year older than Violet, so 21 probably",
+                            "Violet clearly has a crush on him",
+                            "Childhood friends? Or at least long time friends"
+                            ]
+                        },
+                        "Xaden Riorson":{
+                            "details": [
+                                "3rd year?",
+                                "Mira says to stay away from him",
+                                "son of a rebel leader",
+                                "I'm guessing he's there to get punished for his father's sins",
+                                "his father was the most infamous traitor. I think he was in the military. I forget which rank though",
+                                "scar on left eyebrow",
+                                "super hot it seems",
+                                "dark hair and dark eyes",
+                                "His father 's name is Fen Riorson. Violet 's mom, Lilith Sorrengail, oversaw Fen's execution and Fen apparently killed Brennan, Violet's older bro"
+                            ]
+                        },
+                        "Brennan Sorrengail": {
+                            "details": [
+                                "died (I doubt it. Might show up later)",
+                                "He's the oldest Sorrengail child."
+                            ],
+                            "note": "I think I recall that being his name"
+                        },
+                        "Dylan": {
+                            "details": [
+                                "blond",
+                                "volunteered as a rider",
+                                "Violet befriends them",
+                                "is Engaged per say (his SO and him agreed it was better luck for him to propose after he graduated)",
+                                "fucking dies at the end of chapter 1 by falling to his death"
+
+                            ]
+                        },
+                        "Rhiannon": {
+                            "details": [
+                                "Brown eyes",
+                                "volunteered as a rider",
+                                "Violet befriends them",
+                                "first year",
+                                "Has a twin who is likely not a rider due to being married and pregnant with baby. Her name is Reagan"
+                            ]
+                        },
+                        "Major Gillstead": {
+                            "details": [
+                                "trained Violet for several months after General Lilith Sorrengail made her decree (pretty sure what forced Violet to enter the Rider's Quadrant)"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Article One, Section 1 The Dragon Rider's Codex": "A dragon without its rider is a tragedy. A rider without their dragon is dead.",
+                            "Rider Quadrant": "the only one that doesn't accept conscripts but only volunteers",
+                            "Traitors": "children of traitors get marked or something, a reminder for their parents' sins and I think are forced to try to become riders (again because of parents' sins)"
+                        }
+                    },
+                    "Questions" : {
+                        "To consider": "why is Violet's mom forcing her to be a rider even though Violet trained her entire life to be a scribe?"
+                    }
+                },
+                "Chapter 2": {
+                    "Character Notes": {
+                        "Jack Barlowe": {
+                            "details": [
+                                "first year",
+                                "arrogant",
+                                "doesn't think highly of Violet (wants to kill her)",
+                                "blond with blue icy eyes",
+                                "stocky and much bigger than Violet"
+                            ]
+                        },
+                        "Brennan Sorrengail": {
+                            "details": [
+                                "brilliant strategist"
+                            ]
+                        },
+                        "Mira Sorrengail": {
+                            "details": [
+                                "Naturally gifted rider"
+                            ]
+                        },
+                        "Lilith Sorrengail": {
+                            "details": [
+                                "well respected and probably feared general"
+                            ],
+                            "note": "Still don't remember her name**"
+                        },
+                        "Violet Sorrengail": {
+                            "details": [
+                                "good with daggers it seems?",
+                                "was about to turn Jack into a Eunuch (A shame she didn't go through with it, but her restraint is a good demonstration of her character)",
+                                "small for a typical rider"
+                            ]
+                        },
+                        "red head girl": {
+                            "details": [
+                                "third year",
+                                "recognizes some Sorrengail maneuvers ",
+                                "not sure if she'll pop up again",
+                                "was taking roll call of the new cadets"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Major Afendra's Guide to the Rider's Quadrant (Unauthorized Edition)": "There's a misconception that it's kill or be killed in the Riders Quadrant. Riders, as a whole, aren't out to assassinate other cadets...unless there's a shortage of dragons that year or a cadet is a liability to their wing. Then things may get...interesting.",
+                            "Zihal": "the god of luck",
+                            "The Continent": "has two kingdoms that have been a war for 400 years: Navarre and Poromiel",
+                            "Kingdom of Navarre (including Basgiath War College)": [
+                                " Main setting so far", 
+                                "Home of Violet", 
+                                "larger kingdom", 
+                                "6 unique provinces", 
+                                "Tyrrendor is southern most province of Navarre",
+                                "Tyrrendor was the last I think to join Navarre and swear fealty (I'm guessing that means loyalty or something) to King Reginald",
+                                "Tyrrendor is a good defence location it seems? At least Navarre seems to need it for defence against probably Poromiel", 
+                                "Has mountainous regions that offer abundance in ore, hardy timber from Navarre's eastern provinces, and limitless deer and elk."
+                            ],
+                            "Kingdom of Poromiel": [
+                                "seems notable enough", "smaller than Navarre", 
+                                "Krovla is I think a province", 
+                                "Braevick and Cygnisen are two other provinces", 
+                                "Esben Mountains ac as a natural border for Braevick and Cygnisen", 
+                                "Mainly consists of arable plains and marshlands and is known for exceptional textiles, endless fields of grain, and unique crystalline gems  capable of amplifying minor magics"
+                            ],
+                            "The Barrens": ["Deserted land", "Sounds farther than Navarre and Poromiel"],
+                            "Tyrrendor": "encompasses southwes of Continent. Made up of hostile, mountainous terrain and bordered by the Emerald Sea to the west and the Arctile Ocean to the south, Tyrrendor is nearly impenetrable.",
+                            "Trade Agreement of Resson": "signed more than 200 years ago, ensures exchange of meat and lumber from Navarre for cloth and agriculture within Poromiel 4 times a year a the Athebyne outpost on border of Krovla and Tyrrendor." 
+                        }
+                    },
+                    "Questions" : {
+                        "To consider": "wonder what Xaden will think of Violet actually not dying and becoming a cadet."
+                    }
+                },
+                "Chapter 3": {
+                    "Character Notes": {
+                        "Dain Aetos": {
+                            "details": [
+                                "He now had a beard i think since the last time Violet saw him",
+                                "He knew Violet since he was 6 and she was 5",
+                                "His father is one of Violet's mom's most trusted advisors",
+                                "He helped Violet get through the times when Mira first went off to join thr Rider's Quadrant and when Brennan died",
+                                "Like most other people in Violet's life, he expected Violet to become a scribe.",
+                                "As a second year, he can do some magic (lesser magic it seems?)",
+                                "His room is simple. Not too many personal items except for some books Violet gave him.",
+                                "Violet says he has a gift for language (hence why one book she gave him was a book on the Krovlan language).",
+                                "Leader of Second Squad, Flame Section, Second Wing",
+                                "has light brown curly hair",
+                                "doesn't seem to think Violet is the most healthy"
+                            ]
+                        },
+                        "Major Gillstead": {
+                            "details": [
+                                "Gave wraps to Violet for her cadet pack."
+                            ]
+                        },
+                        "Tara": {
+                            "details": [
+                                "from Morraine province to the North of war college, along coast of Emerald Sea",
+                                "Confident like Mira",
+                                "Short Black hair",
+                                "Like Rhiannon, ,has been obsessed with dragons since childhood"
+                            ]
+                        },
+                        "Commandant Panchek": {
+                            "details": [
+                                "Violet seems familiar enough of him",
+                                "not sure if he'll pop up after chapter 3",
+                                "I think they want Melgren's job (second in command to Sorrengail if I recall correctly)"
+                            ]
+                        },
+                        "Xaden Riorson": {
+                            "details": [
+                                "much taller than the other 3rd years",
+                                "wingleader for fourth wing",
+                                "has a scar on 1 eyebrow",
+                                "I think his dragon is large and navy blue"
+                            ]
+                        },
+                        "General Melgren": {
+                            "details": [
+                                "sounds pretty high up like General Sorrengail",
+                                "commanding general of all of Navarre's forces",
+                                "has beady eyes according to Violet",
+                                "can see a battle's outcome (the future basically) thanks to dragon signet"
+                            ]
+                        },
+                        "Nyra": {
+                            "details": [
+                                "brunette",
+                                "senior wing leader of rider quadrant",
+                                "head of first wing",
+                                "will she pop up again later in the story after chapter 3?"
+                            ]
+                        },
+                        "Aura Beinhaven": {
+                            "details": [
+                                "Not sure they'll show up again after chapter 3"
+                            ]
+                        },
+                        "Mira Sorrengail": {
+                            "details": [
+                                "Her dragon's name is Tein and is green"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Colonel Kaori's Field Guide to Dragon Kind": "Blue dragons descend from the extraordinary Gormfaileas line. Known for their formidable size, they are the most ruthless, especially in the case of the rare Blue Daggertail, whose knifelike spikes at the tip of their tail can disembowel an enemy with one flick.",
+                            "Rider ranks": "page 96 or ebook: The highest ranks among the cadets in the quadrant are wingleader and section leader. Both positions are held by elite third-years. Second-years can rise to squad leaders, but only if they're exceptional. Everyone else is simply a cadet before Threshing-when the dragons choose who they will bond-and a rider after. People die too often around here to hand out ranks prematurely.",
+                            "Second year riders": "\"All riders can perform lesser magics once their dragons choose to channel their power.\" ~page 99 of ebook. Dain was seen doing a twisting motion to magically unlock something.",
+                            "Cadets": "If cadets don't end up bonding with any dragon in their first year, they'll have to repeat the year.",
+                            "Signet": "unique power from bond shared with dragon",
+                            "Sections and Squads": [
+                                "3 squads in each section",
+                                "3 sections in each of the 4 wings",
+                                "At least this year with Violet joining, the riders, each squad will have 15-16 people",
+                                "There's a section in first wing called Claw Section (Each wing section is probably named either Claw, Flame, or Tail)",
+                                "Flame Section First Wing: Jack is put in it",
+                                "Tail Section First Wing: Tara is put in it",
+                                "Second Squad Flame Section I think Second Wing: Violet and Rhiannon join and then get switched with Aura's section into Fourth Wing under Xaden's wing because Xaden wants to torment Violet probably",
+                                "Dain is quad leader of the squad Violet is in. But now he and his squad are under Xaden's chain of command after Xaden orders the switch"
+                            ],
+                            "Why dragons and riders need each (sorta) need each other": "Dragons need humans to develop signet abilities from bonding and to weave protective wards around Navarre that the dragons power. Plus the dragons like protecting the Vale from gryphons, and the dragon's protection keeps humans alive.",
+                            "The Vale": "the valley behind Basgiath and what the dragons call home" 
+                        }
+                    },
+                    "Questions" : {
+                        "To consider": "On page 98 of ebook, Violet says \"Every Sorrengail is a rider,\". Both Dain and her agree that it's her mother's fault Violet is in the Rider's  quadrant. But it this doesn't give me the entire picture. General Lilith Sorrengail has a goal for Violet being forced into being a rider. But what? Most people seem to agree Violet is small for a rider, and has a less sturdy physique compared to others (even Mira). So what gives? ",
+                        "Lilith Sorrengail": "What is General Lilith Sorrengail's goal with Violet? Is it related to Brennan or her late husband? Suspicious. Dain hates it, but Violet doesn't seem to want to go against her mother. Very suspicious. Why specifically Violet?",
+                        "Selection": "I wonder what determines which cadet goes in which section and which wing?"
+                    }
+                },
+                "Chapter 4": {
+                    "Character Notes": {
+                        "Captain Fitzgibbons": {
+                            "details": [
+                                "A higher up or maybe third year who was reading the names of the recently deceased (those who just died trying to reach cadethood or trying to flee it)"
+                                ]
+                        },
+                        "Dain Aetos": {
+                            "details": [
+                                "Sandy Brown hair",
+                                "scar on chin",
+                                "beard",
+                                "When Dain and Violet were kids, they lived near the border of Krovlan, when their parents were stationed there with the Southern Wing",
+                                "his dragon is male, red, species: red swordtail, and the dragon's name is Cath",
+                                "apparently Cath can channel more magic than most other dragons",
+                                "signet: read a person's recent memories"
+                                ]
+                        },
+                        "pink haired cadet": {
+                            "details": [
+                                "I forget if she's first or second year",
+                                "I think she has a pink streak in her hair",
+                                "she was mentioned I think super briefly in chapter 1 or 2 and she popped up somewhere in chapter 3 also briefly.",
+                                "feels like we'll learn her name after chapter 4"
+                            ]
+                        },
+                        "Sawyer": {
+                            "details": [
+                                "A repeat who had to repeat a year because no dragon wanted to bond with them",
+                                "tall",
+                                "wiry"
+                            ]
+                        },
+                        "Ridoc": {
+                            "details": [
+                                "dark brown floppy hair",
+                                "brown skin",
+                                "smart ass",
+                                "first year like Rhiannon and Violet and Tara"
+                            ]
+                        },
+                        "Xaden Riorson": {
+                            "details": [
+                                "his Dragon is navy blue with golden eyes, is species daggertail, and is named Sgaeyl",
+                                "Xaden has dark eyes"
+                            ]
+                        },
+                        "Lilith Sorrengail": {
+                            "details": [
+                                "signet: wield the power of storms"
+                            ]
+                        },
+                        "General Melgren": {
+                            "details": [
+                                "signet: see the outcome of battles"
+                            ]
+                        },
+                        "Amber Mavis": {
+                            "details": [
+                                "current wingleader of Third Wing"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Major Afendra's Guide to the Rider's Quadrant (Unauthorized Edition":"The sparring ring is where riders are made or broken, After all, no respectable dragon would choose a rider who cannot defend themselves, and no respectable caedt would allow such a threat to teh wing to continue training.",
+                            "Malek": "god of death",
+                            "How big a squad is": "apparently squads are made up of a mixture of 1st, 2nd and 3rs years",
+                            "The Gauntlet": "vertical obstacle course in the war college",
+                            "The Presentation": "dragons willing to bond this year get their first look at cadets (the remain ones anyway)",
+                            "Relics":"I think once a rider bonds with a dragon, they gain something called  relic, something like a tattoo of sort of the dragon. That's what it sounds like anyway.",
+                            "Powers":"like in X-Men comics, some riders have the same special power (signet), like ice or fire wielding.",
+                            "Compass Patch":"apparently if you have a compass patch on your tunic, it means your signet is too classified. So not many people know what it is."
+                            }
+                    },
+                    "Questions" : {
+                        "To consider": "Battle Brief. Is it like a class on how to be a good battle tactician?",
+                        "Amber Mavis": "was she like a crush or ex of Dain I wonder?"
+                        }
+                },
+                "Chapter 5": {
+                    "Character Notes": {
+                        "Lilith Sorrengail": {
+                            "details": [
+                                "apparently that's Violet's mom's full name",
+                                "was against the idea of the Rebellion's children witnessing their parents's execution (his was General Melgren's idea)"
+                                ]
+                        },
+                        "Professor Devera": {
+                            "details": [
+                                "has a purple Flame Section Patch",
+                                "Teaches Battle Brief I guess?",
+                                "unlike Ridoc, not of the joking nature",
+                                "keeps long sword strapped to her back even while teaching",
+                                "short hair",
+                                "dark hair",
+                                "deep brown skin"
+                                ]
+                        },
+                        "Professor Markham": {
+                            "details": [
+                                "also teaches Battle Brief",
+                                "Scribe (was really hoping and expecting Violet to be his star scribe pupil)",
+                                "bulbous nose",
+                                "I think he's also a colonel?"
+                                ]
+                        },
+                        "Professor Emetterio": {
+                            "details": [
+                                "I'm guessing he's like a gym teacher since he's the teacher during sparring class",
+                                "Violet says he has a compact frame (body)"
+                            ]
+                        },
+                        "Pryor": {
+                            "details": [
+                                "Violet describes him as the meekest of the first years",
+                                "Dark hair and eyebrows",
+                                "indecisive"
+                            ]
+                        },
+                        "Luca": {
+                            "details": [
+                                "Catty first year",
+                                "long brown hair",
+                                "One of the few women in the quadrant who didn' t cut her hair (like Violet)",
+                                "Does she wear some sort of makeup?"
+                            ]
+                        },
+                        "Aurelie": {
+                            "details": [
+                                "first year",
+                                "no nonsense black eyes",
+                                "Violet isn't sure if she's remembering her name correctly so there is a chance her name is not Aurelie",
+                                "loyal to squad",
+                                "built like Mira (I'm guessing pretty muscular)",
+                                "She's a legacy on her father's side.",
+                                "brown hair",
+                                "packs a punch"
+                            ]
+                        },
+                        "Ridoc": {
+                            "details": [
+                                "Similar size to Aurelie but a tad smaller"
+                            ]
+                        },
+                        "Cianna": {
+                            "details": [
+                                "executive squad leader to Violet and Rhiannon among others"
+                            ]
+                        },
+                        "Rhiannon": {
+                            "details": [
+                                "from a village at the Cygnisen border (her village taught their citizens to defend  at a young age)",
+                                "she's not good at history",
+                                "she's good at math and physics",
+                                "Violet compares her fighting to Mia's (very good)"
+                            ]
+                        },
+                        "Sawyer": {
+                            "details": [
+                                "has freckles",
+                                "stubble",
+                                "he and Rhiannon agree to help Violet with hand to hand combat if she helps both of them with history"
+                            ]
+                        },
+                        "Tynan": {
+                            "details": [
+                                "stocky physique",
+                                "bluish black hair",
+                                "first year",
+                                "Violet doesn't remember his name initially",
+                                "loses to Rhiannon on first spar assessment",
+                                "\"Has more ego than common sense\" quote from Violet"
+                            ]
+                        },
+                        "Imogen": {
+                            "details": [
+                                "pink haired second year",
+                                "has a rebellion relic like Xaden",
+                                "toned body",
+                                "Goes up against Violet in first spar assessment",
+                                "green eyes",
+                                "head taller than Vi",
+                                "breaks Violet's arm at the end of the chapter"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "The Tyrrish Rebellion, an Official Brief for King Tauri by General Lilith Sorrengail":" Knowing I am in direct disagreement with General Melgren's orders, I am officially objecting to the plan set forth in today's briefing. It is not this general's opinion that the children of the rebellion's leaders should be forced to witness their parents' executions. No child should watch their parent put to death.",
+                            "Classes": "Aside from Battle Brief, another class first years have is History",
+                            "Riders in battle": "it's rare I think for riders to be sent out to battle before graduation, and when that does happen, it tends to be third years.",
+                            "Battle Brief": "Battle Brief is taught every day unlike other classes",
+                            "Gryphons": "While Navarre (where our story takes place) uses dragons for magic and granting riders magic powers and fighting, Poromiel uses Gryphons.",
+                            "Dragons vs Gryphons": 
+                            [
+                                "Gryphons don't tolerate high altitude as well as dragons ",
+                                "Dragons can channel more magic, making more powerful signets and riders compared to gryphons. But there are less dragons compared to gryphons I think.", 
+                                "page 57 of physical book: dragons are the only ones capable of powering the wards that make all other magic but their own impossible within [Navarre's] borders. They're the reason Navarre's borders are somewhat circular--their power radiates from the Vale and can only extend so far, even with squads stationed at every outpost."
+                            ],
+                            "War between Poromiel and Navarre": "It's been going on for 400 years I think",
+                            "Dunne":"Goddess of war",
+                            "Gym (Sparring) Uniform":
+                            [
+                                "Women wear the leathers they've been wearing as a cadet, but how the leather's cut is up to individual preference",
+                                "Men go shirtless because opponents might grab onto the shirt when fighting."
+                            ]
+                            }
+                    },
+                    "Questions" : {
+                        "To consider": "judging by that very first blurb at the beginning of the chapter, will Xaden's opinion of Violet's mom change?",
+                        "Violet's 1st Year at Basgiath College":"Dain (or someone else I don't remember) mentioned there are fewer dragons this year that are willing to bond. Plus Viole notes after her first Battle Brief that Prof Devera had a tone that implied it's not just third years that will be sent out to service this time around. What makes tis year so special? Does it have anything to do with why Violet was forced to be a rider?"
+                        }
+                },
+                "Chapter 6": {
+                    "Character Notes": {
+                        "Dain Aetos": {
+                            "details": [
+                                "Tan skin"
+                                ]
+                        },
+                        "Winifred": {
+                            "details": [
+                                "A healer working in the healer's quadrant that Violet knows well",
+                                "older",
+                                "Grey eyes",
+                                "best healer at war college",
+                                "was also against Violet becoming a rider"
+                                ]
+                        },
+                        "Nolon": {
+                            "details": [
+                                "A mender that Violet also seems to know. I'm guessing also well?",
+                                "has been mending Violet for the last five years",
+                                "I think he and Winnifred are married?"
+                                ]
+                        },
+                        "Brennan Sorrengail": {
+                            "details": [
+                                "was a talented mender",
+                                "Died 5 years ago as of the current story (Violet says this on page 75 of physical book)",
+                                "Makes light of everything even when danger strikes",
+                                "sarcastic and quippy"
+                                ]
+                        },
+                        "Tara": {
+                            "details": [
+                                "curvy",
+                                "As of chapter 6 at least, can't really tell if Rhiannon and Tara are friends or allies since Rhiannon says Violet is her only friend so far (as of page 74 of physical book)"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Major Frederick's Modern Guide for Healers":"It is my opnion that of all the signet powers riders provide, mending is the most precious, but we cannot allow ourselves to become complacent when in the company of such a signet. For menders are rare, and teh wounded are not",
+                            "Healers vs Menders":"healers don't have magic and rely on traditional medical training. Menders however do have magic.",
+                            "Mending Signet":"page 70 of book physical: The signet of mending is exceptionally rare among riders. They have the power to fix, to restore , to return anything to its original state.",
+                            "Tradition on what happens when a rider dies": "I'm not exactly sure (might update this at later date), but I think when a rider dies, all of their stuff gets burned. That's what I'm guessing based off of Lilith burning all of Brennan's stuff.",
+                            "Challenge Matches": "So appparently according to Brennan, and I think he's right, not counting challenges requested by other students, matches are decided at least a week in advanced by instructors to weed out the weak. But Brennan says there is a way to prepare for them."
+                        }
+                    },
+                    "Questions": {
+                        "Spoiler related":"I accidently landed on a spoiler while online, but I'm not too concerned about that. That knowledge does make me wonder though, does it play into Dain's insistence on getting Violet out of the rider's quadrant or is that just part of his character?"
+                    }
+                },
+                "Chapter 7": {
+                    "Character Notes": {
+                        "Violet Sorrengail": {
+                            "details": [
+                                "seems good with poisons"
+                            ]
+                        },
+                        "Xaden Riorson": {
+                            "details": [
+                                "Is more compassionate? Than he lets on? What's the right word here? He doesn't want more first years from his province (I'm guessing others with the rebellion relic) to die, A trait Violet reluctant my finds admirable",
+                                "wants to personally target Violet despite what the other rebellion relic holders want (revenge is probably the reason, but by what means? Currently unreadable in that regard)",
+                                "signet: Shadow weilding"
+                            ]
+                        },
+                        "Liam Mairi": {
+                            "details": [
+                                "top cadet in current batch of first Year",
+                                "he's in second squad tail section of fourth wing",
+                                "spiky black hair",
+                                "I'm guessing also has a rebellion relic",
+                                "practically ran across the parapet before becoming a cadet",
+                                "A head taller than most other first years",
+                                "Destroyed every opponent on assessment day",
+                                "first  year"
+                            ]
+                        },
+                        "Garrick": {
+                            "details": [
+                                "big",
+                                "dark hair I think?",
+                                "flame section leader in fourth wing",
+                                "Violet's direct superior above Dain",
+                                "Best fighter among the rebellion rellick holders that don't fight dirty (Xaden is best and dirtiest)",
+                                "Wide chest",
+                                "seems the most merciful? Out of the rebellion bunch considering he defended Violet in a way from Imo genes arguments from killing her"
+                            ]
+                        },
+                        "Bodhi":{
+                            "details":[
+                                "rebellion relic holder",
+                                "second year",
+                                "Xaden's cousin (Fen has a sister)",
+                                "dark curly hair",
+                                "similar complexion to Xaden",
+                                "handsome like Xaden"
+                            ]
+                        },
+                        "First Year Rebellion Relic Holder":{
+                            "details":[
+                                "has a bunk near Rhiannon and Violet",
+                                "Violet doens't remember her name (in chapter 7 anyway)",
+                                "can't process all the information in battle brief too well (either due to being too much info or too much propaganda). Xaden tells her keep what you know and say what they tell you to."
+                            ]
+                        },
+                        "Imogen":{
+                            "details":[
+                                "pale green eyes",
+                                "used her powers on the mat on assessment day and that's likely how she broke Violet's shoulder",
+                                "Seems kinder towards other rebellion relic holders (other Tyrrish folks basically)"
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Addendum 5.2, Basgiath War College Code of Conduct": "In the best interest of preserving peace within Navarre, no more than three cadets carrying rebellion relics may be assigned to any squad of any quadrant",
+                            "Addendum 5.3, Basgiath War College Code of Conduct": "In addition to last year's changes, marked ones assembling in groups of three or more will now be considered an act of seditious conspiracy and is hereby a capital offence",
+                            "Fonilee berries":"purple and useful for poisons according to Violet",
+                            "shadow wielding signet":[
+                                    "rare and highly coveted",
+                                    "the reason Laden managed to go up so high in ranks",
+                                    "can disoriented entire drifts or graphons or take them down"
+                                ]
+                            }
+                    },
+                    "Questions" : {
+                        "The Tyrrish cadets": "I wonder if these secret meetings from the rebellion relic holders will play a part into something bigger later in the story?",
+                        "Xaden's motives": "Xaden could have but did not immediately kill Violet at the end of Chapter 7. He clearly knew she was there during the secret meeting. There must be a good reason to it. But what?"
+                        }
+                },
+                "Chapter 8": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {
+                "09/04/2025": "The low expectations are helping me enjoy this book well enough. A tier above english translated Danmei.",
+                "10/04/2025": "The character interactions are very stereotypical YA.",
+                "15/04/2025": " Dain has nice older brother vibes. But the author is clearly setting up Xaden to be endgame since I keep hearing people call this book Enemies to Lovers. That just feels lame. Since when Violet first locked eyes with Xaden, she compared him to a marble statue. It couldn't get more obvious.",
+                "27/04/2025": 
+                [
+                    "I was right! Red head with the crossbow was gonna be important! Dain seems to know her! God I hope she's not gonna be like a love rival who likes Dain. That's gonna be so annoying!!!!!!",
+                    "Still don't have the entire picture why General Lilith Sorrengail is forcing Violet to be a Rider and not a Scribe like Violet wanted and expected to be. Since almost everyone expected Violet to be a scribe (including Dain, Mira, and even some higherups like what's his name. Was it Major Gilstead?)."
+                ],
+                "28/04/2025": "Dain and Violet clearly missed each other. I wonder why she won't choose him?",
+                "29/04/2025":
+                [
+                    "Dain is so nice to Violet. Why the hell is Xaden clearly endgame??? I know of the enemies to lovers tag. I know it's Xaden. I don't care if it's a spoiler. I find it lame. Will he get more likable? Probably. But I don't expect by much.",
+                    "Violet and Dain clearly like each other, so why are neither acting ion anything?"
+                ],
+                "30/04/2025":
+                [
+                    "ahh... So that's what's keeping Dain and Vi from fucking. Their pride.",
+                    "Despite  Dain wanting to get Vi to the Scribe Quadrant, she doesn't want to defy her mom. Hmm. Says a lot about her in that moment."
+                ],
+                "05/05/2025":"I hope Tara's nice. Xaden is so far... weird. Like I get why he's acting that way because he's lashing out over his dead dad. But come on. Why you gotta take it out on Violet?",
+                "06/05/2025": "Super nice that Violet is trying to remember the names of the dead since they'll likely be forgotten by time since all people will see is a name on a small marked stone somewhere (probably at the bottom of the paraphet (the trial thingy at the beginning that I already don't entirely remember the name)",
+                "12/05/2025":"With so many people expecting Violet to be a scribe, it's really making me wonder why the fuck Lilith made her become a rider. Infuriating!",
+                "13/05/2025":
+                [
+                    "So Navarre and Poromiel are at war? I'm guessing because Poromiel is not satisfied with the trade aggreement. There might be deeper reasons though... considering conscription is still a thing in Navarre.",
+                    "God Jack is so annoying... But at least he made a bad first impression in front of Prof Devera"
+                ],
+                "20/05/2025":
+                [
+                    "Hopefully Sawyer ends up as another ally",
+                    "not surprising Jack kills someone on the first year's first assessment spar. With how arrogant he is"
+                ],
+                "23/05/2025":
+                [
+                    "So Chapter 5 ends with a broken arm. I wonder if that will have a ripple effect later on. Like her disease/disorder or whatever the wiki said will be attempted to be used against her or something. Hmmm.",
+                    "Imogen recognizes Vi for the silver strands of hair. Does her mom also have some?"
+                ],
+                "01/06/2025":
+                [
+                    "Ah okay, so mending will heal you, but it will hurt like hell. And still hurt for weeks (at least with how Violet is). That... actually makes sense.",
+                    "It's called Parapet! That thing cadets do before reaching the college, traveling on a ledge or something and hoping they don't fall off!",
+                    "I was wrong. Brennan was the oldest. That explains why he gave advice to Mira when she first joined. Will need to update my notes."
+                ],
+                "10/06/2025":"Violet seems very reckless trying to get closer to eavesdrop on the secret meeting of the rebellion relic holders, especially with Xaden around",
+                "11/06/2025":"Xaden looks like he sees something interesting in the fact that Violet won't tell on the illegal rebellion relic meeting. His integrity shown here is an interesting character moment"
+            }
+        }
+    },
+    {
+        "Iron Flame": {
+            "series": "The Empyrean Series",
+            "title": "Iron Flame (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Onyx Storm": {
+            "series": "The Empyrean Series",
+            "title": "Onyx Storm (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "AngelMaker": {
+            "title": "AngelMaker",
+            "Thoughts": {
+                "Overall Thoughts: ": "It took a while to read because I took a hiatus that lasted several years. But the bits and pieces of it all made things easy to remember, so it wasn't that hard to pick the book back up where I left off. Overall, this book was such a fun journey!"
+            }
+            
+        }
+    },
+    {
+        "The Faceless Old Woman": {
+            "title": "The Faceless Old Woman",
+            "Thoughts": {
+                "Overall Thoughts: ": "The trop of her leaving her loving partner, dying due to betrayal of an old man she once thought of as a friend and that very old man friend being the reason her parents died just made me uncomfortable for some reason. The entire reason for her journey (revenge) being based on a lie that caused he distruction of all the good she had in her life just really rubs me the wrong way. Like all was for naught. I know it's left ambiguous (I read a bit of the ending ahead of time and looked a bit online in discussions), but the lie aspect made me so uncomfortable. Cannot pinpoint why exactly. By all technicality, DNF. Good plot progression though. Everything felt very character driven. And the A plot with what's his name, the dude in modern day he faceless old woman is trying to push to grow up, was interesting. The B plot though, very enjoyable too, just not until it reached act 2-3ish. Then I got uncomfortable. Good book overall. But maybe not for me."
+            }
+            
+        }
+    },
+    {
+        "Blood Heir": {
+            "series": "Blood Heir Series",
+            "title": "Blood Heir (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Red Tigress": {
+            "series": "Blood Heir Series",
+            "title": "Red Tigress (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Crimson Reign": {
+            "series": "Blood Heir Series",
+            "title": "Crimson Reign (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Heaven Officials Blessing": {
+            "series": "Heaven Official's Blessing Series",
+            "title": "Heaven Official's Blessing 1",
+            "Thoughts": {
+                "Overall Thoughts: ": "A fun book as my first danmei. The english translation makes it feel like a cheesy anime. At times, though the names and titles get confusing, so the guide in the back of the book was a huge help."
+            }
+        }
+    },
+    {
+        "Heaven Officials Blessing": {
+            "series": "Heaven Official's Blessing Series",
+            "title": "Heaven Official's Blessing 2",
+            "Thoughts": {
+                "Overall Thoughts: ": "I found some parts of it confusing. When the story went into flashback mode, I could not tell at all. So I couldn't follow too well which frustrated me. The introduction of the Wind Master was fun though. Don't remember finishing the book sadly. I think I recall reading the first half of the book since it was stuff currently going on. Then when the long flashback started, I don't think I got too far. At most a chapter, but I remember like a couple pages into flashback mode at best and looking everything else up online because I could not tell we were going into flashback mode. I forget why I couldn't tell to be honest."
+            }
+        }
+    },
+    {
+        "Heaven Officials Blessing": {
+            "series": "Heaven Official's Blessing Series",
+            "title": "Heaven Official's Blessing 4 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Heaven Officials Blessing": {
+            "series": "Heaven Official's Blessing Series",
+            "title": "Heaven Official's Blessing 8 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "The Disabled Tyrant's Beloved Pet Fish": {
+            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
+            "title": "The Disabled Tyrant's Beloved Pet Fish 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "The Disabled Tyrant's Beloved Pet Fish": {
+            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
+            "title": "The Disabled Tyrant's Beloved Pet Fish 2 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "The Disabled Tyrant's Beloved Pet Fish": {
+            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
+            "title": "The Disabled Tyrant's Beloved Pet Fish 3 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Peerless": {
+            "series": "Peerless Series",
+            "title": "Peerless 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Peerless": {
+            "series": "Peerless Series",
+            "title": "Peerless 2 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    }
+]
