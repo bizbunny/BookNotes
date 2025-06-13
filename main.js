@@ -1,11 +1,11 @@
 const bookCoverImages = {
-    "Fourth Wing": "./images/bookCovers_FW.webp",
-    "Iron Flame": "./images/bookCovers_IF.webp",
-    "Onyx Storm": "./images/bookCovers_OS.webp",
-    "The Faceless Old Woman":"./images/bookCovers_FOW.webp",
-    "AngelMaker":"./images/bookCovers_AM.webp",
-    "Heaven Official's Blessing 1":"./images/bookCovers_HOB1.webp",
-    "Heaven Official's Blessing 2":"./images/bookCovers_HOB2.webp"
+    "Fourth Wing": "./public/images/bookCovers_FW.webp",
+    "Iron Flame": "./public/images/bookCovers_IF.webp",
+    "Onyx Storm": "./public/images/bookCovers_OS.webp",
+    "The Faceless Old Woman":"./public/images/bookCovers_FOW.webp",
+    "AngelMaker":".public/images/bookCovers_AM.webp",
+    "Heaven Official's Blessing 1":"./public/images/bookCovers_HOB1.webp",
+    "Heaven Official's Blessing 2":"./public/images/bookCovers_HOB2.webp"
 };
 
 //Function to extract dragon information from character notes
@@ -84,10 +84,15 @@ function assignSignetsToDragons(dragonCompendium, characterToSignet) {
 let currentPage = 1;
 let currentQuery = '';
 
-async function performSearch(query, page = 1) {
+async function performSearch(query, page = 1, filters = {}) {
     currentQuery = query;
     currentPage = page;
-    
+    const params = new URLSearchParams({
+        q: query,
+        page: page,
+        ...(filters.book && { book: filters.book }),
+        ...(filters.type && { type: filters.type })
+    });
     try {
         const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&page=${page}`);
         const data = await response.json();

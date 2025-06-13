@@ -1,3 +1,6 @@
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public'))); //for serving images
+
 const express = require('express');
 const app = express();
 const booksRouter = require('./routes/books');

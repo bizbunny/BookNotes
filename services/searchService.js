@@ -3,7 +3,7 @@
 //creates repo for each thingy like character, lore, thoughts, questions
 class SearchService {
     static async search(query, filters = {}, page = 1, pageSize = 10) {
-        // Build the base query
+        //Build the base query
         let baseQuery = `
             SELECT 
                 b.title as book_title,
