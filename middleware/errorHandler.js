@@ -1,3 +1,6 @@
+const cors = require('cors');
+app.use(cors());
+
 //functions as middleware
 function errorHandler(err, req, res, next) {
     console.error(err.stack);

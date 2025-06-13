@@ -3,7 +3,7 @@
 //services will help with addtitional abstraction to not have other stuff handle too much, divy the responsiblities basically
 const express = require('express');
 const router = express.Router();
-const { BookRepository } = require('../db');//look into general database without having to know how the database looks like inside
+const { BookRepository } = require('../db/db');//look into general database without having to know how the database looks like inside
 const SearchService = require('../services/searchService');//using the search enhancer
 
 //Get all books

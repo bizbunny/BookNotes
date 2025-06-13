@@ -1,7 +1,7 @@
 //help import the data in data.json into the database (db)
 //create the routes to organize API endpoints
-const { db, BookRepository, initializeDatabase } = require('./db');
-const bookData = require('./data/data.json');
+const { db, BookRepository, initializeDatabase } = require('./db/db');
+const bookData = require('../data/data.json');
 
 async function importData() {
     try{

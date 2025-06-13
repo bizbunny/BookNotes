@@ -1,11 +1,11 @@
 const bookCoverImages = {
-    "Fourth Wing": "./public/images/bookCovers_FW.webp",
-    "Iron Flame": "./public/images/bookCovers_IF.webp",
-    "Onyx Storm": "./public/images/bookCovers_OS.webp",
-    "The Faceless Old Woman":"./public/images/bookCovers_FOW.webp",
-    "AngelMaker":".public/images/bookCovers_AM.webp",
-    "Heaven Official's Blessing 1":"./public/images/bookCovers_HOB1.webp",
-    "Heaven Official's Blessing 2":"./public/images/bookCovers_HOB2.webp"
+    "Fourth Wing": "/images/bookCovers_FW.webp",
+    "Iron Flame": "/images/bookCovers_IF.webp",
+    "Onyx Storm": "/images/bookCovers_OS.webp",
+    "The Faceless Old Woman":"/images/bookCovers_FOW.webp",
+    "AngelMaker":"/images/bookCovers_AM.webp",
+    "Heaven Official's Blessing 1":"/images/bookCovers_HOB1.webp",
+    "Heaven Official's Blessing 2":"/images/bookCovers_HOB2.webp"
 };
 
 //Function to extract dragon information from character notes
@@ -81,29 +81,50 @@ function assignSignetsToDragons(dragonCompendium, characterToSignet) {
     return dragonCompendium;
 }
 //searchability
-let currentPage = 1;
+async function initializeBookFilter() {
+    try {
+        const response = await fetch('/api/books');
+        const books = await response.json();
+        
+        const bookFilter = document.getElementById('book-filter');
+        books.forEach(book => {
+            const option = document.createElement('option');
+            option.value = book;
+            option.textContent = book;
+            bookFilter.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Failed to load books:', error);
+    }
+}
+
+// Perform search with API
+// Store the current query globally
 let currentQuery = '';
 
 async function performSearch(query, page = 1, filters = {}) {
-    currentQuery = query;
-    currentPage = page;
-    const params = new URLSearchParams({
-        q: query,
-        page: page,
-        ...(filters.book && { book: filters.book }),
-        ...(filters.type && { type: filters.type })
-    });
+    currentQuery = query; // Store the query
     try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&page=${page}`);
+        const params = new URLSearchParams({
+            q: query,
+            page: page,
+            ...(filters.book && { book: filters.book }),
+            ...(filters.type && { type: filters.type })
+        });
+        
+        const response = await fetch(`/api/search?${params}`);
+        if (!response.ok) throw new Error('Search failed');
+        
         const data = await response.json();
-        
-        //Display results
-        displaySearchResults(data.results);
-        
-        //Update pagination controls
+        displaySearchResults(data.results, data.query); // Pass the query
         updatePaginationControls(data.pagination);
     } catch (error) {
-        console.error('Search failed:', error);
+        console.error('Search error:', error);
+        document.getElementById('search-results').innerHTML = `
+            <div class="alert alert-danger">
+                Search failed: ${error.message}
+            </div>
+        `;
     }
 }
 
@@ -163,6 +184,7 @@ document.getElementById('search-button').addEventListener('click', () => {
 });
 //debouncing for better UX
 let searchTimeout;
+// Input event for live search
 document.getElementById('search-input').addEventListener('input', (e) => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
@@ -170,7 +192,7 @@ document.getElementById('search-input').addEventListener('input', (e) => {
     }, 300);
 });
 
-function displaySearchResults(results) {
+function displaySearchResults(results, query) {
     const container = document.getElementById('search-results');
     container.innerHTML = '';
     
@@ -183,10 +205,9 @@ function displaySearchResults(results) {
         const resultElement = document.createElement('div');
         resultElement.className = 'search-result';
         
-        //Customize based on your result structure
         resultElement.innerHTML = `
             <h4>${result.book} ${result.chapter ? `- ${result.chapter}` : ''}</h4>
-            <p>${highlightMatches(result.content, currentQuery)}</p>
+            <p>${highlightMatches(result.content, query)}</p>
             <small>Found in: ${result.type}</small>
         `;
         
@@ -199,12 +220,12 @@ function highlightMatches(text, query) {
     const regex = new RegExp(query, 'gi');
     return text.replace(regex, match => `<span class="highlight">${match}</span>`);
 }
-function indexAllContent() {
+function indexAllContent(bookData, query = '') {
     const searchIndex = [];
     
-    bookData.forEach(bookData => {
-        const bookKey = Object.keys(bookData)[0];
-        const book = bookData[bookKey];
+    bookData.forEach(bookDataItem => {
+        const bookKey = Object.keys(bookDataItem)[0];
+        const book = bookDataItem[bookKey];
         
         //Index book title
         searchIndex.push({
@@ -295,7 +316,6 @@ function indexAllContent() {
 }
 
 //Call this on server startup
-const searchIndex = indexAllContent();
 $(document).ready(function() {
     //Initialize containers
     const $coversContainer = $('#book-covers-container');
@@ -319,9 +339,13 @@ $(document).ready(function() {
     });
     
     //Load the book notes from JSON
-    $.getJSON('data/data.json', function(data) {
+    $.getJSON('/data/data.json', function(data) {
+        console.log('Loaded book data:', data);
         //Generate book covers HTML
         let coversHtml = '';
+       
+        //const searchIndex = indexAllContent(data);
+
         data.forEach((bookData, index) => {
             const bookKey = Object.keys(bookData)[0];
             const book = bookData[bookKey];
@@ -357,13 +381,13 @@ $(document).ready(function() {
             //Generate and display notes for this book
             displayBookNotes(book, bookKey);
         });
-    }).fail(function(jqXHR, textStatus, errorThrown) {
-        console.error("Error loading JSON:", textStatus, errorThrown);
-        $('#book-notes-container').html(`<div class="alert alert-danger">
-            Failed to load book notes: ${textStatus}<br>
-            Error: ${errorThrown}<br>
-            Check browser console for details
-        </div>`);
+    }).fail(function(jqxhr, textStatus, error) {
+        console.error("Error loading JSON:", textStatus, error);
+        $('#book-covers-container').html(`
+            <div class="alert alert-danger">
+                Failed to load books: ${textStatus}
+            </div>
+        `);
     });
     
     //Collapse handler for all collapsible sections
@@ -379,7 +403,7 @@ $(document).ready(function() {
 function displayBookNotes(book, bookKey) {
     const bookId = bookKey.replace(/\s+/g, '-').replace(/'/g, "\\'");
     let html = '<div class="books-container">';
-    
+
     //Create character compendium if this isn't a thoughts-only book
     const characterCompendium = {};
     const loreCompendium = {

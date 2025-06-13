@@ -2,8 +2,8 @@
 //Populate this layer (import stuff in) with the stuff from json so client doesn' have to worry about it
 //more abstraction
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./data/table.db');
-const config = require('./config');
+const db = new sqlite3.Database('db/table.db');
+const config = require('../config');
 
 //Initialize database
 function initializeDatabase(){
@@ -93,6 +93,25 @@ function initializeDatabase(){
             resolve();
         });
     })
+}
+
+class SearchRepository {
+    static async search(query, filters = {}) {
+        //Implement search across all tables using SQLite FTS (Full Text Search)
+        //Example for books table:
+        return new Promise((resolve, reject) => {
+            db.all(`
+                SELECT * FROM books 
+                WHERE title LIKE ? 
+                OR series LIKE ?`,
+                [`%${query}%`, `%${query}%`],
+                (err, rows) => {
+                    if (err) reject(err);
+                    resolve(rows);
+                }
+            );
+        });
+    }
 }
 
 class BookRepository {//search my database of books. Don't need to look under the hood if you're just looking (and not editing)

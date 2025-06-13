@@ -1,6 +1,7 @@
 //search enhancer for more complex query cases
 //data access layer
 //creates repo for each thingy like character, lore, thoughts, questions
+const { db } = require('../db/db');
 class SearchService {
     static async search(query, filters = {}, page = 1, pageSize = 10) {
         //Build the base query

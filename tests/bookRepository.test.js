@@ -1,6 +1,6 @@
 //Get data from data.json using db.js
-const { BookRepository } = require('../db');
-const { db } = require('../db');
+const { BookRepository } = require('../db/db');
+const { db } = require('../db/db');
 const testData = require('./testData.json');
 
 describe('BookRepository', () => {

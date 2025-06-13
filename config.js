@@ -9,7 +9,7 @@ require('dotenv').config();
 
 module.exports = {
     database: {
-        file: process.env.DB_FILE || './data/table.db',
+        file: process.env.DB_FILE || './db/table.db',
         timeout: parseInt(process.env.DB_TIMEOUT) || 5000
     },
     server: {
