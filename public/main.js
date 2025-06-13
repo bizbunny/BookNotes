@@ -194,8 +194,11 @@ document.getElementById('search-input').addEventListener('input', (e) => {
 
 function displaySearchResults(results, query) {
     const container = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('search-results-container');
+
     container.innerHTML = '';
-    
+    resultsContainer.classList.add('visible');
+
     if (results.length === 0) {
         container.innerHTML = '<p>No results found</p>';
         return;
@@ -314,7 +317,37 @@ function indexAllContent(bookData, query = '') {
     //Store in database or memory
     return searchIndex;
 }
+function closeSearchResults() {
+    const resultsContainer = document.getElementById('search-results-container');
+    const searchResults = document.getElementById('search-results');
+    const paginationControls = document.getElementById('pagination-controls');
 
+    resultsContainer.classList.remove('visible');
+    
+    //Remove after animation completes
+    setTimeout(() => {
+        searchResults.innerHTML = '';
+        paginationControls.innerHTML = '';
+        document.getElementById('search-input').value = '';
+    }, 300); //Match this duration with your CSS transition time
+}
+//close search by clicking close icon
+document.getElementById('close-search').addEventListener('click', closeSearchResults);
+//close search by clicking outside search results
+document.addEventListener('click', (e) => {
+    const searchResults = document.getElementById('search-results');
+    const searchInput = document.getElementById('search-input');
+    
+    if (!searchResults.contains(e.target) && !searchInput.contains(e.target)) {
+      closeSearchResults();
+    }
+  });
+//close search by pressing escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSearchResults();
+    }
+});
 //Call this on server startup
 $(document).ready(function() {
     //Initialize containers
@@ -358,6 +391,12 @@ $(document).ready(function() {
             coversHtml += `
                 <div class="book-cover" data-book-index="${index}">
                     <div class="book-cover-front" style="background-image: url('${coverImage}')"></div>
+                    <div class="book-pages">
+                        <div class="page"></div>
+                        <div class="page"></div>
+                        <div class="page"></div>
+                        <div class="page"></div>
+                    </div>
                     <div class="book-cover-spine"></div>
                     <div class="book-cover-back">
                         <div class="book-cover-title">${book.title}</div>
