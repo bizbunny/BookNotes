@@ -84,14 +84,21 @@ function assignSignetsToDragons(dragonCompendium, characterToSignet) {
 async function initializeBookFilter() {
     try {
         const response = await fetch('/api/books');
-        const books = await response.json();
+        const filterOptions = await response.json();
         
         const bookFilter = document.getElementById('book-filter');
-        books.forEach(book => {
-            const option = document.createElement('option');
-            option.value = book;
-            option.textContent = book;
-            bookFilter.appendChild(option);
+        
+        //Clear existing options except "All Books"
+        while (bookFilter.options.length > 1) {
+            bookFilter.remove(1);
+        }
+        
+         // Add options to the filter
+        filterOptions.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            optionElement.textContent = option;
+            bookFilter.appendChild(optionElement);
         });
     } catch (error) {
         console.error('Failed to load books:', error);
@@ -182,16 +189,11 @@ document.getElementById('search-button').addEventListener('click', () => {
         type: typeFilter
     });
 });
-//debouncing for better UX
-let searchTimeout;
-//Input event for live search
-document.getElementById('search-input').addEventListener('input', (e) => {
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => {
-        performSearch(e.target.value, 1);
-    }, 300);
+document.getElementById('search-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        document.getElementById('search-button').click();
+    }
 });
-
 function displaySearchResults(results, query) {
     const container = document.getElementById('search-results');
     const resultsContainer = document.getElementById('search-results-container');
@@ -323,13 +325,6 @@ function closeSearchResults() {
     const paginationControls = document.getElementById('pagination-controls');
 
     resultsContainer.classList.remove('visible');
-    
-    //Remove after animation completes
-    setTimeout(() => {
-        searchResults.innerHTML = '';
-        paginationControls.innerHTML = '';
-        document.getElementById('search-input').value = '';
-    }, 300); //Match this duration with your CSS transition time
 }
 //close search by clicking close icon
 document.getElementById('close-search').addEventListener('click', closeSearchResults);
@@ -437,6 +432,7 @@ $(document).ready(function() {
         icon.toggleClass('fa-chevron-right', !isExpanded);
         icon.toggleClass('fa-chevron-down', isExpanded);
     });
+    initializeBookFilter();
 });
 
 function displayBookNotes(book, bookKey) {

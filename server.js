@@ -26,8 +26,21 @@ app.get('/api/search', async (req, res) => {
         //Apply filters
         let filteredResults = results;
         if (book) {
-            filteredResults = filteredResults.filter(r => r.book === book);
+            filteredResults = filteredResults.filter(r => {
+                const bookDataItem = bookData.find(b => {
+                    const bookKey = Object.keys(b)[0];
+                    return b[bookKey].title === r.book;
+                });
+                
+                if (!bookDataItem) return false;
+                
+                const bookKey = Object.keys(bookDataItem)[0];
+                const currentBook = bookDataItem[bookKey];  // <-- Changed to currentBook
+                
+                return currentBook.series === book || currentBook.title === book;
+            });
         }
+        
         if (type) {
             filteredResults = filteredResults.filter(r => r.type.includes(type));
         }
@@ -160,11 +173,28 @@ function performFullSearch(query) {
 
 //Book list endpoint (for the book filter dropdown)
 app.get('/api/books', (req, res) => {
-    const books = bookData.map(bookDataItem => {
+    const filterOptions = new Set();
+    
+    bookData.forEach(bookDataItem => {
         const bookKey = Object.keys(bookDataItem)[0];
-        return bookDataItem[bookKey].title;
+        const book = bookDataItem[bookKey];
+        
+        //Skip books marked as "not read yet"
+        if (book.title && book.title.includes("(not read yet)")) {
+            return;
+        }
+        
+        //Add series name if it exists, otherwise add book title
+        if (book.series) {
+            filterOptions.add(book.series);
+        } else if (book.title) {
+            filterOptions.add(book.title);
+        }
     });
-    res.json(books);
+    
+    //Convert Set to array and sort alphabetically
+    const sortedOptions = Array.from(filterOptions).sort();
+    res.json(sortedOptions);
 });
 
 //Start server
