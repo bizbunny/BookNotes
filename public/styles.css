@@ -3,10 +3,201 @@
   --light-pink: #fff0f0;
   --pink-color: #ffe9e9;
   --dark-pink: #f9c4d2;
+  --dark-berry-pink: #8a1162;
+  --berry-pink: #b71563;
+  --light-berry-pink: #de4b83;
   --pink-border-color: #b18597;
   --pink-shadow-color: #ffe3e2;
   --light-violet: #faf5ff;
 }
+/*-------------Search & Filters--------------*/
+.filters{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+#book-filter, #type-filter, #search-input{
+    width: 300px;
+    flex-grow: 1;/*Allow items to grow and take available space */
+    max-width: 300px;
+    box-sizing: border-box;/*Include padding and border in the element's total width */
+}
+#book-filter,
+#type-filter {
+  position: relative;/*For the ::before pseudo-element */
+  padding: 0.75em 2em;/*Adjusted padding to be similar to buttons */
+  background: var(--light-pink);
+  outline: none;
+  border: 2px solid var(--pink-border-color);/*Added border */
+  border-radius: 0.75em;/*Rounded corners */
+  margin-top: 0;/*Reset margin-top */
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--text-color);/*Ensure text color is consistent */
+  -webkit-appearance: menulist; /* Reset to default */
+  -moz-appearance: menulist;
+  appearance: menulist;
+  padding-right: 0.75em; /* Reset padding */
+  appearance: none;
+  cursor: pointer;/*Indicate it's clickable */
+  transform-style: preserve-3d;/*For the 3D effect */
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+  padding-right: 3.5em;/*Add more space for the custom arrow */
+}
+
+/*Custom arrow for select elements */
+#book-filter::after,
+#type-filter::after {
+  content: '▼';/*Unicode down arrow */
+  position: absolute;
+  right: 1.2em;/*Position the arrow */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;/*Make sure the arrow doesn't interfere with clicks */
+  color: var(--text-color);
+  font-size: 0.8em;
+  z-index: 2;/*Ensure arrow is above the pseudo-element and background */
+}
+
+
+/*Pseudo-element for the 3D effect */
+#book-filter::before,
+#type-filter::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dark-pink);
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px var(--pink-border-color), 0 0.625em 0 0 var(--pink-shadow-color);
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+  z-index: -1;
+}
+
+/*Hover effects for filters */
+#book-filter:hover,
+#type-filter:hover {
+  background: var(--pink-color);
+  transform: translate(0, 0.25em);
+}
+
+#book-filter:hover::before,
+#type-filter:hover::before {
+  box-shadow: 0 0 0 2px var(--pink-border-color), 0 0.5em 0 0 var(--pink-shadow-color);
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+/*Active effects for filters (when clicked/focused) */
+#book-filter:active,
+#type-filter:active,
+#book-filter:focus,/*Add focus state for accessibility */
+#type-filter:focus {
+  background: var(--pink-color);
+  transform: translate(0em, 0.75em);
+}
+
+#book-filter:active::before,
+#type-filter:active::before,
+#book-filter:focus::before,
+#type-filter:focus::before {
+  box-shadow: 0 0 0 2px var(--pink-border-color), 0 0 var(--pink-shadow-color);
+  transform: translate3d(0, 0, -1em);
+}
+
+#search-input {
+  padding: 0.75em 2em;/*Match padding of select elements */
+  background: var(--light-pink);
+  outline: none;
+  border: 2px solid var(--pink-border-color);/*Match border */
+  border-radius: 0.75em;/*Match border-radius */
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--text-color);/*Initial shadow for 3D look */
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+#search-input:focus {/*Focus state for search input */
+  transform: translate(0em, 0.75em);
+  box-shadow: 0 0 0 2px var(--pink-border-color), 0 0 var(--pink-shadow-color);
+}
+
+/*Ensure the search button style is consistent with the general btn class from the previous immersive */
+#search-button {
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  padding: 0.75em 2em;/*Use padding values from the main btn style */
+  background: var(--light-pink);
+  border: 2px solid var(--pink-border-color);
+  border-radius: 0.75em;
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+  position: relative;/*Needed for ::before pseudo-element */
+  display: inline-block;/*Essential for padding and sizing */
+  vertical-align: middle;/*Align with other form elements */
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+#search-button::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dark-pink);
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px var(--pink-border-color), 0 0.625em 0 0 var(--pink-shadow-color);
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+  z-index: -1;
+}
+
+#search-button:hover {
+  background: var(--pink-color);
+  transform: translate(0, 0.25em);
+}
+
+#search-button:hover::before {
+  box-shadow: 0 0 0 2px var(--pink-border-color), 0 0.5em 0 0 var(--pink-shadow-color);
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+#search-button:active {
+  background: var(--pink-color);
+  transform: translate(0em, 0.75em);
+}
+
+#search-button:active::before {
+  box-shadow: 0 0 0 2px var(--pink-border-color), 0 0 var(--pink-shadow-color);
+  transform: translate3d(0, 0, -1em);
+}
+/*-------------End of Search & Filters--------------*/
 /*-------------Buttons---------------*/
 #nav {
   margin: 24px auto;
@@ -14,22 +205,16 @@
   border-right: none;
   border-left: none;
   width: 95%;
-  padding: 0;
-  /* Remove default ul padding */
-  display: flex;
-  /* Use flexbox for navigation items */
-  flex-wrap: wrap;
-  /* Allow items to wrap on smaller screens */
-  justify-content: center;
-  /* Center items horizontally */
-  gap: 1rem;
-  /* Space between nav items */
+  padding: 0;/*Remove default ul padding */
+  display: flex;/*Use flexbox for navigation items */
+  flex-wrap: wrap;/*Allow items to wrap on smaller screens */
+  justify-content: center;/*Center items horizontally */
+  gap: 1rem;/*Space between nav items */
 }
 
 #nav li {
   list-style: none;
-  flex-shrink: 0;
-  /* Prevent items from shrinking too much */
+  flex-shrink: 0;/*Prevent items from shrinking too much */
 }
 
 #nav li a {
@@ -46,7 +231,6 @@
   color: var(--text-color);
   text-transform: uppercase;
   padding: 0.75em 2em;
-  /* Adjusted padding for better button size */
   background: var(--light-pink);
   border: 2px solid var(--pink-border-color);
   border-radius: 0.75em;
@@ -90,16 +274,13 @@
   transform: translate3d(0, 0, -1em);
 }
 
-#nav li a.active {
-  /* Specific active style for the button itself */
+#nav li a.active {/*Specific active style for the button itself */
   background: var(--light-violet);
-  color: white;
-  transform: translate(0em, 0.75em);
-  /* Keep it "pressed" */
+  color: var(--pink-border-color);
+  transform: translate(0em, 0.75em);/*Keep it "pressed" */
 }
 
-#nav li a.active::before {
-  /* Remove shadow for active pressed state */
+#nav li a.active::before {/*Remove shadow for active pressed state */
   box-shadow: 0 0 0 2px var(--pink-border-color), 0 0 var(--pink-shadow-color);
   transform: translate3d(0, 0, -1em);
 }
@@ -107,32 +288,28 @@
 
 #nav section {
   z-index: -1;
-  display: none;
-  /* float: left; /* Removed as it can cause layout issues, flex/grid is preferred */
+  display: none;/*float: left; /*Removed as it can cause layout issues, flex/grid is preferred */
   background: var(--light-pink);
   overflow: hidden;
-  margin-top: 2em;
-  /* Adjusted for better spacing from buttons */
+  margin-top: 2em;/*Adjusted for better spacing from buttons */
   padding: 1% 3% 0 3%;
   border: 2px solid var(--pink-border-color);
   border-radius: 10px;
   box-shadow: 0 0 0 2px var(--pink-border-color), 0 1em 0 0 var(--pink-shadow-color);
-  width: calc(100% - 6%);
-  /* Account for padding */
-  max-width: 900px;/* Max width for readability */
+  width: calc(100% - 6%);/*Account for padding */
+  max-width: 900px;/*Max width for readability */
   margin-left: auto;
   margin-right: auto;
-  box-sizing: border-box;/* Include padding and border in the element's total width and height */
+  box-sizing: border-box;/*Include padding and border in the element's total width and height */
 }
 
-#nav li ul li a {
-  /* This rule seems to target nested ul, but there is no nested ul in the HTML */
+#nav li ul li a {/*This rule seems to target nested ul, but there is no nested ul in the HTML */
   padding: 10px 25px;
   border-bottom: 1px dotted var(--text-color);
 }
 /*-----------End of Buttons----------*/
 .navbar{
-  background-color: #b71563;
+  background-color: var(--berry-pink);
   .navbar-brand{
     color: white;
   }
@@ -144,8 +321,8 @@
 }
 
 .book-title {
-  background-color: #de4b83;
-  color: white;
+  background-color: var(--light-berry-pink);
+  color: var(--light-pink);
   padding: 12px;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -156,14 +333,14 @@
 
 .book-content {
   padding-left: 15px;
-  border-left: 3px solid #eee;
+  border-left: 3px solid var(--light-violet);
   margin-left: 10px;
   margin-top: -5px;
   margin-bottom: 15px;
 }
 .series-tag {
   font-size: 0.8rem;
-  color: #8a1162;
+  color: var(--dark-berry-pink);
   font-style: italic;
 }
 /*-----------------------Chapter / Section-----------------------*/
@@ -195,7 +372,7 @@
   padding: 10px;
   animation: bubblePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   animation-delay: calc(var(--card-order) * 0.1s);
-  opacity: 0; /* Start invisible */
+  opacity: 0; /*Start invisible */
   transform-origin: center bottom;
   background-color: #f8f9fa;
 }
@@ -314,7 +491,7 @@
 
 .fa-chevron-right, .fa-chevron-down {
   transition: transform 0.2s ease;
-  width: 1em; /* Ensure consistent width */
+  width: 1em; /*Ensure consistent width */
   text-align: center;
 }
 
@@ -460,7 +637,7 @@
 .book-cover:hover .book-cover-spine {
     transform: rotateY(90deg);
 }
-/* Expanded state */
+/*Expanded state */
 .book-notes-container.expanded {
   display: block;
   animation: slideInFromRight 0.5s ease-out forwards;
@@ -468,7 +645,7 @@
 .book-covers-container.hidden {
   display: none;
 }
-/* Back button */
+/*Back button */
 .back-to-covers {
   position: fixed;
   top: 10px;
