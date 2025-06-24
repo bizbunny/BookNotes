@@ -1,6 +1,6 @@
 # BookNotes
 
-Currently Reading Fourth Wing. There is a lot of info I would like to better keep track of, so I am making this.
+Currently Reading Fourth Wing. There is a lot of info I would like to better keep track of, so I am making this. I want to use it to add more books down the line.
 
 ###Credit
 Art you see in this is done by me using Asesprite.
