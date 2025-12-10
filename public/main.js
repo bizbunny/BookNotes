@@ -436,7 +436,7 @@ $(document).ready(function() {
 });
 
 function displayBookNotes(book, bookKey) {
-    const bookId = bookKey.replace(/\s+/g, '-').replace(/'/g, "\\'");
+    const bookId = bookKey.replace(/\s+/g, '-').replace(/'/g, '').replace(/[^a-zA-Z0-9-]/g, '');//regex to remove special chars
     let html = '<div class="books-container">';
 
     //Create character compendium if this isn't a thoughts-only book
@@ -696,8 +696,8 @@ function displayBookNotes(book, bookKey) {
     
     //Thoughts Section - Show for all books that have thoughts
     if (book.Thoughts && Object.keys(book.Thoughts).length > 0) {
-        const thoughtsId = `${bookId}-thoughts`;
-         html += `
+    const thoughtsId = `${bookId}-thoughts`;
+    html += `
 <div class="compendium-section">
     <div class="section-header" data-bs-toggle="collapse" data-bs-target="#${thoughtsId}" aria-expanded="false">
         <i class="fa fa-chevron-right collapsible-icon"></i>
@@ -706,19 +706,19 @@ function displayBookNotes(book, bookKey) {
     <div id="${thoughtsId}" class="collapse">
         <div class="thoughts-content">
         `;
-    
+
     //Sort thoughts by date (newest first)
-         const sortedThoughts = Object.entries(book.Thoughts)
+    const sortedThoughts = Object.entries(book.Thoughts)
         .sort(([dateA], [dateB]) => new Date(dateB) - new Date(dateA));
-    
+
     sortedThoughts.forEach(([date, thought]) => {
         html += `
 <div class="thought-item">
     <div class="thought-date">${date}</div>
     <div class="thought-text">
             `;
-            
-            if (Array.isArray(thought)) {
+        
+        if (Array.isArray(thought)) {
             html += `<ul class="list-unstyled">`;
             thought.forEach(item => {
                 html += `<li>• ${item}</li>`;
@@ -733,13 +733,13 @@ function displayBookNotes(book, bookKey) {
 </div>
             `;
     });
-        
-        html += `
+    
+    html += `
         </div>
     </div>
 </div>
         `;
-    }
+}
     
     //Chapters Section - Only for books that have chapters and aren't thoughts-only
     if (!isThoughtsOnlyBook && book.chapters) {

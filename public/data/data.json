@@ -618,6 +618,16 @@
                     "Character Notes": {},
                     "Lore": {},
                     "Questions": {}
+                },
+                "Chapter 9": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                },
+                "Chapter 10": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
                 }
             },
             "Thoughts": {
@@ -813,45 +823,20 @@
     {
         "The Disabled Tyrant's Beloved Pet Fish": {
             "series": "The Disabled Tyrant's Beloved Pet Fish Series",
-            "title": "The Disabled Tyrant's Beloved Pet Fish 1 (not read yet)",
-            "chapters": {
-                "Chapter 1": {
-                    "Character Notes": {},
-                    "Lore": {},
-                    "Questions": {}
-                }
-            },
-            "Thoughts": {}
+            "title": "The Disabled Tyrant's Beloved Pet Fish 1",
+            "Thoughts": {
+                "Overall Thoughts: ": "The book was fine. Li Yu and Prince Jing are both silly and charming. But after discovering Apothecary diaries ages ago, the palace intrigue going on in the background of this book just felt kind of mid at best to me. A good palace intrigue with interesting conflict to me, should slowly be discovered over time. Layer by layer, we should uncover with the characters what's going on. I know Li Yu transmigrated and already read the entire book Prince Jing comes from. I know the plot he experiences deviates. But Second Prince and his stupid mother are not interesting villains. The male concubine that was Prince Jing's love interest in the books is at best mildly interesting."
+            }
             
         }
     },
     {
-        "The Disabled Tyrant's Beloved Pet Fish": {
-            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
-            "title": "The Disabled Tyrant's Beloved Pet Fish 2 (not read yet)",
-            "chapters": {
-                "Chapter 1": {
-                    "Character Notes": {},
-                    "Lore": {},
-                    "Questions": {}
-                }
-            },
-            "Thoughts": {}
-            
-        }
-    },
-    {
-        "The Disabled Tyrant's Beloved Pet Fish": {
-            "series": "The Disabled Tyrant's Beloved Pet Fish Series",
-            "title": "The Disabled Tyrant's Beloved Pet Fish 3 (not read yet)",
-            "chapters": {
-                "Chapter 1": {
-                    "Character Notes": {},
-                    "Lore": {},
-                    "Questions": {}
-                }
-            },
-            "Thoughts": {}
+        "Casefile Compendium": {
+            "series": "Casefile Compendium Series",
+            "title": "Casefile Compendium 1",
+            "Thoughts": {
+                "Overall Thoughts: ": "This book is so cheesy! Ugh. I don't hate the book. "
+            }
             
         }
     },
@@ -874,6 +859,81 @@
         "Peerless": {
             "series": "Peerless Series",
             "title": "Peerless 2 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Copper Coins": {
+            "series": "Copper Coins Series",
+            "title": "Copper Coins 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Copper Coins": {
+            "series": "Copper Coins Series",
+            "title": "Copper Coins 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Kaleidoscope of Death": {
+            "series": "Kaleidoscope of Death Series",
+            "title": "Kaleidoscope of Death 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "Wine and Gun": {
+            "series": "Wine and Gun Series",
+            "title": "Wine and Gun 1 (not read yet)",
+            "chapters": {
+                "Chapter 1": {
+                    "Character Notes": {},
+                    "Lore": {},
+                    "Questions": {}
+                }
+            },
+            "Thoughts": {}
+            
+        }
+    },
+    {
+        "The Wizard When Words Kill": {
+            "series": "The Wizard When Words Kill Series",
+            "title": "The Wizard When Words Kill 1 (not read yet)",
             "chapters": {
                 "Chapter 1": {
                     "Character Notes": {},
