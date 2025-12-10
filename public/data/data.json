@@ -615,9 +615,21 @@
                         }
                 },
                 "Chapter 8": {
-                    "Character Notes": {},
-                    "Lore": {},
-                    "Questions": {}
+                    "Character Notes": {
+                        "Oren Seifert": {
+                            "details": [
+                                "Violet's first listed sparring opponent. She poisoned him, so she had to spar against someone else."
+                            ]
+                        }
+                    },
+                    "Lore": {
+                        "notes": {
+                            "Effective Uses of Wild and Cultivated Herbs by Captain Lawrence Medina": "There is an art to poison not often discussed, and that is timing. Onl a master can properly dose and administer for effective onset. One must take into account the mass of the individual as well as the method of delivery."
+                        }
+                    },
+                    "Questions" : {
+                        "Disposable?": "I wonder if Oren will die later? Because he feels a bit disposable."
+                        }
                 },
                 "Chapter 9": {
                     "Character Notes": {},
@@ -675,7 +687,8 @@
                     "I was wrong. Brennan was the oldest. That explains why he gave advice to Mira when she first joined. Will need to update my notes."
                 ],
                 "10/06/2025":"Violet seems very reckless trying to get closer to eavesdrop on the secret meeting of the rebellion relic holders, especially with Xaden around",
-                "11/06/2025":"Xaden looks like he sees something interesting in the fact that Violet won't tell on the illegal rebellion relic meeting. His integrity shown here is an interesting character moment"
+                "11/06/2025":"Xaden looks like he sees something interesting in the fact that Violet won't tell on the illegal rebellion relic meeting. His integrity shown here is an interesting character moment",
+                "07/12/2025":"Some of the back and forth banter between Violet and Xaden feels so cheesy..."
             }
         }
     },
