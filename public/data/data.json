@@ -702,11 +702,50 @@
                             "details": [
                                 "Has trouble gettg up the Gauntlet like Tynan. She's too small aparently. Her problem is the chimney."
                             ]
+                        },
+                        "Trina": {
+                            "details": [
+                                "seems to be a nice person",
+                                "Has ringlets",
+                                "slim shoulders"
+                            ]
+                        },
+                        "Luca": {
+                            "details": [
+                                "fearful during Gauntlet"
+                            ]
+                        },
+                        "Ridoc": {
+                            "details": [
+                                "seems reasonably brave enough during Gauntlet"
+                            ]
+                        },
+                        "Quinn": {
+                            "details": [
+                                "Seems to be a second year, who like Imogen (I think I recall her also being a second year), knew Arvel Pelipa who is dead."
+                            ]
+                        },
+                        "Heaton": {
+                            "details": [
+                                "I'm guessing Nonbinary",
+                                "thickest third year in Violet's squad",
+                                "red flamesd cut and dyed in their hair",
+                                "seems genuinely nice if a bit inexpressive"
+                            ]
+                        },
+                        "Captain Fitzgibbons": {
+                            "details": [
+                                "Seems to be the main professor in charge of reading the deaths.",
+                                "Read the deaths at the beginning of Chapter 11"
+                            ]
                         }
                     },
                      "Lore": {
                         "notes": {
-                            "The Gauntlet's rules" : "Cadets are not allowed to touch each other during official Presentation (I think it's the official Gauntlet run if I remember)"
+                            "The Gauntlet's rules" : "Cadets are not allowed to touch each other during official Presentation (I think it's the official Gauntlet run if I remember)",
+                            "Riders vs Dragons" : "Currently this year, there are only 100 dragons and 171 potential riders (1st year)",
+                            "Squad Size" : "According to Ridoc, the squad Violet and him are in is the biggest squad",
+                            "Dragonkind" : "I think there's a class called that"
                         }
                     },
                     "Questions": {
